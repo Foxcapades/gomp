@@ -1,5 +1,7 @@
 = Go Ordered Maps
 
+image:https://goreportcard.com/badge/github.com/Foxcapades/gomp[caption="Go Report Card", link="https://goreportcard.com/report/github.com/Foxcapades/gomp"]
+
 Typed ordered maps for go.
 
 Generated for all of Go's base types.  Generator included for adding custom
