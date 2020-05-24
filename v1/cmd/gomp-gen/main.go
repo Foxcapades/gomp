@@ -73,7 +73,7 @@ func execTemplate(tpl *template.Template, def *MapValDefinition, dir string) {
 
 	check(tpl.ExecuteTemplate(oFile, "interface", def))
 
-	if !skipTests {
+	if !skipTests && gen.IsBaseType(def.Key) && gen.IsBaseType(def.Type) {
 		tFile, err := os.Create(fName + "_test.go")
 		check(err)
 		defer tFile.Close()
