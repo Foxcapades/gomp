@@ -12,7 +12,7 @@ import (
 
 func TestMapStringBool_Put(t *testing.T) {
 	Convey("TestMapStringBool.Put", t, func() {
-		var k string = "e559d651-5ab4-4eba-aa3a-5c6394deefb1"
+		var k string = "ef0bda50-7cf4-4f7a-ab26-8bf14f0ad9d7"
 		var v bool = false
 
 		test := omap.NewMapStringBool(1)
@@ -26,7 +26,7 @@ func TestMapStringBool_Put(t *testing.T) {
 
 func TestMapStringBool_Delete(t *testing.T) {
 	Convey("TestMapStringBool.Delete", t, func() {
-		var k string = "b11593c8-877c-4666-9a33-a78866c6b953"
+		var k string = "b6dad4ce-de39-41f3-b386-9ec906be6c10"
 		var v bool = false
 
 		test := omap.NewMapStringBool(1)
@@ -41,7 +41,7 @@ func TestMapStringBool_Delete(t *testing.T) {
 
 func TestMapStringBool_Has(t *testing.T) {
 	Convey("TestMapStringBool.Has", t, func() {
-		var k string = "bedd4343-29ff-4d14-821b-d6c8ee5d7d6d"
+		var k string = "f940d60e-5a17-4902-9196-faa39d7cd26f"
 		var v bool = false
 
 		test := omap.NewMapStringBool(1)
@@ -50,14 +50,13 @@ func TestMapStringBool_Has(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 
 		So(test.Has(k), ShouldBeTrue)
-		So(test.Has("80ef0734-192e-40c4-b08b-925b87eeace8"+"c8aeee53-ae62-4528-9914-f98854d90b6e"), ShouldBeFalse)
+		So(test.Has("b87fcd38-e97a-4ece-badf-4a660390e7a3"+"026f5357-9331-4924-b258-69a4a9810c08"), ShouldBeFalse)
 	})
 }
 
-
 func TestMapStringBool_Get(t *testing.T) {
 	Convey("TestMapStringBool.Get", t, func() {
-		var k string = "630eb4e9-ba93-478e-9a6a-244ced88b46e"
+		var k string = "7ce3bfcf-039d-4088-8296-def7c93e5744"
 		var v bool = false
 
 		test := omap.NewMapStringBool(1)
@@ -69,14 +68,14 @@ func TestMapStringBool_Get(t *testing.T) {
 		So(b, ShouldBeTrue)
 		So(a, ShouldEqual, v)
 
-		a, b = test.Get("317184e4-a442-4660-95cf-b85296db7fd4" + "5ba542c8-223a-4268-8b81-4344a5a943f8")
+		a, b = test.Get("1e9ad8de-d025-4b8e-82d1-b07f8f7b1188" + "1ec03ba6-eb5a-4e44-bede-7e742eacf654")
 		So(b, ShouldBeFalse)
 	})
 }
 
 func TestMapStringBool_GetOpt(t *testing.T) {
 	Convey("TestMapStringBool.GetOpt", t, func() {
-		var k string = "f1f4378e-e9d1-4374-abad-316cf54ad3fe"
+		var k string = "ec114e53-08a8-491e-a590-2a327cf5d3e5"
 		var v bool = false
 
 		test := omap.NewMapStringBool(1)
@@ -88,14 +87,14 @@ func TestMapStringBool_GetOpt(t *testing.T) {
 		So(a.IsPresent(), ShouldBeTrue)
 		So(a.Get(), ShouldEqual, v)
 
-		a = test.GetOpt("1d61dc86-266a-4dec-9ca1-b9e116c6ca61" + "6a193b21-2101-44dc-ad72-2a636ce0acff")
+		a = test.GetOpt("d91e92d7-1a99-47ed-b286-811b0d053610" + "44a047a5-8706-4f37-9d6e-8cd2fa163e1a")
 		So(a.IsNil(), ShouldBeTrue)
 	})
 }
 
 func TestMapStringBool_ForEach(t *testing.T) {
 	Convey("TestMapStringBool.ForEach", t, func() {
-		var k string = "a8af972b-a0cb-4886-bfff-7fabd527be1b"
+		var k string = "9d48da34-cd5b-4d3c-b1a2-b41771c02e04"
 		var v bool = false
 		hits := 0
 
@@ -115,7 +114,7 @@ func TestMapStringBool_ForEach(t *testing.T) {
 
 func TestMapStringBool_MarshalYAML(t *testing.T) {
 	Convey("TestMapStringBool.MarshalYAML", t, func() {
-		var k string = "3d1fa416-9218-4761-aa8d-ddc4720f9bbe"
+		var k string = "69fa6617-6116-452a-8ac2-4c3e77f58c0e"
 		var v bool = false
 
 		test := omap.NewMapStringBool(1)
@@ -135,7 +134,7 @@ func TestMapStringBool_MarshalYAML(t *testing.T) {
 
 func TestMapStringBool_ToYAML(t *testing.T) {
 	Convey("TestMapStringBool.ToYAML", t, func() {
-		var k string = "36c114b1-7997-4879-a398-ab80188306e4"
+		var k string = "7256770c-f508-441a-8d9a-f53caeb393c6"
 		var v bool = false
 
 		test := omap.NewMapStringBool(1)
@@ -153,7 +152,7 @@ func TestMapStringBool_ToYAML(t *testing.T) {
 
 func TestMapStringBool_PutIfNotNil(t *testing.T) {
 	Convey("TestMapStringBool.PutIfNotNil", t, func() {
-		var k string = "84de57f1-b0f7-4f2f-8f53-464c1cb31449"
+		var k string = "93b7b792-f1ff-44d7-96d8-65485b313ad0"
 		var v bool = false
 
 		test := omap.NewMapStringBool(1)
@@ -165,11 +164,11 @@ func TestMapStringBool_PutIfNotNil(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
-		So(test.PutIfNotNil("d30ab1fc-dbb4-45b8-b270-773ed3ac8c68", (*bool)(nil)), ShouldPointTo, test)
+		So(test.PutIfNotNil("3af38de9-72fc-4342-893a-1bf7bf12bee0", (*bool)(nil)), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
 		var x bool = false
-		So(test.PutIfNotNil("d8a4d3d4-2a2d-4442-81eb-ffddf479f7a6", &x), ShouldPointTo, test)
+		So(test.PutIfNotNil("d5af1d2c-cea8-4fdc-8a12-937a65726485", &x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 	})
@@ -177,7 +176,7 @@ func TestMapStringBool_PutIfNotNil(t *testing.T) {
 
 func TestMapStringBool_ReplaceIfExists(t *testing.T) {
 	Convey("TestMapStringBool.ReplaceIfExists", t, func() {
-		var k string = "3ba31e82-9123-4ba9-b1b4-8dfc2eb68bc2"
+		var k string = "a61b4fda-a585-44c0-bf80-b2b473c3c332"
 		var v bool = false
 		var x bool = false
 
@@ -186,7 +185,7 @@ func TestMapStringBool_ReplaceIfExists(t *testing.T) {
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceIfExists("3287aec8-b342-4316-9079-685b35b3dd5c", x), ShouldPointTo, test)
+		So(test.ReplaceIfExists("0f4a2599-2a36-47bd-956e-5a9ea56916e2", x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
@@ -198,7 +197,7 @@ func TestMapStringBool_ReplaceIfExists(t *testing.T) {
 
 func TestMapStringBool_ReplaceOrPut(t *testing.T) {
 	Convey("TestMapStringBool.ReplaceOrPut", t, func() {
-		var k string = "01683962-5803-40d6-9c53-9f79a932353c"
+		var k string = "cd067a75-e749-445f-b000-26be18d9b859"
 		var v bool = false
 		var x bool = false
 
@@ -207,7 +206,7 @@ func TestMapStringBool_ReplaceOrPut(t *testing.T) {
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceOrPut("5ed7959f-7c58-402d-bfbb-5d31d16e7c54", x), ShouldPointTo, test)
+		So(test.ReplaceOrPut("52f7d7b8-e3b8-48ee-9046-eab95e1305b4", x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 
@@ -219,7 +218,7 @@ func TestMapStringBool_ReplaceOrPut(t *testing.T) {
 
 func TestMapStringBool_MarshalJSON(t *testing.T) {
 	Convey("TestMapStringBool.MarshalJSON", t, func() {
-		var k string = "51aef942-e138-4eb0-a814-bae8d6652040"
+		var k string = "0f883d19-8ca7-45cb-b9c0-5a3860bcf661"
 		var v bool = false
 
 		test := omap.NewMapStringBool(1)
@@ -229,6 +228,6 @@ func TestMapStringBool_MarshalJSON(t *testing.T) {
 
 		a, b := test.MarshalJSON()
 		So(b, ShouldBeNil)
-		So(string(a), ShouldEqual, `[{"key":"51aef942-e138-4eb0-a814-bae8d6652040","value":false}]`)
+		So(string(a), ShouldEqual, `[{"key":"0f883d19-8ca7-45cb-b9c0-5a3860bcf661","value":false}]`)
 	})
 }

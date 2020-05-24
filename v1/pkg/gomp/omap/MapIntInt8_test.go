@@ -12,8 +12,8 @@ import (
 
 func TestMapIntInt8_Put(t *testing.T) {
 	Convey("TestMapIntInt8.Put", t, func() {
-		var k int = 2037913442
-		var v int8 = 8
+		var k int = 1419111751
+		var v int8 = 72
 
 		test := omap.NewMapIntInt8(1)
 
@@ -26,8 +26,8 @@ func TestMapIntInt8_Put(t *testing.T) {
 
 func TestMapIntInt8_Delete(t *testing.T) {
 	Convey("TestMapIntInt8.Delete", t, func() {
-		var k int = 32739569
-		var v int8 = 32
+		var k int = 609824673
+		var v int8 = 117
 
 		test := omap.NewMapIntInt8(1)
 
@@ -41,8 +41,8 @@ func TestMapIntInt8_Delete(t *testing.T) {
 
 func TestMapIntInt8_Has(t *testing.T) {
 	Convey("TestMapIntInt8.Has", t, func() {
-		var k int = 777252365
-		var v int8 = 71
+		var k int = 904295300
+		var v int8 = 19
 
 		test := omap.NewMapIntInt8(1)
 
@@ -50,15 +50,14 @@ func TestMapIntInt8_Has(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 
 		So(test.Has(k), ShouldBeTrue)
-		So(test.Has(785897624+291576083), ShouldBeFalse)
+		So(test.Has(872771481+514863326), ShouldBeFalse)
 	})
 }
 
-
 func TestMapIntInt8_Get(t *testing.T) {
 	Convey("TestMapIntInt8.Get", t, func() {
-		var k int = 1787826654
-		var v int8 = 13
+		var k int = 1520972951
+		var v int8 = 25
 
 		test := omap.NewMapIntInt8(1)
 
@@ -69,15 +68,15 @@ func TestMapIntInt8_Get(t *testing.T) {
 		So(b, ShouldBeTrue)
 		So(a, ShouldEqual, v)
 
-		a, b = test.Get(1615369714 + 1180077907)
+		a, b = test.Get(709165319 + 1210860122)
 		So(b, ShouldBeFalse)
 	})
 }
 
 func TestMapIntInt8_GetOpt(t *testing.T) {
 	Convey("TestMapIntInt8.GetOpt", t, func() {
-		var k int = 131616363
-		var v int8 = 82
+		var k int = 111592308
+		var v int8 = 88
 
 		test := omap.NewMapIntInt8(1)
 
@@ -88,15 +87,15 @@ func TestMapIntInt8_GetOpt(t *testing.T) {
 		So(a.IsPresent(), ShouldBeTrue)
 		So(a.Get(), ShouldEqual, v)
 
-		a = test.GetOpt(441040767 + 1865769390)
+		a = test.GetOpt(1576751366 + 706868777)
 		So(a.IsNil(), ShouldBeTrue)
 	})
 }
 
 func TestMapIntInt8_ForEach(t *testing.T) {
 	Convey("TestMapIntInt8.ForEach", t, func() {
-		var k int = 1761431356
-		var v int8 = 14
+		var k int = 801517968
+		var v int8 = 86
 		hits := 0
 
 		test := omap.NewMapIntInt8(1)
@@ -115,8 +114,8 @@ func TestMapIntInt8_ForEach(t *testing.T) {
 
 func TestMapIntInt8_MarshalYAML(t *testing.T) {
 	Convey("TestMapIntInt8.MarshalYAML", t, func() {
-		var k int = 1056484941
-		var v int8 = 18
+		var k int = 502138997
+		var v int8 = 58
 
 		test := omap.NewMapIntInt8(1)
 
@@ -135,8 +134,8 @@ func TestMapIntInt8_MarshalYAML(t *testing.T) {
 
 func TestMapIntInt8_ToYAML(t *testing.T) {
 	Convey("TestMapIntInt8.ToYAML", t, func() {
-		var k int = 1975960450
-		var v int8 = 86
+		var k int = 387939904
+		var v int8 = 4
 
 		test := omap.NewMapIntInt8(1)
 
@@ -153,8 +152,8 @@ func TestMapIntInt8_ToYAML(t *testing.T) {
 
 func TestMapIntInt8_PutIfNotNil(t *testing.T) {
 	Convey("TestMapIntInt8.PutIfNotNil", t, func() {
-		var k int = 1937944115
-		var v int8 = 119
+		var k int = 1366768476
+		var v int8 = 9
 
 		test := omap.NewMapIntInt8(1)
 
@@ -165,11 +164,11 @@ func TestMapIntInt8_PutIfNotNil(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
-		So(test.PutIfNotNil(443754221, (*int8)(nil)), ShouldPointTo, test)
+		So(test.PutIfNotNil(1777825294, (*int8)(nil)), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		var x int8 = 73
-		So(test.PutIfNotNil(1200367912, &x), ShouldPointTo, test)
+		var x int8 = 63
+		So(test.PutIfNotNil(1641288049, &x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 	})
@@ -177,16 +176,16 @@ func TestMapIntInt8_PutIfNotNil(t *testing.T) {
 
 func TestMapIntInt8_ReplaceIfExists(t *testing.T) {
 	Convey("TestMapIntInt8.ReplaceIfExists", t, func() {
-		var k int = 630327760
-		var v int8 = 52
-		var x int8 = 95
+		var k int = 2018885197
+		var v int8 = 31
+		var x int8 = 70
 
 		test := omap.NewMapIntInt8(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceIfExists(1384009382, x), ShouldPointTo, test)
+		So(test.ReplaceIfExists(1855358725, x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
@@ -198,16 +197,16 @@ func TestMapIntInt8_ReplaceIfExists(t *testing.T) {
 
 func TestMapIntInt8_ReplaceOrPut(t *testing.T) {
 	Convey("TestMapIntInt8.ReplaceOrPut", t, func() {
-		var k int = 1742290666
-		var v int8 = 19
-		var x int8 = 56
+		var k int = 77367192
+		var v int8 = 16
+		var x int8 = 68
 
 		test := omap.NewMapIntInt8(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceOrPut(128223718, x), ShouldPointTo, test)
+		So(test.ReplaceOrPut(1320102481, x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 
@@ -219,8 +218,8 @@ func TestMapIntInt8_ReplaceOrPut(t *testing.T) {
 
 func TestMapIntInt8_MarshalJSON(t *testing.T) {
 	Convey("TestMapIntInt8.MarshalJSON", t, func() {
-		var k int = 1855393851
-		var v int8 = 56
+		var k int = 402519246
+		var v int8 = 97
 
 		test := omap.NewMapIntInt8(1)
 
@@ -229,6 +228,6 @@ func TestMapIntInt8_MarshalJSON(t *testing.T) {
 
 		a, b := test.MarshalJSON()
 		So(b, ShouldBeNil)
-		So(string(a), ShouldEqual, `[{"key":1855393851,"value":56}]`)
+		So(string(a), ShouldEqual, `[{"key":402519246,"value":97}]`)
 	})
 }

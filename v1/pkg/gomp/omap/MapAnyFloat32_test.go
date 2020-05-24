@@ -12,8 +12,8 @@ import (
 
 func TestMapAnyFloat32_Put(t *testing.T) {
 	Convey("TestMapAnyFloat32.Put", t, func() {
-		var k interface{} = "c6311984-c61c-4627-b6d9-b53c57f11cae"
-		var v float32 = 0.331
+		var k interface{} = "69d793c5-1590-4364-bc4b-0576b1beb81a"
+		var v float32 = 0.541
 
 		test := omap.NewMapAnyFloat32(1)
 
@@ -26,8 +26,8 @@ func TestMapAnyFloat32_Put(t *testing.T) {
 
 func TestMapAnyFloat32_Delete(t *testing.T) {
 	Convey("TestMapAnyFloat32.Delete", t, func() {
-		var k interface{} = "08ac802e-af8c-470e-a1f8-c86da5d7817c"
-		var v float32 = 0.900
+		var k interface{} = "ee0383c2-9b3e-4450-aa04-bfc508702bbf"
+		var v float32 = 0.579
 
 		test := omap.NewMapAnyFloat32(1)
 
@@ -41,8 +41,8 @@ func TestMapAnyFloat32_Delete(t *testing.T) {
 
 func TestMapAnyFloat32_Has(t *testing.T) {
 	Convey("TestMapAnyFloat32.Has", t, func() {
-		var k interface{} = "d855d3f3-4957-4ad5-80c6-b373a40f04d4"
-		var v float32 = 0.902
+		var k interface{} = "b03b97ef-97cb-4877-b706-e9449991dd59"
+		var v float32 = 0.627
 
 		test := omap.NewMapAnyFloat32(1)
 
@@ -50,15 +50,14 @@ func TestMapAnyFloat32_Has(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 
 		So(test.Has(k), ShouldBeTrue)
-		So(test.Has("4c485aeb-b79d-4f3d-8338-c45c53530e3d"+"a9db3ea1-5034-4e41-9558-fb1bce975482"), ShouldBeFalse)
+		So(test.Has("59dd9e0f-ee1f-4fd2-8dd5-87fcdd81b431"+"e4be0602-a7a7-4af3-8b08-017d7137db9c"), ShouldBeFalse)
 	})
 }
 
-
 func TestMapAnyFloat32_Get(t *testing.T) {
 	Convey("TestMapAnyFloat32.Get", t, func() {
-		var k interface{} = "aab09bbc-c9a2-4d84-8855-ce16cdfbedeb"
-		var v float32 = 0.473
+		var k interface{} = "487705f0-71cb-476a-9d78-af834ff4a65b"
+		var v float32 = 0.736
 
 		test := omap.NewMapAnyFloat32(1)
 
@@ -69,15 +68,15 @@ func TestMapAnyFloat32_Get(t *testing.T) {
 		So(b, ShouldBeTrue)
 		So(a, ShouldEqual, v)
 
-		a, b = test.Get("05773dea-583d-4851-8176-dc4c7c89a702" + "b4c03ec1-dfe0-4e5c-ad97-52ca8eec893e")
+		a, b = test.Get("ed74f448-a694-4f82-a9fe-0d9e68f6db36" + "7f6bd149-4289-498d-89b9-a8002dff643a")
 		So(b, ShouldBeFalse)
 	})
 }
 
 func TestMapAnyFloat32_GetOpt(t *testing.T) {
 	Convey("TestMapAnyFloat32.GetOpt", t, func() {
-		var k interface{} = "9be88f2a-6739-41c4-b47e-da303b9b27a8"
-		var v float32 = 0.603
+		var k interface{} = "93a7bd7d-9586-4069-bc58-46f1fc773f71"
+		var v float32 = 0.727
 
 		test := omap.NewMapAnyFloat32(1)
 
@@ -88,15 +87,15 @@ func TestMapAnyFloat32_GetOpt(t *testing.T) {
 		So(a.IsPresent(), ShouldBeTrue)
 		So(a.Get(), ShouldEqual, v)
 
-		a = test.GetOpt("a3299007-e367-4afc-8aaf-cf853d16128a" + "066f00b1-890a-48bf-9d8c-2da84b5fe095")
+		a = test.GetOpt("4f34c675-b82c-4828-913e-df1fe304ec77" + "b064d76f-8392-4cb0-93ef-0f85de5722c4")
 		So(a.IsNil(), ShouldBeTrue)
 	})
 }
 
 func TestMapAnyFloat32_ForEach(t *testing.T) {
 	Convey("TestMapAnyFloat32.ForEach", t, func() {
-		var k interface{} = "cfb7e6b3-88c8-4e0f-8265-f7ff40abe34f"
-		var v float32 = 0.897
+		var k interface{} = "fd362035-f92a-4f18-8c94-edf63797b89e"
+		var v float32 = 0.632
 		hits := 0
 
 		test := omap.NewMapAnyFloat32(1)
@@ -115,8 +114,8 @@ func TestMapAnyFloat32_ForEach(t *testing.T) {
 
 func TestMapAnyFloat32_MarshalYAML(t *testing.T) {
 	Convey("TestMapAnyFloat32.MarshalYAML", t, func() {
-		var k interface{} = "654c482c-4e2e-4db9-a54c-3729f9a08b5c"
-		var v float32 = 0.101
+		var k interface{} = "2dfaff31-cfb6-4cf7-8ab3-1924768bd586"
+		var v float32 = 0.213
 
 		test := omap.NewMapAnyFloat32(1)
 
@@ -135,8 +134,8 @@ func TestMapAnyFloat32_MarshalYAML(t *testing.T) {
 
 func TestMapAnyFloat32_ToYAML(t *testing.T) {
 	Convey("TestMapAnyFloat32.ToYAML", t, func() {
-		var k interface{} = "fcc1ea4c-0d1b-41bf-9518-23e3d2dadb0b"
-		var v float32 = 0.820
+		var k interface{} = "1fe38e0d-eacc-499b-96ae-11d9aff0cd73"
+		var v float32 = 0.329
 
 		test := omap.NewMapAnyFloat32(1)
 
@@ -153,8 +152,8 @@ func TestMapAnyFloat32_ToYAML(t *testing.T) {
 
 func TestMapAnyFloat32_PutIfNotNil(t *testing.T) {
 	Convey("TestMapAnyFloat32.PutIfNotNil", t, func() {
-		var k interface{} = "0d36a6bd-15c4-4adb-a2c4-abbcb332cd7a"
-		var v float32 = 0.500
+		var k interface{} = "dbc35daa-68fc-4eef-a375-c222c104fcee"
+		var v float32 = 0.026
 
 		test := omap.NewMapAnyFloat32(1)
 
@@ -165,11 +164,11 @@ func TestMapAnyFloat32_PutIfNotNil(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
-		So(test.PutIfNotNil("f1c0c92f-f624-44c4-b45d-0e91d467062a", (*float32)(nil)), ShouldPointTo, test)
+		So(test.PutIfNotNil("da62cc4e-5258-4847-af6e-e080741b27c9", (*float32)(nil)), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		var x float32 = 0.741
-		So(test.PutIfNotNil("ff2fe0be-10f7-476c-935d-e7404b71284e", &x), ShouldPointTo, test)
+		var x float32 = 0.565
+		So(test.PutIfNotNil("d6d53e30-e961-4dbf-8d10-8b8718e940bb", &x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 	})
@@ -177,16 +176,16 @@ func TestMapAnyFloat32_PutIfNotNil(t *testing.T) {
 
 func TestMapAnyFloat32_ReplaceIfExists(t *testing.T) {
 	Convey("TestMapAnyFloat32.ReplaceIfExists", t, func() {
-		var k interface{} = "a9b65b2b-53f3-464f-8059-a7e45b68337c"
-		var v float32 = 0.122
-		var x float32 = 0.918
+		var k interface{} = "f15f5395-626e-4851-9e8b-31674798ea23"
+		var v float32 = 0.615
+		var x float32 = 0.829
 
 		test := omap.NewMapAnyFloat32(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceIfExists("055ca8d3-0936-47f6-bbea-bfc81a43d4b4", x), ShouldPointTo, test)
+		So(test.ReplaceIfExists("415ab52d-166b-40da-84a7-54185f38a0ab", x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
@@ -198,16 +197,16 @@ func TestMapAnyFloat32_ReplaceIfExists(t *testing.T) {
 
 func TestMapAnyFloat32_ReplaceOrPut(t *testing.T) {
 	Convey("TestMapAnyFloat32.ReplaceOrPut", t, func() {
-		var k interface{} = "aba97bc0-3acc-4bdd-b006-ff821946c335"
-		var v float32 = 0.850
-		var x float32 = 0.719
+		var k interface{} = "f80ce108-4007-4770-bb7e-68198065c0c4"
+		var v float32 = 0.615
+		var x float32 = 0.780
 
 		test := omap.NewMapAnyFloat32(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceOrPut("ac3b60b4-a4b7-4c34-bfb7-89e8dfeb4e6c", x), ShouldPointTo, test)
+		So(test.ReplaceOrPut("047457d6-0aa4-41ac-a23d-952fe8de63f7", x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 
@@ -219,8 +218,8 @@ func TestMapAnyFloat32_ReplaceOrPut(t *testing.T) {
 
 func TestMapAnyFloat32_MarshalJSON(t *testing.T) {
 	Convey("TestMapAnyFloat32.MarshalJSON", t, func() {
-		var k interface{} = "b1b46c66-8578-44ca-85ec-0a153030075a"
-		var v float32 = 0.680
+		var k interface{} = "2053a5a6-c0b0-41af-a80a-9fd5524d493e"
+		var v float32 = 0.811
 
 		test := omap.NewMapAnyFloat32(1)
 
@@ -229,6 +228,6 @@ func TestMapAnyFloat32_MarshalJSON(t *testing.T) {
 
 		a, b := test.MarshalJSON()
 		So(b, ShouldBeNil)
-		So(string(a), ShouldEqual, `[{"key":"b1b46c66-8578-44ca-85ec-0a153030075a","value":0.68}]`)
+		So(string(a), ShouldEqual, `[{"key":"2053a5a6-c0b0-41af-a80a-9fd5524d493e","value":0.811}]`)
 	})
 }

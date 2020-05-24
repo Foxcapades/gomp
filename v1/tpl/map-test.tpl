@@ -56,7 +56,6 @@ func Test{{.Name}}_Has(t *testing.T) {
 	})
 }
 
-
 func Test{{.Name}}_Get(t *testing.T) {
 	Convey("Test{{.Name}}.Get", t, func() {
 		var k {{.Key}} = {{defVal .Key}}
