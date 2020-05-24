@@ -1,6 +1,9 @@
 = Go Ordered Maps
 
+image:https://travis-ci.org/Foxcapades/gomp.svg?branch=master["Build Status", link="https://travis-ci.org/Foxcapades/gomp"]
+image:https://img.shields.io/github/v/tag/Foxcapades/gomp?label=version[Latest Tag, link="https://github.com/Foxcapades/gomp/tags"]
 image:https://goreportcard.com/badge/github.com/Foxcapades/gomp[caption="Go Report Card", link="https://goreportcard.com/report/github.com/Foxcapades/gomp"]
+image:https://codecov.io/gh/Foxcapades/gomp/branch/master/graph/badge.svg[caption="Unit test coverage", link=https://codecov.io/gh/Foxcapades/gomp]
 
 Typed ordered maps for go.
 
