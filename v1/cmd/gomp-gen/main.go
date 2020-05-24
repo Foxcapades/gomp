@@ -23,15 +23,19 @@ var funcs = template.FuncMap{
 	"trimR":    strings.TrimRight,
 }
 
+var skipTests = false
+
 func main() {
 	var file string
 
 	logrus.SetFormatter(new(prefixed.TextFormatter))
 
 	_, err := cli.NewCommand().
+		Flag(cli.LFlag("skip-tests", "Skip generating tests").
+			Bind(&skipTests, true)).
 		Arg(cli.NewArg().
 			Name("config-file").
-			Description("Configuration file containing").
+			Description("Configuration file containing definitions of the map types to generate").
 			Bind(&file).
 			Require()).
 		Parse()
@@ -65,12 +69,16 @@ func execTemplate(tpl *template.Template, def *MapValDefinition, dir string) {
 	oFile, err := os.Create(fName + ".go")
 	check(err)
 	defer oFile.Close()
-	tFile, err := os.Create(fName + "_test.go")
-	check(err)
-	defer tFile.Close()
 
 	check(tpl.ExecuteTemplate(oFile, "interface", def))
-	check(tpl.ExecuteTemplate(tFile, "tests", def))
+
+	if !skipTests {
+		tFile, err := os.Create(fName + "_test.go")
+		check(err)
+		defer tFile.Close()
+
+		check(tpl.ExecuteTemplate(tFile, "tests", def))
+	}
 }
 
 func check(err error) {
