@@ -1,0 +1,10 @@
+= Go Ordered Maps
+
+Typed ordered maps for go.
+
+Generated for all of Go's base types.  Generator included for adding custom
+types.
+
+
+Gomp?::
+  Gomp is a Norwegian word for Muggle.

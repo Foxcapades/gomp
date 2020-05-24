@@ -1,0 +1,164 @@
+package: omap
+dir: v1/pkg/gomp/omap
+
+maps:
+  - key: string # Key type for the map
+    values:     # Maps that should be generated with this key type
+      - type: int
+        name: MapStringInt
+      - type: int8
+        name: MapStringInt8
+      - type: int16
+        name: MapStringInt16
+      - type: int32
+        name: MapStringInt32
+      - type: int64
+        name: MapStringInt64
+      - type: uint
+        name: MapStringUint
+      - type: uint8
+        name: MapStringUint8
+      - type: uint16
+        name: MapStringUint16
+      - type: uint32
+        name: MapStringUint32
+      - type: uint64
+        name: MapStringUint64
+      - type: float32
+        name: MapStringFloat32
+      - type: float64
+        name: MapStringFloat64
+      - type: complex64
+        name: MapStringComplex64
+      - type: complex128
+        name: MapStringComplex128
+      - type: bool
+        name: MapStringBool
+      - type: byte
+        name: MapStringByte
+      - type: rune
+        name: MapStringRune
+      - type: string
+        name: MapStringString
+      - type: interface{}
+        name: MapStringAny
+  - key: interface{}
+    values:
+      - type: int
+        name: MapAnyInt
+      - type: int8
+        name: MapAnyInt8
+      - type: int16
+        name: MapAnyInt16
+      - type: int32
+        name: MapAnyInt32
+      - type: int64
+        name: MapAnyInt64
+      - type: uint
+        name: MapAnyUint
+      - type: uint8
+        name: MapAnyUint8
+      - type: uint16
+        name: MapAnyUint16
+      - type: uint32
+        name: MapAnyUint32
+      - type: uint64
+        name: MapAnyUint64
+      - type: float32
+        name: MapAnyFloat32
+      - type: float64
+        name: MapAnyFloat64
+      - type: complex64
+        name: MapAnyComplex64
+      - type: complex128
+        name: MapAnyComplex128
+      - type: bool
+        name: MapAnyBool
+      - type: byte
+        name: MapAnyByte
+      - type: rune
+        name: MapAnyRune
+      - type: string
+        name: MapAnyString
+      - type: interface{}
+        name: MapAny
+  - key: int
+    values:
+      - type: int
+        name: MapIntInt
+      - type: int8
+        name: MapIntInt8
+      - type: int16
+        name: MapIntInt16
+      - type: int32
+        name: MapIntInt32
+      - type: int64
+        name: MapIntInt64
+      - type: uint
+        name: MapIntUint
+      - type: uint8
+        name: MapIntUint8
+      - type: uint16
+        name: MapIntUint16
+      - type: uint32
+        name: MapIntUint32
+      - type: uint64
+        name: MapIntUint64
+      - type: float32
+        name: MapIntFloat32
+      - type: float64
+        name: MapIntFloat64
+      - type: complex64
+        name: MapIntComplex64
+      - type: complex128
+        name: MapIntComplex128
+      - type: bool
+        name: MapIntBool
+      - type: byte
+        name: MapIntByte
+      - type: rune
+        name: MapIntRune
+      - type: string
+        name: MapIntString
+      - type: interface{}
+        name: MapIntAny
+  - key: uint
+    values:
+      - type: int
+        name: MapUintInt
+      - type: int8
+        name: MapUintInt8
+      - type: int16
+        name: MapUintInt16
+      - type: int32
+        name: MapUintInt32
+      - type: int64
+        name: MapUintInt64
+      - type: uint
+        name: MapUintUint
+      - type: uint8
+        name: MapUintUint8
+      - type: uint16
+        name: MapUintUint16
+      - type: uint32
+        name: MapUintUint32
+      - type: uint64
+        name: MapUintUint64
+      - type: float32
+        name: MapUintFloat32
+      - type: float64
+        name: MapUintFloat64
+      - type: complex64
+        name: MapUintComplex64
+      - type: complex128
+        name: MapUintComplex128
+      - type: bool
+        name: MapUintBool
+      - type: byte
+        name: MapUintByte
+      - type: rune
+        name: MapUintRune
+      - type: string
+        name: MapUintString
+      - type: interface{}
+        name: MapUintAny
