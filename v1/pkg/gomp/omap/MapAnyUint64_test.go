@@ -12,8 +12,8 @@ import (
 
 func TestMapAnyUint64_Put(t *testing.T) {
 	Convey("TestMapAnyUint64.Put", t, func() {
-		var k interface{} = "eeadc58f-3f57-438c-b7af-f34065946ace"
-		var v uint64 = 3652946243721370785
+		var k interface{} = "f501795f-1603-4295-a7ab-ffb04ae7f6e7"
+		var v uint64 = 15119194464845422083
 
 		test := omap.NewMapAnyUint64(1)
 
@@ -26,8 +26,8 @@ func TestMapAnyUint64_Put(t *testing.T) {
 
 func TestMapAnyUint64_Delete(t *testing.T) {
 	Convey("TestMapAnyUint64.Delete", t, func() {
-		var k interface{} = "584817ae-760f-4394-b5ad-a17822e67acf"
-		var v uint64 = 5532630613333149746
+		var k interface{} = "37181000-40c9-4067-89d4-a336bea70edd"
+		var v uint64 = 1700926619572515183
 
 		test := omap.NewMapAnyUint64(1)
 
@@ -41,8 +41,8 @@ func TestMapAnyUint64_Delete(t *testing.T) {
 
 func TestMapAnyUint64_Has(t *testing.T) {
 	Convey("TestMapAnyUint64.Has", t, func() {
-		var k interface{} = "f7bfa6b9-b771-453e-a09a-a9461328583b"
-		var v uint64 = 12905877509749377022
+		var k interface{} = "2a27a26f-6507-437d-89d3-6f7e68dc133b"
+		var v uint64 = 3646548946484008717
 
 		test := omap.NewMapAnyUint64(1)
 
@@ -50,15 +50,15 @@ func TestMapAnyUint64_Has(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 
 		So(test.Has(k), ShouldBeTrue)
-		So(test.Has("ed271287-76da-43c3-8364-f3fafe6d2161"+"b5143e9f-e98e-44ed-b5fa-39041b96068a"), ShouldBeFalse)
+		So(test.Has("88b12b2c-86cc-40cf-b21c-eefbb8399ac5"+"c770e0c3-fe28-4789-a623-e93dcd73a459"), ShouldBeFalse)
 	})
 }
 
 
 func TestMapAnyUint64_Get(t *testing.T) {
 	Convey("TestMapAnyUint64.Get", t, func() {
-		var k interface{} = "a6dbd2de-4db6-4d78-ad69-fc7e8288eb20"
-		var v uint64 = 5137237447044453363
+		var k interface{} = "39308708-a9fd-4c34-af81-a6abd75f12ee"
+		var v uint64 = 9362112000656537374
 
 		test := omap.NewMapAnyUint64(1)
 
@@ -69,15 +69,15 @@ func TestMapAnyUint64_Get(t *testing.T) {
 		So(b, ShouldBeTrue)
 		So(a, ShouldEqual, v)
 
-		a, b = test.Get("088dec78-692a-4e1a-999c-07cbac1e6712" + "e793a97c-b02e-4679-ba95-9dcbdd7ae8e6")
+		a, b = test.Get("7a304d00-1d78-4970-9938-2c5acc1fc634" + "6b11dd99-26c4-425c-a91c-90db88427c1e")
 		So(b, ShouldBeFalse)
 	})
 }
 
 func TestMapAnyUint64_GetOpt(t *testing.T) {
 	Convey("TestMapAnyUint64.GetOpt", t, func() {
-		var k interface{} = "17149bcd-0cf8-4cfc-aa78-847215e82de5"
-		var v uint64 = 10947745498287601617
+		var k interface{} = "fddbaf9f-10ca-4136-a9cb-a903c21c6af7"
+		var v uint64 = 2699321915174859821
 
 		test := omap.NewMapAnyUint64(1)
 
@@ -88,15 +88,15 @@ func TestMapAnyUint64_GetOpt(t *testing.T) {
 		So(a.IsPresent(), ShouldBeTrue)
 		So(a.Get(), ShouldEqual, v)
 
-		a = test.GetOpt("96e79457-8bfb-436e-9d9d-f3350481e8ff" + "281647a9-b606-4a34-9f79-a50ad810e83d")
+		a = test.GetOpt("70f3dfc4-1d96-4018-8533-cba64051f8db" + "b0bf62fb-8d26-414e-b3d0-fed620d3cef8")
 		So(a.IsNil(), ShouldBeTrue)
 	})
 }
 
 func TestMapAnyUint64_ForEach(t *testing.T) {
 	Convey("TestMapAnyUint64.ForEach", t, func() {
-		var k interface{} = "d1db239d-a864-40b6-a7f4-7098ca17776e"
-		var v uint64 = 12650839492427545026
+		var k interface{} = "14425485-b2d0-4cbd-9458-2588b93c2f21"
+		var v uint64 = 16428132416057887858
 		hits := 0
 
 		test := omap.NewMapAnyUint64(1)
@@ -115,8 +115,8 @@ func TestMapAnyUint64_ForEach(t *testing.T) {
 
 func TestMapAnyUint64_MarshalYAML(t *testing.T) {
 	Convey("TestMapAnyUint64.MarshalYAML", t, func() {
-		var k interface{} = "83fd84e9-5b7d-4c94-9d02-85f8d0db83ea"
-		var v uint64 = 7619329899311508249
+		var k interface{} = "c8525252-bddd-47ae-913f-3fe6673920ab"
+		var v uint64 = 2717804400238079477
 
 		test := omap.NewMapAnyUint64(1)
 
@@ -135,8 +135,8 @@ func TestMapAnyUint64_MarshalYAML(t *testing.T) {
 
 func TestMapAnyUint64_ToYAML(t *testing.T) {
 	Convey("TestMapAnyUint64.ToYAML", t, func() {
-		var k interface{} = "e3324fe3-cad2-459b-8dab-7b85e0233a8d"
-		var v uint64 = 6609212514127681035
+		var k interface{} = "0e109ee5-13d9-4d71-babe-0ed508174cf7"
+		var v uint64 = 16237274911114966559
 
 		test := omap.NewMapAnyUint64(1)
 
@@ -153,8 +153,8 @@ func TestMapAnyUint64_ToYAML(t *testing.T) {
 
 func TestMapAnyUint64_PutIfNotNil(t *testing.T) {
 	Convey("TestMapAnyUint64.PutIfNotNil", t, func() {
-		var k interface{} = "d92932c5-48c7-4567-873c-41799d415366"
-		var v uint64 = 10235480788556987121
+		var k interface{} = "20202196-e973-406e-851d-b257064192f9"
+		var v uint64 = 13406962860324283119
 
 		test := omap.NewMapAnyUint64(1)
 
@@ -165,11 +165,11 @@ func TestMapAnyUint64_PutIfNotNil(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
-		So(test.PutIfNotNil("b0b8dfb0-1882-4129-931e-8db6b0044c64", (*uint64)(nil)), ShouldPointTo, test)
+		So(test.PutIfNotNil("6aa00a92-489c-4839-b383-0ddf46280c22", (*uint64)(nil)), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		var x uint64 = 7312371458810952410
-		So(test.PutIfNotNil("1c21f0ef-8042-47f8-9c5b-46a419944e29", &x), ShouldPointTo, test)
+		var x uint64 = 11208199338989538219
+		So(test.PutIfNotNil("693faa60-808f-4d90-a762-3a76c05e5518", &x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 	})
@@ -177,16 +177,16 @@ func TestMapAnyUint64_PutIfNotNil(t *testing.T) {
 
 func TestMapAnyUint64_ReplaceIfExists(t *testing.T) {
 	Convey("TestMapAnyUint64.ReplaceIfExists", t, func() {
-		var k interface{} = "a048c71a-b360-4c11-add1-e7385b8cdca4"
-		var v uint64 = 6189457323250170387
-		var x uint64 = 12749018766818845301
+		var k interface{} = "9c32c174-01b5-49d7-88a6-45f19355c185"
+		var v uint64 = 3721640223038801333
+		var x uint64 = 1248901234712503694
 
 		test := omap.NewMapAnyUint64(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceIfExists("1fa69593-fe7f-437a-bbbf-a3970cba2630", x), ShouldPointTo, test)
+		So(test.ReplaceIfExists("1faa8ffb-511a-40e2-90c7-45f1b0f2217c", x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
@@ -198,16 +198,16 @@ func TestMapAnyUint64_ReplaceIfExists(t *testing.T) {
 
 func TestMapAnyUint64_ReplaceOrPut(t *testing.T) {
 	Convey("TestMapAnyUint64.ReplaceOrPut", t, func() {
-		var k interface{} = "e9d33cc5-ab61-4b30-9230-7f7a64fb06d1"
-		var v uint64 = 12911047404492501700
-		var x uint64 = 11374479186443514411
+		var k interface{} = "e7d41110-c16b-4817-8a0c-2d36b9e95b6e"
+		var v uint64 = 18398343534181659728
+		var x uint64 = 5936013382165576932
 
 		test := omap.NewMapAnyUint64(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceOrPut("864c2669-caad-4c6b-9961-72001a24102f", x), ShouldPointTo, test)
+		So(test.ReplaceOrPut("91fa48ca-6e3b-4386-9e2f-b8ef9f37653b", x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 
@@ -219,8 +219,8 @@ func TestMapAnyUint64_ReplaceOrPut(t *testing.T) {
 
 func TestMapAnyUint64_MarshalJSON(t *testing.T) {
 	Convey("TestMapAnyUint64.MarshalJSON", t, func() {
-		var k interface{} = "a804f41c-f1d9-4d5b-a4bb-1bb2caca085e"
-		var v uint64 = 9732078110730841165
+		var k interface{} = "970daa71-a80f-4d5d-baa7-014fff1a9a7c"
+		var v uint64 = 4633300009221191750
 
 		test := omap.NewMapAnyUint64(1)
 
@@ -229,7 +229,6 @@ func TestMapAnyUint64_MarshalJSON(t *testing.T) {
 
 		a, b := test.MarshalJSON()
 		So(b, ShouldBeNil)
-		So(string(a), ShouldEqual, `[{"key":"a804f41c-f1d9-4d5b-a4bb-1bb2caca085e","value":9732078110730841165}]`)
+		So(string(a), ShouldEqual, `[{"key":"970daa71-a80f-4d5d-baa7-014fff1a9a7c","value":4633300009221191750}]`)
 	})
 }
-

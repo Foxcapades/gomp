@@ -12,7 +12,7 @@ import (
 
 func TestMapAnyBool_Put(t *testing.T) {
 	Convey("TestMapAnyBool.Put", t, func() {
-		var k interface{} = "bfe9dc8d-ac1e-43f1-b52c-4e587b07f510"
+		var k interface{} = "361d7d4d-d7d6-41a6-b3dd-45da2cad0580"
 		var v bool = false
 
 		test := omap.NewMapAnyBool(1)
@@ -26,7 +26,7 @@ func TestMapAnyBool_Put(t *testing.T) {
 
 func TestMapAnyBool_Delete(t *testing.T) {
 	Convey("TestMapAnyBool.Delete", t, func() {
-		var k interface{} = "86769c14-b3cd-4210-bb74-cee40e750c27"
+		var k interface{} = "d604259e-07b4-4eb8-b1c3-6b70875f73ab"
 		var v bool = false
 
 		test := omap.NewMapAnyBool(1)
@@ -41,7 +41,7 @@ func TestMapAnyBool_Delete(t *testing.T) {
 
 func TestMapAnyBool_Has(t *testing.T) {
 	Convey("TestMapAnyBool.Has", t, func() {
-		var k interface{} = "ed620df3-e406-4689-901a-be4c7dd78bfb"
+		var k interface{} = "385694b8-0b44-4b20-9b35-ac552a46664d"
 		var v bool = false
 
 		test := omap.NewMapAnyBool(1)
@@ -50,14 +50,14 @@ func TestMapAnyBool_Has(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 
 		So(test.Has(k), ShouldBeTrue)
-		So(test.Has("21834de1-92f8-440c-a5b3-51d6449283b6"+"b29041a2-6c98-43ea-982d-c4991947f875"), ShouldBeFalse)
+		So(test.Has("1e4da884-aeb9-462f-aeda-c332974dc38d"+"67217948-27d1-46b3-aa21-cbb01ea8bec0"), ShouldBeFalse)
 	})
 }
 
 
 func TestMapAnyBool_Get(t *testing.T) {
 	Convey("TestMapAnyBool.Get", t, func() {
-		var k interface{} = "c016f855-ec41-48e5-b70c-02579bb29833"
+		var k interface{} = "2de74335-45f4-462b-a0fc-95d752c71e4b"
 		var v bool = false
 
 		test := omap.NewMapAnyBool(1)
@@ -69,14 +69,14 @@ func TestMapAnyBool_Get(t *testing.T) {
 		So(b, ShouldBeTrue)
 		So(a, ShouldEqual, v)
 
-		a, b = test.Get("c8515321-d3ad-4ea5-ba7f-08a54d6c4a0b" + "427443b9-9c20-4291-b536-826e4dd0d968")
+		a, b = test.Get("afe52a3c-8945-4ddf-b140-ee6bde23f4c8" + "b005cf58-644e-4336-8dba-57bd110bdd8d")
 		So(b, ShouldBeFalse)
 	})
 }
 
 func TestMapAnyBool_GetOpt(t *testing.T) {
 	Convey("TestMapAnyBool.GetOpt", t, func() {
-		var k interface{} = "742f28dd-3fcf-40e1-b6d0-e22f1530b4a8"
+		var k interface{} = "c815d94d-25c9-4123-a261-499a0a8ad38d"
 		var v bool = false
 
 		test := omap.NewMapAnyBool(1)
@@ -88,14 +88,14 @@ func TestMapAnyBool_GetOpt(t *testing.T) {
 		So(a.IsPresent(), ShouldBeTrue)
 		So(a.Get(), ShouldEqual, v)
 
-		a = test.GetOpt("bad63fb5-9fab-4ab9-805a-67c39569d87c" + "2b364495-453f-4738-a54e-37e0237c3ee3")
+		a = test.GetOpt("3c13d675-08c5-4596-a5c1-9838c0b12f75" + "0bbb5ab5-2966-4a11-b1d3-973d41f752bc")
 		So(a.IsNil(), ShouldBeTrue)
 	})
 }
 
 func TestMapAnyBool_ForEach(t *testing.T) {
 	Convey("TestMapAnyBool.ForEach", t, func() {
-		var k interface{} = "0341563b-ac3d-4476-949b-1cbaad791437"
+		var k interface{} = "2d6c31b9-da51-4b22-a9ef-9f57539034ef"
 		var v bool = false
 		hits := 0
 
@@ -115,7 +115,7 @@ func TestMapAnyBool_ForEach(t *testing.T) {
 
 func TestMapAnyBool_MarshalYAML(t *testing.T) {
 	Convey("TestMapAnyBool.MarshalYAML", t, func() {
-		var k interface{} = "1442a77a-f8be-4382-a383-afa4082f6ef2"
+		var k interface{} = "56b3c84f-d546-4495-a89a-76dcb2c5cc1b"
 		var v bool = false
 
 		test := omap.NewMapAnyBool(1)
@@ -135,7 +135,7 @@ func TestMapAnyBool_MarshalYAML(t *testing.T) {
 
 func TestMapAnyBool_ToYAML(t *testing.T) {
 	Convey("TestMapAnyBool.ToYAML", t, func() {
-		var k interface{} = "65bc190f-bc95-4fa9-90b2-85e1b5611365"
+		var k interface{} = "2bb10140-3e67-49eb-8d89-72a9dba996d8"
 		var v bool = false
 
 		test := omap.NewMapAnyBool(1)
@@ -153,7 +153,7 @@ func TestMapAnyBool_ToYAML(t *testing.T) {
 
 func TestMapAnyBool_PutIfNotNil(t *testing.T) {
 	Convey("TestMapAnyBool.PutIfNotNil", t, func() {
-		var k interface{} = "5c8bdc69-9b6e-41dc-b5ef-60206d7211b0"
+		var k interface{} = "3d611c51-d790-4318-bff3-77328680ae53"
 		var v bool = false
 
 		test := omap.NewMapAnyBool(1)
@@ -165,11 +165,11 @@ func TestMapAnyBool_PutIfNotNil(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
-		So(test.PutIfNotNil("177426a8-69a2-4e46-9a59-f462e3505dcc", (*bool)(nil)), ShouldPointTo, test)
+		So(test.PutIfNotNil("4834efd1-f106-45aa-8e67-28583c8bc1a5", (*bool)(nil)), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
 		var x bool = false
-		So(test.PutIfNotNil("793b8797-3766-4b31-88d7-016f73b39515", &x), ShouldPointTo, test)
+		So(test.PutIfNotNil("c23a15fc-7e8c-49e4-a750-3d3308341d0b", &x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 	})
@@ -177,7 +177,7 @@ func TestMapAnyBool_PutIfNotNil(t *testing.T) {
 
 func TestMapAnyBool_ReplaceIfExists(t *testing.T) {
 	Convey("TestMapAnyBool.ReplaceIfExists", t, func() {
-		var k interface{} = "ed45b93a-14f2-4c6a-bc5e-f595dbe0a8e8"
+		var k interface{} = "69cf6ed6-7902-4a6a-8ed5-92e31b368de2"
 		var v bool = false
 		var x bool = false
 
@@ -186,7 +186,7 @@ func TestMapAnyBool_ReplaceIfExists(t *testing.T) {
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceIfExists("4bf68c69-3346-4e9c-bbac-29dccd970338", x), ShouldPointTo, test)
+		So(test.ReplaceIfExists("903e56e5-d39b-4083-91da-57f0a0eab820", x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
@@ -198,7 +198,7 @@ func TestMapAnyBool_ReplaceIfExists(t *testing.T) {
 
 func TestMapAnyBool_ReplaceOrPut(t *testing.T) {
 	Convey("TestMapAnyBool.ReplaceOrPut", t, func() {
-		var k interface{} = "6ec70dda-feb4-4637-a050-ee34b2f37af0"
+		var k interface{} = "c575e93e-d474-4c42-b444-39354ae0787c"
 		var v bool = false
 		var x bool = false
 
@@ -207,7 +207,7 @@ func TestMapAnyBool_ReplaceOrPut(t *testing.T) {
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceOrPut("465ffce5-ba9e-453f-8840-0bc7a96bc8c8", x), ShouldPointTo, test)
+		So(test.ReplaceOrPut("2631c716-ac30-4137-a796-650ab7304852", x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 
@@ -219,7 +219,7 @@ func TestMapAnyBool_ReplaceOrPut(t *testing.T) {
 
 func TestMapAnyBool_MarshalJSON(t *testing.T) {
 	Convey("TestMapAnyBool.MarshalJSON", t, func() {
-		var k interface{} = "b3fec9a7-fb98-43f8-836a-8cb09e306140"
+		var k interface{} = "f0a991f0-7a9b-44f6-88e9-b32d73938d25"
 		var v bool = false
 
 		test := omap.NewMapAnyBool(1)
@@ -229,7 +229,6 @@ func TestMapAnyBool_MarshalJSON(t *testing.T) {
 
 		a, b := test.MarshalJSON()
 		So(b, ShouldBeNil)
-		So(string(a), ShouldEqual, `[{"key":"b3fec9a7-fb98-43f8-836a-8cb09e306140","value":false}]`)
+		So(string(a), ShouldEqual, `[{"key":"f0a991f0-7a9b-44f6-88e9-b32d73938d25","value":false}]`)
 	})
 }
-

@@ -12,8 +12,8 @@ import (
 
 func TestMapUintInt64_Put(t *testing.T) {
 	Convey("TestMapUintInt64.Put", t, func() {
-		var k uint = 2452190144
-		var v int64 = 5898699001791078219
+		var k uint = 135401319
+		var v int64 = 328483009160204397
 
 		test := omap.NewMapUintInt64(1)
 
@@ -26,8 +26,8 @@ func TestMapUintInt64_Put(t *testing.T) {
 
 func TestMapUintInt64_Delete(t *testing.T) {
 	Convey("TestMapUintInt64.Delete", t, func() {
-		var k uint = 1141072121
-		var v int64 = 3180817072411350690
+		var k uint = 2069359381
+		var v int64 = 7615532348345487052
 
 		test := omap.NewMapUintInt64(1)
 
@@ -41,8 +41,8 @@ func TestMapUintInt64_Delete(t *testing.T) {
 
 func TestMapUintInt64_Has(t *testing.T) {
 	Convey("TestMapUintInt64.Has", t, func() {
-		var k uint = 1690083265
-		var v int64 = 7523561836348146193
+		var k uint = 858038823
+		var v int64 = 7647242388558268358
 
 		test := omap.NewMapUintInt64(1)
 
@@ -50,15 +50,15 @@ func TestMapUintInt64_Has(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 
 		So(test.Has(k), ShouldBeTrue)
-		So(test.Has(2163054707+2981074016), ShouldBeFalse)
+		So(test.Has(39057696+3135349492), ShouldBeFalse)
 	})
 }
 
 
 func TestMapUintInt64_Get(t *testing.T) {
 	Convey("TestMapUintInt64.Get", t, func() {
-		var k uint = 912438780
-		var v int64 = 313311088499424792
+		var k uint = 2220354183
+		var v int64 = 3003204286748569704
 
 		test := omap.NewMapUintInt64(1)
 
@@ -69,15 +69,15 @@ func TestMapUintInt64_Get(t *testing.T) {
 		So(b, ShouldBeTrue)
 		So(a, ShouldEqual, v)
 
-		a, b = test.Get(921253408 + 1762519563)
+		a, b = test.Get(2051849340 + 2415143682)
 		So(b, ShouldBeFalse)
 	})
 }
 
 func TestMapUintInt64_GetOpt(t *testing.T) {
 	Convey("TestMapUintInt64.GetOpt", t, func() {
-		var k uint = 2825407454
-		var v int64 = 4875495523581452822
+		var k uint = 3466924437
+		var v int64 = 6272809646986057553
 
 		test := omap.NewMapUintInt64(1)
 
@@ -88,15 +88,15 @@ func TestMapUintInt64_GetOpt(t *testing.T) {
 		So(a.IsPresent(), ShouldBeTrue)
 		So(a.Get(), ShouldEqual, v)
 
-		a = test.GetOpt(4246699475 + 1468931082)
+		a = test.GetOpt(3275296924 + 3972637319)
 		So(a.IsNil(), ShouldBeTrue)
 	})
 }
 
 func TestMapUintInt64_ForEach(t *testing.T) {
 	Convey("TestMapUintInt64.ForEach", t, func() {
-		var k uint = 1198174559
-		var v int64 = 3198536608070002483
+		var k uint = 483309820
+		var v int64 = 4405489958911279829
 		hits := 0
 
 		test := omap.NewMapUintInt64(1)
@@ -115,8 +115,8 @@ func TestMapUintInt64_ForEach(t *testing.T) {
 
 func TestMapUintInt64_MarshalYAML(t *testing.T) {
 	Convey("TestMapUintInt64.MarshalYAML", t, func() {
-		var k uint = 2020039821
-		var v int64 = 3547677592208307633
+		var k uint = 1814863508
+		var v int64 = 5787664814970307435
 
 		test := omap.NewMapUintInt64(1)
 
@@ -135,8 +135,8 @@ func TestMapUintInt64_MarshalYAML(t *testing.T) {
 
 func TestMapUintInt64_ToYAML(t *testing.T) {
 	Convey("TestMapUintInt64.ToYAML", t, func() {
-		var k uint = 2923592222
-		var v int64 = 6563437368472663719
+		var k uint = 3995501784
+		var v int64 = 6336935614900356014
 
 		test := omap.NewMapUintInt64(1)
 
@@ -153,8 +153,8 @@ func TestMapUintInt64_ToYAML(t *testing.T) {
 
 func TestMapUintInt64_PutIfNotNil(t *testing.T) {
 	Convey("TestMapUintInt64.PutIfNotNil", t, func() {
-		var k uint = 888413658
-		var v int64 = 2628699087804777339
+		var k uint = 2117319135
+		var v int64 = 3824425110570840729
 
 		test := omap.NewMapUintInt64(1)
 
@@ -165,11 +165,11 @@ func TestMapUintInt64_PutIfNotNil(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
-		So(test.PutIfNotNil(1545268897, (*int64)(nil)), ShouldPointTo, test)
+		So(test.PutIfNotNil(337669519, (*int64)(nil)), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		var x int64 = 5844611085340946432
-		So(test.PutIfNotNil(555536317, &x), ShouldPointTo, test)
+		var x int64 = 8030643803593836268
+		So(test.PutIfNotNil(238823248, &x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 	})
@@ -177,16 +177,16 @@ func TestMapUintInt64_PutIfNotNil(t *testing.T) {
 
 func TestMapUintInt64_ReplaceIfExists(t *testing.T) {
 	Convey("TestMapUintInt64.ReplaceIfExists", t, func() {
-		var k uint = 475959011
-		var v int64 = 7665564909587715395
-		var x int64 = 4362554825192439283
+		var k uint = 4125093488
+		var v int64 = 1676763963911035688
+		var x int64 = 6662062096925224633
 
 		test := omap.NewMapUintInt64(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceIfExists(3471850850, x), ShouldPointTo, test)
+		So(test.ReplaceIfExists(1805650689, x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
@@ -198,16 +198,16 @@ func TestMapUintInt64_ReplaceIfExists(t *testing.T) {
 
 func TestMapUintInt64_ReplaceOrPut(t *testing.T) {
 	Convey("TestMapUintInt64.ReplaceOrPut", t, func() {
-		var k uint = 2619302511
-		var v int64 = 6044767121497473793
-		var x int64 = 8339321978303517467
+		var k uint = 3023692740
+		var v int64 = 6737009827702945446
+		var x int64 = 5611690278100545178
 
 		test := omap.NewMapUintInt64(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceOrPut(458026199, x), ShouldPointTo, test)
+		So(test.ReplaceOrPut(3829213176, x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 
@@ -219,8 +219,8 @@ func TestMapUintInt64_ReplaceOrPut(t *testing.T) {
 
 func TestMapUintInt64_MarshalJSON(t *testing.T) {
 	Convey("TestMapUintInt64.MarshalJSON", t, func() {
-		var k uint = 1005650692
-		var v int64 = 8539427686284811488
+		var k uint = 2646632720
+		var v int64 = 4194552206459853255
 
 		test := omap.NewMapUintInt64(1)
 
@@ -229,7 +229,6 @@ func TestMapUintInt64_MarshalJSON(t *testing.T) {
 
 		a, b := test.MarshalJSON()
 		So(b, ShouldBeNil)
-		So(string(a), ShouldEqual, `[{"key":1005650692,"value":8539427686284811488}]`)
+		So(string(a), ShouldEqual, `[{"key":2646632720,"value":4194552206459853255}]`)
 	})
 }
-

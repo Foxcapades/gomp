@@ -243,5 +243,4 @@ func Test{{$.Name}}_MarshalJSON(t *testing.T) {
 		{{- end}}
 	})
 }{{end}}{{end}}
-
 {{end -}}
