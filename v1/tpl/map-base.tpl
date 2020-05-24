@@ -5,7 +5,8 @@ package {{.Package}}
 import (
 	"encoding/json"
 
-	"github.com/Foxcapades/goop/v1/pkg/option"
+	{{if isBase .Type -}}
+	"github.com/Foxcapades/goop/v1/pkg/option"{{end}}
 	"github.com/Foxcapades/lib-go-yaml/v1/pkg/xyml"
 	"gopkg.in/yaml.v3"
 )
