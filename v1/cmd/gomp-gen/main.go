@@ -23,6 +23,7 @@ var funcs = template.FuncMap{
 	"trimR":    strings.TrimRight,
 }
 
+var rootPath = os.Getenv("GOPATH")
 var skipTests = false
 
 func main() {
@@ -50,7 +51,7 @@ func main() {
 	check(dec.Decode(&config))
 
 	tpl := template.Must(template.New("").Funcs(funcs).
-		ParseGlob("v1/tpl/*"))
+		ParseGlob(path.Join(rootPath, "/src/github.com/Foxcapades/gomp/v1/tpl/*")))
 
 	rand.Seed(time.Now().UnixNano())
 	pack := path.Join(config.Repo, config.Dir)
