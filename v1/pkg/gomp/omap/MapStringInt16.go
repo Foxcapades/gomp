@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapStringInt16 defines an ordered map of string to int16.
 type MapStringInt16 interface {
 	yaml.Marshaler
 	json.Marshaler

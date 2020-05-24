@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapAnyFloat32 defines an ordered map of interface{} to float32.
 type MapAnyFloat32 interface {
 	yaml.Marshaler
 	json.Marshaler

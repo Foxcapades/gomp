@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapUintComplex128 defines an ordered map of uint to complex128.
 type MapUintComplex128 interface {
 	yaml.Marshaler
 	json.Marshaler

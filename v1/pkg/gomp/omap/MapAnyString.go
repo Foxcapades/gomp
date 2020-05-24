@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapAnyString defines an ordered map of interface{} to string.
 type MapAnyString interface {
 	yaml.Marshaler
 	json.Marshaler

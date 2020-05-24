@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapStringUint64 defines an ordered map of string to uint64.
 type MapStringUint64 interface {
 	yaml.Marshaler
 	json.Marshaler

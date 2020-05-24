@@ -10,6 +10,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// {{.Name}} defines an ordered map of {{.Key}} to {{.Type}}.
 type {{.Name}} interface {
 	yaml.Marshaler
 	json.Marshaler
@@ -80,8 +81,8 @@ type {{.Name}} interface {
 }
 
 type {{.Name}}Entry struct {
-	Key {{.Key}}  `json:"key"`
-	Val {{.Type}} `json:"value"`
+	Key {{.Key}}{{pad .Key .Type}} `json:"key"`
+	Val {{.Type}}{{pad .Type .Key}} `json:"value"`
 }
 
 func New{{.Name}}(size int) {{.Name}} {
@@ -97,15 +98,15 @@ type impl{{.Name}} struct {
 	index   map[{{.Key}}]{{.Type}}
 }
 
-func (i impl{{.Name}}) MarshalYAML() (interface{},  error) {
+func (i impl{{.Name}}) MarshalYAML() (interface{}, error) {
 	return i.ToYAML()
 }
 
-func (i impl{{.Name}}) MarshalJSON() ([]byte,  error) {
+func (i impl{{.Name}}) MarshalJSON() ([]byte, error) {
 	return json.Marshal(i.ordered)
 }
 
-func (i *impl{{.Name}}) ToYAML() (*yaml.Node,  error) {
+func (i *impl{{.Name}}) ToYAML() (*yaml.Node, error) {
 	out := xyml.NewOrderedMapNode(i.Len())
 
 	for j := range i.ordered {
@@ -209,4 +210,4 @@ func (i *impl{{.Name}}) ForEach(f func(k {{.Key}}, v {{.Type}})) {{.Name}} {
 
 	return i
 }
-{{- end}}
+{{end -}}

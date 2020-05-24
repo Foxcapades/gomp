@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapIntFloat32 defines an ordered map of int to float32.
 type MapIntFloat32 interface {
 	yaml.Marshaler
 	json.Marshaler

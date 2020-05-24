@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapAnyRune defines an ordered map of interface{} to rune.
 type MapAnyRune interface {
 	yaml.Marshaler
 	json.Marshaler

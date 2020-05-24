@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapIntInt64 defines an ordered map of int to int64.
 type MapIntInt64 interface {
 	yaml.Marshaler
 	json.Marshaler

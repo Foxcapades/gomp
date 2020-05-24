@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapIntInt8 defines an ordered map of int to int8.
 type MapIntInt8 interface {
 	yaml.Marshaler
 	json.Marshaler

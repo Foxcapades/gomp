@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapStringComplex128 defines an ordered map of string to complex128.
 type MapStringComplex128 interface {
 	yaml.Marshaler
 	json.Marshaler

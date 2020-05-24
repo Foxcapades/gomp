@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapStringInt32 defines an ordered map of string to int32.
 type MapStringInt32 interface {
 	yaml.Marshaler
 	json.Marshaler

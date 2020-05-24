@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapIntUint32 defines an ordered map of int to uint32.
 type MapIntUint32 interface {
 	yaml.Marshaler
 	json.Marshaler

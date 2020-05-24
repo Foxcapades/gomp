@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapIntByte defines an ordered map of int to byte.
 type MapIntByte interface {
 	yaml.Marshaler
 	json.Marshaler

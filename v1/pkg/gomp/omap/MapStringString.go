@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapStringString defines an ordered map of string to string.
 type MapStringString interface {
 	yaml.Marshaler
 	json.Marshaler

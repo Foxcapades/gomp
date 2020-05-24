@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapAnyComplex128 defines an ordered map of interface{} to complex128.
 type MapAnyComplex128 interface {
 	yaml.Marshaler
 	json.Marshaler

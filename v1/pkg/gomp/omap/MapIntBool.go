@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapIntBool defines an ordered map of int to bool.
 type MapIntBool interface {
 	yaml.Marshaler
 	json.Marshaler

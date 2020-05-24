@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapAnyComplex64 defines an ordered map of interface{} to complex64.
 type MapAnyComplex64 interface {
 	yaml.Marshaler
 	json.Marshaler

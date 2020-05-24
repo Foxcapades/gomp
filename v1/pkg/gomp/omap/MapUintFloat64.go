@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapUintFloat64 defines an ordered map of uint to float64.
 type MapUintFloat64 interface {
 	yaml.Marshaler
 	json.Marshaler

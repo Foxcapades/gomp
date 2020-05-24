@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapAnyBool defines an ordered map of interface{} to bool.
 type MapAnyBool interface {
 	yaml.Marshaler
 	json.Marshaler

@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapStringRune defines an ordered map of string to rune.
 type MapStringRune interface {
 	yaml.Marshaler
 	json.Marshaler

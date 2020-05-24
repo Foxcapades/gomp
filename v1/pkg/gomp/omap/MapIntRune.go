@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapIntRune defines an ordered map of int to rune.
 type MapIntRune interface {
 	yaml.Marshaler
 	json.Marshaler

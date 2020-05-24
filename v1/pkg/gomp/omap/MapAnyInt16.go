@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapAnyInt16 defines an ordered map of interface{} to int16.
 type MapAnyInt16 interface {
 	yaml.Marshaler
 	json.Marshaler

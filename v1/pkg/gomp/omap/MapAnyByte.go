@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapAnyByte defines an ordered map of interface{} to byte.
 type MapAnyByte interface {
 	yaml.Marshaler
 	json.Marshaler

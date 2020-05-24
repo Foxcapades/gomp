@@ -5,6 +5,11 @@ Typed ordered maps for go.
 Generated for all of Go's base types.  Generator included for adding custom
 types.
 
+.Generator Usage
+[source, sh-session]
+----
+./gomp-gen path/to/config.yml
+----
 
 Gomp?::
   Gomp is a Norwegian word for Muggle.

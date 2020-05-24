@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapUintBool defines an ordered map of uint to bool.
 type MapUintBool interface {
 	yaml.Marshaler
 	json.Marshaler

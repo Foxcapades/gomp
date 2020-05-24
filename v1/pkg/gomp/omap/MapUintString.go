@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapUintString defines an ordered map of uint to string.
 type MapUintString interface {
 	yaml.Marshaler
 	json.Marshaler

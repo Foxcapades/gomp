@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapAnyUint64 defines an ordered map of interface{} to uint64.
 type MapAnyUint64 interface {
 	yaml.Marshaler
 	json.Marshaler

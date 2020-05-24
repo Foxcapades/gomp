@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// MapAnyInt32 defines an ordered map of interface{} to int32.
 type MapAnyInt32 interface {
 	yaml.Marshaler
 	json.Marshaler
