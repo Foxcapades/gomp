@@ -175,7 +175,7 @@ func (i *implMapIntFloat32) Has(k int) bool {
 }
 
 func (i *implMapIntFloat32) IndexOf(k int) int {
-	if _, ok := i.index[k]; ok {
+	if _, ok := i.index[k]; !ok {
 		return -1
 	}
 	for j := range i.ordered {

@@ -7,6 +7,7 @@ import (
 	"text/template"
 
 	"github.com/Foxcapades/Argonaut/v0"
+	"github.com/Foxcapades/gomp/v1/internal/gen"
 	"github.com/sirupsen/logrus"
 	"github.com/x-cray/logrus-prefixed-formatter"
 	"gopkg.in/yaml.v3"
@@ -14,8 +15,9 @@ import (
 
 var funcs = template.FuncMap{
 	"titleCap": strings.Title,
-	"isBase":   isBaseType,
-	"pad":      pad,
+	"isBase":   gen.IsBaseType,
+	"pad":      gen.Pad,
+	"defVal":   gen.DefaultValue,
 }
 
 func main() {
@@ -43,21 +45,28 @@ func main() {
 	tpl := template.Must(template.New("").Funcs(funcs).
 		ParseGlob("v1/tpl/*"))
 
+	pack := path.Join(config.Repo, config.Dir)
 	for _, mp := range config.Maps {
 		for _, def := range mp.Values {
 			def.Package = config.Package
 			def.Key = mp.Key
+			def.Repo = pack
 			execTemplate(tpl, &def, config.Dir)
 		}
 	}
 }
 
 func execTemplate(tpl *template.Template, def *MapValDefinition, dir string) {
-	oFile, err := os.Create(path.Join(dir, def.Name+".go"))
+	fName := path.Join(dir, def.Name)
+	oFile, err := os.Create(fName + ".go")
 	check(err)
 	defer oFile.Close()
+	tFile, err := os.Create(fName + "_test.go")
+	check(err)
+	defer tFile.Close()
 
 	check(tpl.ExecuteTemplate(oFile, "interface", def))
+	check(tpl.ExecuteTemplate(tFile, "tests", def))
 }
 
 func check(err error) {
@@ -70,6 +79,8 @@ func check(err error) {
 type Root struct {
 	// Package name for generated types
 	Package string `yaml:"package" json:"package"`
+
+	Repo string `yaml:"repo" json:"repo"`
 
 	// Target output dir for generated types
 	Dir string `yaml:"dir" json:"dir"`
@@ -90,38 +101,11 @@ type MapKeyDefinition struct {
 type MapValDefinition struct {
 	Package string `yaml:"-" json:"-"`
 	Key     string `yaml:"-" json:"-"`
+	Repo    string `yaml:"-" json:"-"`
 
 	// Type of the map values
 	Type string `yaml:"type" json:"type"`
 
 	// Name of the generated map type
 	Name string `yaml:"name" json:"name"`
-}
-
-func isBaseType(k string) bool {
-	return k == "bool" ||
-		k == "int" || k == "int8" || k == "int16" || k == "int32" || k == "int64" ||
-		k == "uint" || k == "uint8" || k == "uint16" || k == "uint32" || k == "uint64" ||
-		k == "float32" || k == "float64" ||
-		k == "complex64" || k == "complex128" ||
-		k == "string" ||
-		k == "byte" ||
-		k == "rune" ||
-		k == "interface{}"
-}
-
-func pad(a, b string) string {
-	cl := 0
-
-	if len(a) < len(b) {
-		cl = len(b) - len(a)
-	}
-
-	out := make([]byte, cl)
-
-	for i := range out {
-		out[i] = ' '
-	}
-
-	return string(out)
 }

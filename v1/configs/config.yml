@@ -1,5 +1,6 @@
 package: omap
 dir: v1/pkg/gomp/omap
+repo: github.com/Foxcapades/gomp
 
 maps:
   - key: string # Key type for the map

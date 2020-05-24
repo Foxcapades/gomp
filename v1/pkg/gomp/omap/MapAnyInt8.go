@@ -175,7 +175,7 @@ func (i *implMapAnyInt8) Has(k interface{}) bool {
 }
 
 func (i *implMapAnyInt8) IndexOf(k interface{}) int {
-	if _, ok := i.index[k]; ok {
+	if _, ok := i.index[k]; !ok {
 		return -1
 	}
 	for j := range i.ordered {

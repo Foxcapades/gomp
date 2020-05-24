@@ -1,4 +1,4 @@
-{{- /*gotype: github.com/Foxcapades/gomp/v1/tools/gen.MapValDefinition*/ -}}
+{{- /*gotype: github.com/Foxcapades/gomp/v1/cmd/gomp-gen.MapValDefinition*/ -}}
 {{define "interface" -}}
 package {{.Package}}
 
@@ -181,7 +181,7 @@ func (i *impl{{.Name}}) Has(k {{.Key}}) bool {
 }
 
 func (i *impl{{.Name}}) IndexOf(k {{.Key}}) int {
-	if _, ok := i.index[k]; ok {
+	if _, ok := i.index[k]; !ok {
 		return -1
 	}
 	for j := range i.ordered {

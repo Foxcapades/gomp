@@ -175,7 +175,7 @@ func (i *implMapStringUint8) Has(k string) bool {
 }
 
 func (i *implMapStringUint8) IndexOf(k string) int {
-	if _, ok := i.index[k]; ok {
+	if _, ok := i.index[k]; !ok {
 		return -1
 	}
 	for j := range i.ordered {

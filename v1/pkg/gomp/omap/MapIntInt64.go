@@ -175,7 +175,7 @@ func (i *implMapIntInt64) Has(k int) bool {
 }
 
 func (i *implMapIntInt64) IndexOf(k int) int {
-	if _, ok := i.index[k]; ok {
+	if _, ok := i.index[k]; !ok {
 		return -1
 	}
 	for j := range i.ordered {
