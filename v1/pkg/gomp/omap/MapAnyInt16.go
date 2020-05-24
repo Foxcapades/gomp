@@ -136,9 +136,9 @@ func (i *implMapAnyInt16) PutIfNotNil(k interface{}, v *int16) MapAnyInt16 {
 func (i *implMapAnyInt16) ReplaceOrPut(k interface{}, v int16) MapAnyInt16 {
 	if i.Has(k) {
 		return i.ReplaceIfExists(k, v)
-	} else {
-		return i.Put(k, v)
 	}
+
+	return i.Put(k, v)
 }
 
 func (i *implMapAnyInt16) ReplaceIfExists(k interface{}, v int16) MapAnyInt16 {

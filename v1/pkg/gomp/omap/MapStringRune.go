@@ -136,9 +136,9 @@ func (i *implMapStringRune) PutIfNotNil(k string, v *rune) MapStringRune {
 func (i *implMapStringRune) ReplaceOrPut(k string, v rune) MapStringRune {
 	if i.Has(k) {
 		return i.ReplaceIfExists(k, v)
-	} else {
-		return i.Put(k, v)
 	}
+
+	return i.Put(k, v)
 }
 
 func (i *implMapStringRune) ReplaceIfExists(k string, v rune) MapStringRune {

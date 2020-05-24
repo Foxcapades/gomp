@@ -136,9 +136,9 @@ func (i *implMapUintByte) PutIfNotNil(k uint, v *byte) MapUintByte {
 func (i *implMapUintByte) ReplaceOrPut(k uint, v byte) MapUintByte {
 	if i.Has(k) {
 		return i.ReplaceIfExists(k, v)
-	} else {
-		return i.Put(k, v)
 	}
+
+	return i.Put(k, v)
 }
 
 func (i *implMapUintByte) ReplaceIfExists(k uint, v byte) MapUintByte {

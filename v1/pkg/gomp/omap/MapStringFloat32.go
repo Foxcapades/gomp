@@ -136,9 +136,9 @@ func (i *implMapStringFloat32) PutIfNotNil(k string, v *float32) MapStringFloat3
 func (i *implMapStringFloat32) ReplaceOrPut(k string, v float32) MapStringFloat32 {
 	if i.Has(k) {
 		return i.ReplaceIfExists(k, v)
-	} else {
-		return i.Put(k, v)
 	}
+
+	return i.Put(k, v)
 }
 
 func (i *implMapStringFloat32) ReplaceIfExists(k string, v float32) MapStringFloat32 {

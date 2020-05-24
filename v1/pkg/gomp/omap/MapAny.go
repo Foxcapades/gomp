@@ -136,9 +136,9 @@ func (i *implMapAny) PutIfNotNil(k interface{}, v *interface{}) MapAny {
 func (i *implMapAny) ReplaceOrPut(k interface{}, v interface{}) MapAny {
 	if i.Has(k) {
 		return i.ReplaceIfExists(k, v)
-	} else {
-		return i.Put(k, v)
 	}
+
+	return i.Put(k, v)
 }
 
 func (i *implMapAny) ReplaceIfExists(k interface{}, v interface{}) MapAny {

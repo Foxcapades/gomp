@@ -136,9 +136,9 @@ func (i *implMapAnyRune) PutIfNotNil(k interface{}, v *rune) MapAnyRune {
 func (i *implMapAnyRune) ReplaceOrPut(k interface{}, v rune) MapAnyRune {
 	if i.Has(k) {
 		return i.ReplaceIfExists(k, v)
-	} else {
-		return i.Put(k, v)
 	}
+
+	return i.Put(k, v)
 }
 
 func (i *implMapAnyRune) ReplaceIfExists(k interface{}, v rune) MapAnyRune {

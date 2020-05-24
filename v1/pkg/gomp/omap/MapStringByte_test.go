@@ -12,8 +12,8 @@ import (
 
 func TestMapStringByte_Put(t *testing.T) {
 	Convey("TestMapStringByte.Put", t, func() {
-		var k string = "ad2f5341-e157-4ac4-a658-6b2189603fdf"
-		var v byte = 134
+		var k string = "88b79c07-1bcb-4d54-9a05-e7f4e4579b32"
+		var v byte = 201
 
 		test := omap.NewMapStringByte(1)
 
@@ -26,8 +26,8 @@ func TestMapStringByte_Put(t *testing.T) {
 
 func TestMapStringByte_Delete(t *testing.T) {
 	Convey("TestMapStringByte.Delete", t, func() {
-		var k string = "c3c851f4-929f-4a62-89a0-2aa819710134"
-		var v byte = 214
+		var k string = "1fcb1794-4d65-4fb9-a38c-ff3465e53bc7"
+		var v byte = 129
 
 		test := omap.NewMapStringByte(1)
 
@@ -41,8 +41,8 @@ func TestMapStringByte_Delete(t *testing.T) {
 
 func TestMapStringByte_Has(t *testing.T) {
 	Convey("TestMapStringByte.Has", t, func() {
-		var k string = "c6e4ce5c-4881-448f-baf2-4f7731bf5215"
-		var v byte = 19
+		var k string = "88297e81-db25-4f3c-8d51-82f4191097b9"
+		var v byte = 42
 
 		test := omap.NewMapStringByte(1)
 
@@ -50,14 +50,14 @@ func TestMapStringByte_Has(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 
 		So(test.Has(k), ShouldBeTrue)
-		So(test.Has("c40cb381-8865-412a-aa69-d0bbecffd3c7"+"d4d0ec6b-87ab-4700-9969-1b8b2fc72719"), ShouldBeFalse)
+		So(test.Has("e9a1cd0e-a535-4aac-9d29-17e2d056d380"+"670667b6-57f8-48d3-92d1-72cff02ae87b"), ShouldBeFalse)
 	})
 }
 
 func TestMapStringByte_Get(t *testing.T) {
 	Convey("TestMapStringByte.Get", t, func() {
-		var k string = "780fefb6-5bfa-4e47-8663-bdf82ad6b28b"
-		var v byte = 160
+		var k string = "81f25016-32bb-43be-a0c2-b7e0305316dc"
+		var v byte = 170
 
 		test := omap.NewMapStringByte(1)
 
@@ -68,15 +68,15 @@ func TestMapStringByte_Get(t *testing.T) {
 		So(b, ShouldBeTrue)
 		So(a, ShouldEqual, v)
 
-		_, b = test.Get("784c69bb-60b8-44fc-bf7d-daabfc3a9383" + "7fb3b301-2d97-469f-978a-a593f96e3753")
+		_, b = test.Get("2ceaaede-ec17-4a77-ae74-2aa3beed7a99" + "8aacffba-9a50-4058-94ff-9f381ac9d695")
 		So(b, ShouldBeFalse)
 	})
 }
 
 func TestMapStringByte_GetOpt(t *testing.T) {
 	Convey("TestMapStringByte.GetOpt", t, func() {
-		var k string = "b9c5eec4-c5a6-4463-ae43-a6de01e8c18f"
-		var v byte = 97
+		var k string = "6cff77f2-cafc-4cf3-aaf3-7c9bf1ca7ad4"
+		var v byte = 242
 
 		test := omap.NewMapStringByte(1)
 
@@ -87,15 +87,15 @@ func TestMapStringByte_GetOpt(t *testing.T) {
 		So(a.IsPresent(), ShouldBeTrue)
 		So(a.Get(), ShouldEqual, v)
 
-		a = test.GetOpt("5f32b54d-103e-4c6a-b088-5574a977fcbc" + "398ce747-ffb1-4e53-bcab-51c5d6a08a1d")
+		a = test.GetOpt("0ee30aa1-6951-40ed-b4c4-6ae8e163bb6a" + "e02aed48-e03c-4b8a-8fe4-80df00141726")
 		So(a.IsNil(), ShouldBeTrue)
 	})
 }
 
 func TestMapStringByte_ForEach(t *testing.T) {
 	Convey("TestMapStringByte.ForEach", t, func() {
-		var k string = "bd6be56e-f40b-4a0a-bb68-e0a74c9acf9e"
-		var v byte = 2
+		var k string = "33bd34f9-3de0-4485-9fd0-4d9198f5a264"
+		var v byte = 128
 		hits := 0
 
 		test := omap.NewMapStringByte(1)
@@ -114,8 +114,8 @@ func TestMapStringByte_ForEach(t *testing.T) {
 
 func TestMapStringByte_MarshalYAML(t *testing.T) {
 	Convey("TestMapStringByte.MarshalYAML", t, func() {
-		var k string = "087a45c6-f93b-4b51-aeac-aadaaa8bf4da"
-		var v byte = 140
+		var k string = "5e7aca88-55c5-4471-8c78-27d5d3d1ad0f"
+		var v byte = 72
 
 		test := omap.NewMapStringByte(1)
 
@@ -134,8 +134,8 @@ func TestMapStringByte_MarshalYAML(t *testing.T) {
 
 func TestMapStringByte_ToYAML(t *testing.T) {
 	Convey("TestMapStringByte.ToYAML", t, func() {
-		var k string = "c96387e9-302c-43ff-9aad-44d187315900"
-		var v byte = 5
+		var k string = "ad16eec0-6be1-4062-86dc-53ff88080405"
+		var v byte = 126
 
 		test := omap.NewMapStringByte(1)
 
@@ -152,8 +152,8 @@ func TestMapStringByte_ToYAML(t *testing.T) {
 
 func TestMapStringByte_PutIfNotNil(t *testing.T) {
 	Convey("TestMapStringByte.PutIfNotNil", t, func() {
-		var k string = "e62c2f26-be5d-4f55-a4fa-ec8a259fd04b"
-		var v byte = 10
+		var k string = "b480b965-43d7-4fb2-9e73-48cf564080f4"
+		var v byte = 129
 
 		test := omap.NewMapStringByte(1)
 
@@ -164,11 +164,11 @@ func TestMapStringByte_PutIfNotNil(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
-		So(test.PutIfNotNil("00a57612-6928-4b28-9627-e847095dd10e", (*byte)(nil)), ShouldPointTo, test)
+		So(test.PutIfNotNil("fbe03c93-a4de-49a7-9bbb-32dd3aa66b37", (*byte)(nil)), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		var x byte = 219
-		So(test.PutIfNotNil("407c5682-8016-4289-adc1-ce4b386f11e6", &x), ShouldPointTo, test)
+		var x byte = 226
+		So(test.PutIfNotNil("c7bc095c-fd6e-4503-ae73-192cff8b9c1d", &x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 	})
@@ -176,16 +176,16 @@ func TestMapStringByte_PutIfNotNil(t *testing.T) {
 
 func TestMapStringByte_ReplaceIfExists(t *testing.T) {
 	Convey("TestMapStringByte.ReplaceIfExists", t, func() {
-		var k string = "e9f16a66-5ff8-4634-9022-c69a7a2a48a3"
-		var v byte = 249
-		var x byte = 220
+		var k string = "6c9903ee-3105-4967-bce2-cc7e12947a9c"
+		var v byte = 245
+		var x byte = 13
 
 		test := omap.NewMapStringByte(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceIfExists("9498b597-b7b2-4a5d-8bc8-12ddc8b091cd", x), ShouldPointTo, test)
+		So(test.ReplaceIfExists("15762607-8907-40d5-84a4-d7776af3ceb2", x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
@@ -197,16 +197,16 @@ func TestMapStringByte_ReplaceIfExists(t *testing.T) {
 
 func TestMapStringByte_ReplaceOrPut(t *testing.T) {
 	Convey("TestMapStringByte.ReplaceOrPut", t, func() {
-		var k string = "904c70bd-516d-4e89-a529-8dabaabc7e6a"
-		var v byte = 39
-		var x byte = 123
+		var k string = "aee060ca-27cf-4fe1-bb86-74b7ddc82c4d"
+		var v byte = 145
+		var x byte = 94
 
 		test := omap.NewMapStringByte(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceOrPut("3b38e7c3-fb9c-4b18-af32-445f85e6b1c7", x), ShouldPointTo, test)
+		So(test.ReplaceOrPut("95998483-3da0-49fb-b69b-d3865c9fd861", x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 
@@ -218,8 +218,8 @@ func TestMapStringByte_ReplaceOrPut(t *testing.T) {
 
 func TestMapStringByte_MarshalJSON(t *testing.T) {
 	Convey("TestMapStringByte.MarshalJSON", t, func() {
-		var k string = "32def4ef-7781-4217-8757-f20a20bd68b5"
-		var v byte = 40
+		var k string = "30171186-5de9-4c59-924f-d3e16f719695"
+		var v byte = 221
 
 		test := omap.NewMapStringByte(1)
 
@@ -228,6 +228,6 @@ func TestMapStringByte_MarshalJSON(t *testing.T) {
 
 		a, b := test.MarshalJSON()
 		So(b, ShouldBeNil)
-		So(string(a), ShouldEqual, `[{"key":"32def4ef-7781-4217-8757-f20a20bd68b5","value":40}]`)
+		So(string(a), ShouldEqual, `[{"key":"30171186-5de9-4c59-924f-d3e16f719695","value":221}]`)
 	})
 }

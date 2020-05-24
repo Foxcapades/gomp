@@ -136,9 +136,9 @@ func (i *implMapAnyByte) PutIfNotNil(k interface{}, v *byte) MapAnyByte {
 func (i *implMapAnyByte) ReplaceOrPut(k interface{}, v byte) MapAnyByte {
 	if i.Has(k) {
 		return i.ReplaceIfExists(k, v)
-	} else {
-		return i.Put(k, v)
 	}
+
+	return i.Put(k, v)
 }
 
 func (i *implMapAnyByte) ReplaceIfExists(k interface{}, v byte) MapAnyByte {

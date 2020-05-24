@@ -136,9 +136,9 @@ func (i *implMapIntBool) PutIfNotNil(k int, v *bool) MapIntBool {
 func (i *implMapIntBool) ReplaceOrPut(k int, v bool) MapIntBool {
 	if i.Has(k) {
 		return i.ReplaceIfExists(k, v)
-	} else {
-		return i.Put(k, v)
 	}
+
+	return i.Put(k, v)
 }
 
 func (i *implMapIntBool) ReplaceIfExists(k int, v bool) MapIntBool {

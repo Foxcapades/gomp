@@ -136,9 +136,9 @@ func (i *implMapStringFloat64) PutIfNotNil(k string, v *float64) MapStringFloat6
 func (i *implMapStringFloat64) ReplaceOrPut(k string, v float64) MapStringFloat64 {
 	if i.Has(k) {
 		return i.ReplaceIfExists(k, v)
-	} else {
-		return i.Put(k, v)
 	}
+
+	return i.Put(k, v)
 }
 
 func (i *implMapStringFloat64) ReplaceIfExists(k string, v float64) MapStringFloat64 {

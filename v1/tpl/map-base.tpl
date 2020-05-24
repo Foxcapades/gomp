@@ -140,9 +140,9 @@ func (i *impl{{.Name}}) PutIfNotNil(k {{.Key}}, v *{{.Type}}) {{.Name}} {
 func (i *impl{{.Name}}) ReplaceOrPut(k {{.Key}}, v {{.Type}}) {{.Name}} {
 	if i.Has(k) {
 		return i.ReplaceIfExists(k, v)
-	} else {
-		return i.Put(k, v)
 	}
+
+	return i.Put(k, v)
 }
 
 func (i *impl{{.Name}}) ReplaceIfExists(k {{.Key}}, v {{.Type}}) {{.Name}} {

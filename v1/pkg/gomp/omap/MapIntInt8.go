@@ -136,9 +136,9 @@ func (i *implMapIntInt8) PutIfNotNil(k int, v *int8) MapIntInt8 {
 func (i *implMapIntInt8) ReplaceOrPut(k int, v int8) MapIntInt8 {
 	if i.Has(k) {
 		return i.ReplaceIfExists(k, v)
-	} else {
-		return i.Put(k, v)
 	}
+
+	return i.Put(k, v)
 }
 
 func (i *implMapIntInt8) ReplaceIfExists(k int, v int8) MapIntInt8 {

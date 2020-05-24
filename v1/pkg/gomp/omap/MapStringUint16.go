@@ -136,9 +136,9 @@ func (i *implMapStringUint16) PutIfNotNil(k string, v *uint16) MapStringUint16 {
 func (i *implMapStringUint16) ReplaceOrPut(k string, v uint16) MapStringUint16 {
 	if i.Has(k) {
 		return i.ReplaceIfExists(k, v)
-	} else {
-		return i.Put(k, v)
 	}
+
+	return i.Put(k, v)
 }
 
 func (i *implMapStringUint16) ReplaceIfExists(k string, v uint16) MapStringUint16 {

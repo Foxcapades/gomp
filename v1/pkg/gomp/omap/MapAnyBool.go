@@ -136,9 +136,9 @@ func (i *implMapAnyBool) PutIfNotNil(k interface{}, v *bool) MapAnyBool {
 func (i *implMapAnyBool) ReplaceOrPut(k interface{}, v bool) MapAnyBool {
 	if i.Has(k) {
 		return i.ReplaceIfExists(k, v)
-	} else {
-		return i.Put(k, v)
 	}
+
+	return i.Put(k, v)
 }
 
 func (i *implMapAnyBool) ReplaceIfExists(k interface{}, v bool) MapAnyBool {

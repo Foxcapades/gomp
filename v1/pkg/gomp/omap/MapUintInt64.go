@@ -136,9 +136,9 @@ func (i *implMapUintInt64) PutIfNotNil(k uint, v *int64) MapUintInt64 {
 func (i *implMapUintInt64) ReplaceOrPut(k uint, v int64) MapUintInt64 {
 	if i.Has(k) {
 		return i.ReplaceIfExists(k, v)
-	} else {
-		return i.Put(k, v)
 	}
+
+	return i.Put(k, v)
 }
 
 func (i *implMapUintInt64) ReplaceIfExists(k uint, v int64) MapUintInt64 {
