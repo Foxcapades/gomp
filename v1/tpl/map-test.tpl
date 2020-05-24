@@ -4,6 +4,7 @@ package {{.Package}}_test
 
 import (
 	"testing"
+
 	. "github.com/smartystreets/goconvey/convey"
 
 	"{{.Repo}}"

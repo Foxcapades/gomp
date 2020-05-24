@@ -1,8 +1,9 @@
 package omap_test
 
 import (
-	. "github.com/smartystreets/goconvey/convey"
 	"testing"
+
+	. "github.com/smartystreets/goconvey/convey"
 
 	"github.com/Foxcapades/gomp/v1/pkg/gomp/omap"
 )
