@@ -10,11 +10,59 @@ Typed ordered maps for go.
 Generated for all of Go's base types.  Generator included for adding custom
 types.
 
+.Example
+[source, go]
+----
+func main() {
+  // Create a new ordered map of interface->interface presized to 10
+  foo := omap.NewMapAny(10)
+
+  // Puts hi->bye into the map
+  foo.Put("hi", "bye").
+    // Puts nothing into the map (because val is nil)
+    PutIfNotNil("teeth", nil).
+    // Appends fire->water to the map because key fire does not yet exist
+    ReplaceOrPut("fire", "water").
+    // Replaces the value at key "hi" with "hello"
+    ReplaceIfExists("hi", "hello").
+    // Iterates over all entries in the map with the given func
+    ForEach(func(k, v interface{}) {
+      fmt.Println(k, v)
+    })
+
+  enc := json.NewEncoder(os.Stdout)
+  enc.SetIndent("", "  ")
+  _ = enc.Encode(foo)
+}
+----
+
+.Output
+[source, sh-session]
+----
+$ go run example/main.go
+hi hello
+fire water
+[
+  {
+    "key": "hi",
+    "value": "hello"
+  },
+  {
+    "key": "fire",
+    "value": "water"
+  }
+]
+----
+
+== Generator
+
 .Generator Usage
 [source, sh-session]
 ----
 ./gomp-gen path/to/config.yml
 ----
+
+== About
 
 Gomp?::
   Gomp is a Norwegian word for Muggle.
