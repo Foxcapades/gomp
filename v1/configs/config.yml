@@ -29,10 +29,6 @@ maps:
         name: MapStringFloat32
       - type: float64
         name: MapStringFloat64
-      - type: complex64
-        name: MapStringComplex64
-      - type: complex128
-        name: MapStringComplex128
       - type: bool
         name: MapStringBool
       - type: byte
@@ -69,10 +65,6 @@ maps:
         name: MapAnyFloat32
       - type: float64
         name: MapAnyFloat64
-      - type: complex64
-        name: MapAnyComplex64
-      - type: complex128
-        name: MapAnyComplex128
       - type: bool
         name: MapAnyBool
       - type: byte
@@ -109,10 +101,6 @@ maps:
         name: MapIntFloat32
       - type: float64
         name: MapIntFloat64
-      - type: complex64
-        name: MapIntComplex64
-      - type: complex128
-        name: MapIntComplex128
       - type: bool
         name: MapIntBool
       - type: byte
@@ -149,10 +137,6 @@ maps:
         name: MapUintFloat32
       - type: float64
         name: MapUintFloat64
-      - type: complex64
-        name: MapUintComplex64
-      - type: complex128
-        name: MapUintComplex128
       - type: bool
         name: MapUintBool
       - type: byte

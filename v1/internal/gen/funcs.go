@@ -4,6 +4,8 @@ import (
 	"math"
 	"math/rand"
 	"strconv"
+
+	"github.com/google/uuid"
 )
 
 // Pad returns a padding string of spaces sized to fill the difference in length
@@ -60,7 +62,7 @@ func DefaultValue(kind string) string {
 		return strconv.FormatInt(int64(rand.Intn(math.MaxInt16)), 10)
 	case "int64":
 		return strconv.FormatInt(rand.Int63n(math.MaxInt64), 10)
-	case "uint", "uint32":
+	case "uint", "uint32", "complex64", "complex128":
 		return strconv.FormatUint(uint64(rand.Uint32()), 10)
 	case "uint8", "byte":
 		return strconv.FormatUint(uint64(rand.Intn(math.MaxUint8)), 10)
@@ -72,12 +74,10 @@ func DefaultValue(kind string) string {
 		return strconv.FormatFloat(float64(rand.Float32()), 'f', 3, 32)
 	case "float64":
 		return strconv.FormatFloat(rand.Float64(), 'f', 3, 64)
-	case "complex64", "complex128":
-		return "12"
 	case "string":
-		return `"hello"`
+		return `"` + uuid.New().String() + `"`
 	case "interface{}":
-		return `"goodbye"`
+		return `"` + uuid.New().String() + `"`
 	}
 	panic("wat")
 }

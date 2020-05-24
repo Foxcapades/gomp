@@ -1,10 +1,12 @@
 package main
 
 import (
+	"math/rand"
 	"os"
 	"path"
 	"strings"
 	"text/template"
+	"time"
 
 	"github.com/Foxcapades/Argonaut/v0"
 	"github.com/Foxcapades/gomp/v1/internal/gen"
@@ -18,6 +20,7 @@ var funcs = template.FuncMap{
 	"isBase":   gen.IsBaseType,
 	"pad":      gen.Pad,
 	"defVal":   gen.DefaultValue,
+	"trimR":    strings.TrimRight,
 }
 
 func main() {
@@ -45,6 +48,7 @@ func main() {
 	tpl := template.Must(template.New("").Funcs(funcs).
 		ParseGlob("v1/tpl/*"))
 
+	rand.Seed(time.Now().UnixNano())
 	pack := path.Join(config.Repo, config.Dir)
 	for _, mp := range config.Maps {
 		for _, def := range mp.Values {
