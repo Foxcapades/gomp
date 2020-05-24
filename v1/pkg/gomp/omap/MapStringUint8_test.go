@@ -12,8 +12,8 @@ import (
 
 func TestMapStringUint8_Put(t *testing.T) {
 	Convey("TestMapStringUint8.Put", t, func() {
-		var k string = "5dda0bfa-c24c-4cff-8e36-d31002a0e0fb"
-		var v uint8 = 175
+		var k string = "8272ec7c-72d9-48bd-920a-76e05f90247a"
+		var v uint8 = 83
 
 		test := omap.NewMapStringUint8(1)
 
@@ -26,8 +26,8 @@ func TestMapStringUint8_Put(t *testing.T) {
 
 func TestMapStringUint8_Delete(t *testing.T) {
 	Convey("TestMapStringUint8.Delete", t, func() {
-		var k string = "b1f0a517-e141-4298-a2cc-fb5a2c057f91"
-		var v uint8 = 82
+		var k string = "9032e44d-0a46-470d-93ad-ad740f06a231"
+		var v uint8 = 181
 
 		test := omap.NewMapStringUint8(1)
 
@@ -41,8 +41,8 @@ func TestMapStringUint8_Delete(t *testing.T) {
 
 func TestMapStringUint8_Has(t *testing.T) {
 	Convey("TestMapStringUint8.Has", t, func() {
-		var k string = "b9bb4473-b2b7-462e-b901-f2af4d3a1011"
-		var v uint8 = 179
+		var k string = "540b626d-8006-4170-82dd-5259074a9645"
+		var v uint8 = 237
 
 		test := omap.NewMapStringUint8(1)
 
@@ -50,15 +50,15 @@ func TestMapStringUint8_Has(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 
 		So(test.Has(k), ShouldBeTrue)
-		So(test.Has("8d925050-35d6-4ae1-89af-a66b01388f08"+"cd71e904-68f4-4212-861d-6df4018600a4"), ShouldBeFalse)
+		So(test.Has("e613b73f-0e06-4789-b98b-bcafebbd48cb"+"3d353cce-a830-43fe-9ea1-1b4dfcc84e97"), ShouldBeFalse)
 	})
 }
 
 
 func TestMapStringUint8_Get(t *testing.T) {
 	Convey("TestMapStringUint8.Get", t, func() {
-		var k string = "55388174-59ec-42d4-9a54-74ab7117379a"
-		var v uint8 = 232
+		var k string = "d2168010-5976-4efb-ba19-c5b7669b31cc"
+		var v uint8 = 151
 
 		test := omap.NewMapStringUint8(1)
 
@@ -69,15 +69,15 @@ func TestMapStringUint8_Get(t *testing.T) {
 		So(b, ShouldBeTrue)
 		So(a, ShouldEqual, v)
 
-		a, b = test.Get("d09f4f4a-8108-43d3-84f5-7370ac0a2bc1"+"06d67177-2637-4f95-856e-b89af4434a48")
+		a, b = test.Get("ac2eb086-c184-4d89-ac3a-8b996f0f4b97" + "ec13ed1a-c3c0-4056-93e0-6faf490f5d50")
 		So(b, ShouldBeFalse)
 	})
 }
 
 func TestMapStringUint8_GetOpt(t *testing.T) {
 	Convey("TestMapStringUint8.GetOpt", t, func() {
-		var k string = "efea3dd2-4e38-4baf-be72-71e0c474ac00"
-		var v uint8 = 43
+		var k string = "2c87718b-150f-4463-a9be-55b919ad3978"
+		var v uint8 = 242
 
 		test := omap.NewMapStringUint8(1)
 
@@ -88,15 +88,15 @@ func TestMapStringUint8_GetOpt(t *testing.T) {
 		So(a.IsPresent(), ShouldBeTrue)
 		So(a.Get(), ShouldEqual, v)
 
-		a = test.GetOpt("4c1ad172-ebef-41a9-9417-64f1fff7b7e7"+"0d0eda66-602d-43bc-becd-87660a1bdb80")
+		a = test.GetOpt("93a8c208-693d-4ec9-8734-04065ef4583b" + "3615577c-6d2a-40fc-b757-2943d70cd4ca")
 		So(a.IsNil(), ShouldBeTrue)
 	})
 }
 
 func TestMapStringUint8_ForEach(t *testing.T) {
 	Convey("TestMapStringUint8.ForEach", t, func() {
-		var k string = "106a4cfd-eb76-44a9-811e-f4046a89a098"
-		var v uint8 = 138
+		var k string = "c9a80446-a73a-46ac-b840-cb46b8cb1f95"
+		var v uint8 = 30
 		hits := 0
 
 		test := omap.NewMapStringUint8(1)
@@ -115,8 +115,8 @@ func TestMapStringUint8_ForEach(t *testing.T) {
 
 func TestMapStringUint8_MarshalYAML(t *testing.T) {
 	Convey("TestMapStringUint8.MarshalYAML", t, func() {
-		var k string = "dc28e699-5e76-4a50-8eba-a89c65acc25b"
-		var v uint8 = 187
+		var k string = "0e9aae96-3c7f-459f-94ac-b7d27b56fc7b"
+		var v uint8 = 54
 
 		test := omap.NewMapStringUint8(1)
 
@@ -135,8 +135,8 @@ func TestMapStringUint8_MarshalYAML(t *testing.T) {
 
 func TestMapStringUint8_ToYAML(t *testing.T) {
 	Convey("TestMapStringUint8.ToYAML", t, func() {
-		var k string = "1d07574a-0c7f-4724-a455-8b61844a996c"
-		var v uint8 = 209
+		var k string = "638d65f9-e7dc-410b-9f49-46cff17540ef"
+		var v uint8 = 29
 
 		test := omap.NewMapStringUint8(1)
 
@@ -153,8 +153,8 @@ func TestMapStringUint8_ToYAML(t *testing.T) {
 
 func TestMapStringUint8_PutIfNotNil(t *testing.T) {
 	Convey("TestMapStringUint8.PutIfNotNil", t, func() {
-		var k string = "c0a38034-af23-4405-bd06-44303058ef3a"
-		var v uint8 = 174
+		var k string = "455bc7e8-050a-4e9c-b640-a6a43835ce7c"
+		var v uint8 = 17
 
 		test := omap.NewMapStringUint8(1)
 
@@ -165,11 +165,11 @@ func TestMapStringUint8_PutIfNotNil(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
-		So(test.PutIfNotNil("d720b276-840c-4978-8a6f-497a4f43e336", (*uint8)(nil)), ShouldPointTo, test)
+		So(test.PutIfNotNil("30ad51f7-870b-4461-928c-cc9d98bf4220", (*uint8)(nil)), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		var x uint8 = 215
-		So(test.PutIfNotNil("efdefe41-6540-4e3c-b4f7-8d4e03ded290", &x), ShouldPointTo, test)
+		var x uint8 = 20
+		So(test.PutIfNotNil("153ae026-53fb-48ef-a55e-a43770807e4c", &x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 	})
@@ -177,16 +177,16 @@ func TestMapStringUint8_PutIfNotNil(t *testing.T) {
 
 func TestMapStringUint8_ReplaceIfExists(t *testing.T) {
 	Convey("TestMapStringUint8.ReplaceIfExists", t, func() {
-		var k string = "8bee313f-74a3-4ada-9315-807660e4d041"
-		var v uint8 = 229
-		var x uint8 = 82
+		var k string = "45292c7e-1503-43bb-aead-5d206d3c116c"
+		var v uint8 = 27
+		var x uint8 = 198
 
 		test := omap.NewMapStringUint8(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceIfExists("1c00f18c-af71-4202-b4fe-d86baf0271df", x), ShouldPointTo, test)
+		So(test.ReplaceIfExists("d33ecfaa-0bfd-4886-9809-9f90dd317e41", x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
@@ -198,16 +198,16 @@ func TestMapStringUint8_ReplaceIfExists(t *testing.T) {
 
 func TestMapStringUint8_ReplaceOrPut(t *testing.T) {
 	Convey("TestMapStringUint8.ReplaceOrPut", t, func() {
-		var k string = "91910038-9657-48c8-b8c9-d3c0eed2df44"
-		var v uint8 = 119
-		var x uint8 = 221
+		var k string = "ed3c4e2c-bb54-4466-8444-e79ad3094ac3"
+		var v uint8 = 90
+		var x uint8 = 25
 
 		test := omap.NewMapStringUint8(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceOrPut("ee2b8a97-6590-4686-98f4-60dafbf0057b", x), ShouldPointTo, test)
+		So(test.ReplaceOrPut("7fe6af3e-8e8a-4846-b35b-ffa94bb1734b", x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 
@@ -219,8 +219,8 @@ func TestMapStringUint8_ReplaceOrPut(t *testing.T) {
 
 func TestMapStringUint8_MarshalJSON(t *testing.T) {
 	Convey("TestMapStringUint8.MarshalJSON", t, func() {
-		var k string = "d6383128-75bd-4d88-83d9-cf47e5bccbaa"
-		var v uint8 = 235
+		var k string = "9d0e68f8-547d-43bd-b04e-d3f1d2a3f86c"
+		var v uint8 = 213
 
 		test := omap.NewMapStringUint8(1)
 
@@ -229,7 +229,7 @@ func TestMapStringUint8_MarshalJSON(t *testing.T) {
 
 		a, b := test.MarshalJSON()
 		So(b, ShouldBeNil)
-		So(string(a), ShouldEqual, `[{"key":"d6383128-75bd-4d88-83d9-cf47e5bccbaa","value":235}]`)
+		So(string(a), ShouldEqual, `[{"key":"9d0e68f8-547d-43bd-b04e-d3f1d2a3f86c","value":213}]`)
 	})
 }
 

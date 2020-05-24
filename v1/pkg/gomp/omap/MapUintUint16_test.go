@@ -12,8 +12,8 @@ import (
 
 func TestMapUintUint16_Put(t *testing.T) {
 	Convey("TestMapUintUint16.Put", t, func() {
-		var k uint = 2057242093
-		var v uint16 = 37389
+		var k uint = 3179096620
+		var v uint16 = 62974
 
 		test := omap.NewMapUintUint16(1)
 
@@ -26,8 +26,8 @@ func TestMapUintUint16_Put(t *testing.T) {
 
 func TestMapUintUint16_Delete(t *testing.T) {
 	Convey("TestMapUintUint16.Delete", t, func() {
-		var k uint = 1291926752
-		var v uint16 = 61987
+		var k uint = 2967054782
+		var v uint16 = 16511
 
 		test := omap.NewMapUintUint16(1)
 
@@ -41,8 +41,8 @@ func TestMapUintUint16_Delete(t *testing.T) {
 
 func TestMapUintUint16_Has(t *testing.T) {
 	Convey("TestMapUintUint16.Has", t, func() {
-		var k uint = 1171012672
-		var v uint16 = 36115
+		var k uint = 1252777538
+		var v uint16 = 50112
 
 		test := omap.NewMapUintUint16(1)
 
@@ -50,15 +50,15 @@ func TestMapUintUint16_Has(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 
 		So(test.Has(k), ShouldBeTrue)
-		So(test.Has(4171856508+3752517822), ShouldBeFalse)
+		So(test.Has(3716076963+1463553829), ShouldBeFalse)
 	})
 }
 
 
 func TestMapUintUint16_Get(t *testing.T) {
 	Convey("TestMapUintUint16.Get", t, func() {
-		var k uint = 2547351115
-		var v uint16 = 46184
+		var k uint = 4069311189
+		var v uint16 = 10164
 
 		test := omap.NewMapUintUint16(1)
 
@@ -69,15 +69,15 @@ func TestMapUintUint16_Get(t *testing.T) {
 		So(b, ShouldBeTrue)
 		So(a, ShouldEqual, v)
 
-		a, b = test.Get(1825690514+349563666)
+		a, b = test.Get(2815402815 + 2973614366)
 		So(b, ShouldBeFalse)
 	})
 }
 
 func TestMapUintUint16_GetOpt(t *testing.T) {
 	Convey("TestMapUintUint16.GetOpt", t, func() {
-		var k uint = 1713142978
-		var v uint16 = 10556
+		var k uint = 773748862
+		var v uint16 = 48635
 
 		test := omap.NewMapUintUint16(1)
 
@@ -88,15 +88,15 @@ func TestMapUintUint16_GetOpt(t *testing.T) {
 		So(a.IsPresent(), ShouldBeTrue)
 		So(a.Get(), ShouldEqual, v)
 
-		a = test.GetOpt(1744416891+3426882900)
+		a = test.GetOpt(2114295845 + 213586140)
 		So(a.IsNil(), ShouldBeTrue)
 	})
 }
 
 func TestMapUintUint16_ForEach(t *testing.T) {
 	Convey("TestMapUintUint16.ForEach", t, func() {
-		var k uint = 3680372035
-		var v uint16 = 21587
+		var k uint = 2565492777
+		var v uint16 = 5149
 		hits := 0
 
 		test := omap.NewMapUintUint16(1)
@@ -115,8 +115,8 @@ func TestMapUintUint16_ForEach(t *testing.T) {
 
 func TestMapUintUint16_MarshalYAML(t *testing.T) {
 	Convey("TestMapUintUint16.MarshalYAML", t, func() {
-		var k uint = 181372392
-		var v uint16 = 18594
+		var k uint = 78396451
+		var v uint16 = 47833
 
 		test := omap.NewMapUintUint16(1)
 
@@ -135,8 +135,8 @@ func TestMapUintUint16_MarshalYAML(t *testing.T) {
 
 func TestMapUintUint16_ToYAML(t *testing.T) {
 	Convey("TestMapUintUint16.ToYAML", t, func() {
-		var k uint = 3302313464
-		var v uint16 = 6956
+		var k uint = 389013706
+		var v uint16 = 13731
 
 		test := omap.NewMapUintUint16(1)
 
@@ -153,8 +153,8 @@ func TestMapUintUint16_ToYAML(t *testing.T) {
 
 func TestMapUintUint16_PutIfNotNil(t *testing.T) {
 	Convey("TestMapUintUint16.PutIfNotNil", t, func() {
-		var k uint = 3792960031
-		var v uint16 = 7984
+		var k uint = 3012929329
+		var v uint16 = 25663
 
 		test := omap.NewMapUintUint16(1)
 
@@ -165,11 +165,11 @@ func TestMapUintUint16_PutIfNotNil(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
-		So(test.PutIfNotNil(2444233459, (*uint16)(nil)), ShouldPointTo, test)
+		So(test.PutIfNotNil(2513301228, (*uint16)(nil)), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		var x uint16 = 50805
-		So(test.PutIfNotNil(3099994918, &x), ShouldPointTo, test)
+		var x uint16 = 10977
+		So(test.PutIfNotNil(704885218, &x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 	})
@@ -177,16 +177,16 @@ func TestMapUintUint16_PutIfNotNil(t *testing.T) {
 
 func TestMapUintUint16_ReplaceIfExists(t *testing.T) {
 	Convey("TestMapUintUint16.ReplaceIfExists", t, func() {
-		var k uint = 1845700059
-		var v uint16 = 25859
-		var x uint16 = 37363
+		var k uint = 83993552
+		var v uint16 = 4053
+		var x uint16 = 64133
 
 		test := omap.NewMapUintUint16(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceIfExists(3764101637, x), ShouldPointTo, test)
+		So(test.ReplaceIfExists(3821762164, x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
@@ -198,16 +198,16 @@ func TestMapUintUint16_ReplaceIfExists(t *testing.T) {
 
 func TestMapUintUint16_ReplaceOrPut(t *testing.T) {
 	Convey("TestMapUintUint16.ReplaceOrPut", t, func() {
-		var k uint = 75725442
-		var v uint16 = 58218
-		var x uint16 = 27645
+		var k uint = 22760059
+		var v uint16 = 48434
+		var x uint16 = 55532
 
 		test := omap.NewMapUintUint16(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceOrPut(4285786386, x), ShouldPointTo, test)
+		So(test.ReplaceOrPut(3706732744, x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 
@@ -219,8 +219,8 @@ func TestMapUintUint16_ReplaceOrPut(t *testing.T) {
 
 func TestMapUintUint16_MarshalJSON(t *testing.T) {
 	Convey("TestMapUintUint16.MarshalJSON", t, func() {
-		var k uint = 975452225
-		var v uint16 = 2617
+		var k uint = 627174708
+		var v uint16 = 25559
 
 		test := omap.NewMapUintUint16(1)
 
@@ -229,7 +229,7 @@ func TestMapUintUint16_MarshalJSON(t *testing.T) {
 
 		a, b := test.MarshalJSON()
 		So(b, ShouldBeNil)
-		So(string(a), ShouldEqual, `[{"key":975452225,"value":2617}]`)
+		So(string(a), ShouldEqual, `[{"key":627174708,"value":25559}]`)
 	})
 }
 

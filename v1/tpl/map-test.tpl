@@ -71,7 +71,7 @@ func Test{{.Name}}_Get(t *testing.T) {
 		So(b, ShouldBeTrue)
 		So(a, ShouldEqual, v)
 
-		a, b = test.Get({{defVal .Key}}+{{defVal .Key}})
+		a, b = test.Get({{defVal .Key}} + {{defVal .Key}})
 		So(b, ShouldBeFalse)
 	})
 }
@@ -91,7 +91,7 @@ func Test{{.Name}}_GetOpt(t *testing.T) {
 		So(a.IsPresent(), ShouldBeTrue)
 		So(a.Get(), ShouldEqual, v)
 
-		a = test.GetOpt({{defVal .Key}}+{{defVal .Key}})
+		a = test.GetOpt({{defVal .Key}} + {{defVal .Key}})
 		So(a.IsNil(), ShouldBeTrue)
 	})
 }

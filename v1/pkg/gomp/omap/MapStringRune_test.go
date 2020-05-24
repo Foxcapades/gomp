@@ -12,8 +12,8 @@ import (
 
 func TestMapStringRune_Put(t *testing.T) {
 	Convey("TestMapStringRune.Put", t, func() {
-		var k string = "9ec6103d-8833-4f43-a006-edaf45c5c8f5"
-		var v rune = 517649287
+		var k string = "2c0b8f3c-262b-40ee-8e35-a914deb35dc9"
+		var v rune = 1151927716
 
 		test := omap.NewMapStringRune(1)
 
@@ -26,8 +26,8 @@ func TestMapStringRune_Put(t *testing.T) {
 
 func TestMapStringRune_Delete(t *testing.T) {
 	Convey("TestMapStringRune.Delete", t, func() {
-		var k string = "53a946bd-399f-4d36-ba9d-a7e17e940a40"
-		var v rune = 1549940064
+		var k string = "69ee851a-2144-4608-8ab4-c12ca8e2de51"
+		var v rune = 1311017689
 
 		test := omap.NewMapStringRune(1)
 
@@ -41,8 +41,8 @@ func TestMapStringRune_Delete(t *testing.T) {
 
 func TestMapStringRune_Has(t *testing.T) {
 	Convey("TestMapStringRune.Has", t, func() {
-		var k string = "5988eabf-30a1-4f11-9fc0-9e3d91bfaefb"
-		var v rune = 1247813399
+		var k string = "b42b10e9-b556-4a5c-b6bd-7c394d2bf63e"
+		var v rune = 1591714751
 
 		test := omap.NewMapStringRune(1)
 
@@ -50,15 +50,15 @@ func TestMapStringRune_Has(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 
 		So(test.Has(k), ShouldBeTrue)
-		So(test.Has("2969f2dc-e50a-4cb4-b4d3-efafd758718d"+"d9ecbd64-88ab-44e3-a651-b0a0e795cbf5"), ShouldBeFalse)
+		So(test.Has("de8beaf3-5c4c-4497-92a5-387b3104e56c"+"7362c396-d698-4c69-8f26-c627f9b6b25d"), ShouldBeFalse)
 	})
 }
 
 
 func TestMapStringRune_Get(t *testing.T) {
 	Convey("TestMapStringRune.Get", t, func() {
-		var k string = "ce04f8fc-0876-458d-9d1e-d38463d15f05"
-		var v rune = 986728103
+		var k string = "13ab5efc-7ce6-431e-b0c0-aeb23e377f92"
+		var v rune = 1675254706
 
 		test := omap.NewMapStringRune(1)
 
@@ -69,15 +69,15 @@ func TestMapStringRune_Get(t *testing.T) {
 		So(b, ShouldBeTrue)
 		So(a, ShouldEqual, v)
 
-		a, b = test.Get("f457d2e4-a7aa-40c2-84a9-5e555425b9f3"+"91f28dbf-e25e-44a2-a362-ed28a2330a43")
+		a, b = test.Get("27f2d3f3-f6b4-4044-824d-7ae4b4da43aa" + "08cfb2f6-fe2a-4ebc-87f6-8b61028fd0c8")
 		So(b, ShouldBeFalse)
 	})
 }
 
 func TestMapStringRune_GetOpt(t *testing.T) {
 	Convey("TestMapStringRune.GetOpt", t, func() {
-		var k string = "8860faca-6c76-4fca-ab45-0b23c82de009"
-		var v rune = 1089559628
+		var k string = "ebbb7461-8a2c-413e-a51f-ad764c2d32d9"
+		var v rune = 15199526
 
 		test := omap.NewMapStringRune(1)
 
@@ -88,15 +88,15 @@ func TestMapStringRune_GetOpt(t *testing.T) {
 		So(a.IsPresent(), ShouldBeTrue)
 		So(a.Get(), ShouldEqual, v)
 
-		a = test.GetOpt("197dd704-fed5-459e-b809-b7313671d0b0"+"761beab8-6e4d-4375-8ac9-d61e6004f674")
+		a = test.GetOpt("e185c5fc-557c-4b16-88a6-4bc745fa0829" + "1b64f756-cc80-4489-93f1-0f88906cfdcb")
 		So(a.IsNil(), ShouldBeTrue)
 	})
 }
 
 func TestMapStringRune_ForEach(t *testing.T) {
 	Convey("TestMapStringRune.ForEach", t, func() {
-		var k string = "192049d2-014f-4c9e-b968-c5549a0ff5e2"
-		var v rune = 380272228
+		var k string = "bc1626ad-2788-49c4-97bb-5566c2214890"
+		var v rune = 891479487
 		hits := 0
 
 		test := omap.NewMapStringRune(1)
@@ -115,8 +115,8 @@ func TestMapStringRune_ForEach(t *testing.T) {
 
 func TestMapStringRune_MarshalYAML(t *testing.T) {
 	Convey("TestMapStringRune.MarshalYAML", t, func() {
-		var k string = "91754da9-7c05-4dd4-a1c1-0ecf899090d1"
-		var v rune = 1969486313
+		var k string = "c6867310-ae80-47ca-adff-5cb82a0b1dd4"
+		var v rune = 1169448512
 
 		test := omap.NewMapStringRune(1)
 
@@ -135,8 +135,8 @@ func TestMapStringRune_MarshalYAML(t *testing.T) {
 
 func TestMapStringRune_ToYAML(t *testing.T) {
 	Convey("TestMapStringRune.ToYAML", t, func() {
-		var k string = "f8e1eda9-8491-4048-b0f8-faaabe41a276"
-		var v rune = 2017730898
+		var k string = "6655bf21-d92f-4e19-9089-77473dab75bd"
+		var v rune = 756167563
 
 		test := omap.NewMapStringRune(1)
 
@@ -153,8 +153,8 @@ func TestMapStringRune_ToYAML(t *testing.T) {
 
 func TestMapStringRune_PutIfNotNil(t *testing.T) {
 	Convey("TestMapStringRune.PutIfNotNil", t, func() {
-		var k string = "43ebcb6b-f899-459d-bb37-944642e581a3"
-		var v rune = 1087891930
+		var k string = "b4a690f4-bcbc-4b36-8ce6-7d6fc6f12bde"
+		var v rune = 2137354936
 
 		test := omap.NewMapStringRune(1)
 
@@ -165,11 +165,11 @@ func TestMapStringRune_PutIfNotNil(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
-		So(test.PutIfNotNil("4893bc14-e10b-455a-a2bd-4a612c00f1f3", (*rune)(nil)), ShouldPointTo, test)
+		So(test.PutIfNotNil("a48bfddc-3f62-48af-a780-a5ba492e6ebc", (*rune)(nil)), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		var x rune = 808449631
-		So(test.PutIfNotNil("ae903d13-c2b1-4fcb-bf4b-84998256e09a", &x), ShouldPointTo, test)
+		var x rune = 1734148692
+		So(test.PutIfNotNil("4b1fc80b-c510-4508-9f15-c345acf761ff", &x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 	})
@@ -177,16 +177,16 @@ func TestMapStringRune_PutIfNotNil(t *testing.T) {
 
 func TestMapStringRune_ReplaceIfExists(t *testing.T) {
 	Convey("TestMapStringRune.ReplaceIfExists", t, func() {
-		var k string = "56c0c9ca-631b-42c2-a9f7-89c1d54d4d6e"
-		var v rune = 107283001
-		var x rune = 1486795035
+		var k string = "6420f9b7-1870-4c7e-b639-592d683753a1"
+		var v rune = 1604181834
+		var x rune = 1945753449
 
 		test := omap.NewMapStringRune(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceIfExists("949c1261-45d5-4e2a-86f1-d88e4f946eb3", x), ShouldPointTo, test)
+		So(test.ReplaceIfExists("0b979742-6bc7-4cf1-8c64-43200ac2d387", x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
@@ -198,16 +198,16 @@ func TestMapStringRune_ReplaceIfExists(t *testing.T) {
 
 func TestMapStringRune_ReplaceOrPut(t *testing.T) {
 	Convey("TestMapStringRune.ReplaceOrPut", t, func() {
-		var k string = "713c8b81-91cc-4919-a2b3-ba37ff1d4cd9"
-		var v rune = 740188922
-		var x rune = 1296574855
+		var k string = "d75df9f3-25f9-4980-838d-fb58c6bd1e00"
+		var v rune = 997388694
+		var x rune = 352317810
 
 		test := omap.NewMapStringRune(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceOrPut("a88bc037-8d0b-4fd9-a3d8-c8ab48ea7a67", x), ShouldPointTo, test)
+		So(test.ReplaceOrPut("94aac99f-e9a1-4139-aa35-d498f4d2cd3e", x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 
@@ -219,8 +219,8 @@ func TestMapStringRune_ReplaceOrPut(t *testing.T) {
 
 func TestMapStringRune_MarshalJSON(t *testing.T) {
 	Convey("TestMapStringRune.MarshalJSON", t, func() {
-		var k string = "7b22848c-b1d9-4cd6-986f-afff28784222"
-		var v rune = 1840723318
+		var k string = "3b879928-bb8b-4f8a-9f18-3215eb2989a1"
+		var v rune = 1434240159
 
 		test := omap.NewMapStringRune(1)
 
@@ -229,7 +229,7 @@ func TestMapStringRune_MarshalJSON(t *testing.T) {
 
 		a, b := test.MarshalJSON()
 		So(b, ShouldBeNil)
-		So(string(a), ShouldEqual, `[{"key":"7b22848c-b1d9-4cd6-986f-afff28784222","value":1840723318}]`)
+		So(string(a), ShouldEqual, `[{"key":"3b879928-bb8b-4f8a-9f18-3215eb2989a1","value":1434240159}]`)
 	})
 }
 
