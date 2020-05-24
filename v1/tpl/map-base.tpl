@@ -80,11 +80,15 @@ type {{.Name}} interface {
 	ForEach(func(k {{.Key}}, v {{.Type}})) {{.Name}}
 }
 
+// {{.Name}}Entry is a single entry in an instance of
+// {{.Name}}.
 type {{.Name}}Entry struct {
 	Key {{.Key}}{{pad .Key .Type}} `json:"key"`
 	Val {{.Type}}{{pad .Type .Key}} `json:"value"`
 }
 
+// New{{.Name}} creates a new instance of {{.Name}} presized to the
+// given size.
 func New{{.Name}}(size int) {{.Name}} {
 	return &impl{{.Name}}{
 		ordered: make([]{{.Name}}Entry, 0, size),

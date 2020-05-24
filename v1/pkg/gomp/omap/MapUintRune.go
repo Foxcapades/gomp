@@ -76,11 +76,15 @@ type MapUintRune interface {
 	ForEach(func(k uint, v rune)) MapUintRune
 }
 
+// MapUintRuneEntry is a single entry in an instance of
+// MapUintRune.
 type MapUintRuneEntry struct {
 	Key uint `json:"key"`
 	Val rune `json:"value"`
 }
 
+// NewMapUintRune creates a new instance of MapUintRune presized to the
+// given size.
 func NewMapUintRune(size int) MapUintRune {
 	return &implMapUintRune{
 		ordered: make([]MapUintRuneEntry, 0, size),

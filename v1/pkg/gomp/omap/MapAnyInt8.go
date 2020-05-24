@@ -76,11 +76,15 @@ type MapAnyInt8 interface {
 	ForEach(func(k interface{}, v int8)) MapAnyInt8
 }
 
+// MapAnyInt8Entry is a single entry in an instance of
+// MapAnyInt8.
 type MapAnyInt8Entry struct {
 	Key interface{} `json:"key"`
 	Val int8        `json:"value"`
 }
 
+// NewMapAnyInt8 creates a new instance of MapAnyInt8 presized to the
+// given size.
 func NewMapAnyInt8(size int) MapAnyInt8 {
 	return &implMapAnyInt8{
 		ordered: make([]MapAnyInt8Entry, 0, size),

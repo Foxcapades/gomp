@@ -76,11 +76,15 @@ type MapAnyBool interface {
 	ForEach(func(k interface{}, v bool)) MapAnyBool
 }
 
+// MapAnyBoolEntry is a single entry in an instance of
+// MapAnyBool.
 type MapAnyBoolEntry struct {
 	Key interface{} `json:"key"`
 	Val bool        `json:"value"`
 }
 
+// NewMapAnyBool creates a new instance of MapAnyBool presized to the
+// given size.
 func NewMapAnyBool(size int) MapAnyBool {
 	return &implMapAnyBool{
 		ordered: make([]MapAnyBoolEntry, 0, size),

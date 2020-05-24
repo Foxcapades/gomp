@@ -76,11 +76,15 @@ type MapAnyFloat32 interface {
 	ForEach(func(k interface{}, v float32)) MapAnyFloat32
 }
 
+// MapAnyFloat32Entry is a single entry in an instance of
+// MapAnyFloat32.
 type MapAnyFloat32Entry struct {
 	Key interface{} `json:"key"`
 	Val float32     `json:"value"`
 }
 
+// NewMapAnyFloat32 creates a new instance of MapAnyFloat32 presized to the
+// given size.
 func NewMapAnyFloat32(size int) MapAnyFloat32 {
 	return &implMapAnyFloat32{
 		ordered: make([]MapAnyFloat32Entry, 0, size),

@@ -12,8 +12,8 @@ import (
 
 func TestMapAnyString_Put(t *testing.T) {
 	Convey("TestMapAnyString.Put", t, func() {
-		var k interface{} = "8853d749-29bb-480d-b1cd-77ecc8f39163"
-		var v string = "b17b0a82-6b21-46fc-b126-40e7648a6221"
+		var k interface{} = "9d8303a0-5b78-4970-9b93-d5029e3e5774"
+		var v string = "2b91c57e-744d-47c3-bc1d-7d20f84879af"
 
 		test := omap.NewMapAnyString(1)
 
@@ -26,8 +26,8 @@ func TestMapAnyString_Put(t *testing.T) {
 
 func TestMapAnyString_Delete(t *testing.T) {
 	Convey("TestMapAnyString.Delete", t, func() {
-		var k interface{} = "7677380c-b364-40ff-86e5-fba637aa13ba"
-		var v string = "2e6d8927-ec95-4e49-b573-fe52eff982e3"
+		var k interface{} = "b146ee6c-1c66-4f18-a7d3-dca41c5c5404"
+		var v string = "662df2c7-4188-4d9b-bb20-f60435917bd2"
 
 		test := omap.NewMapAnyString(1)
 
@@ -41,8 +41,8 @@ func TestMapAnyString_Delete(t *testing.T) {
 
 func TestMapAnyString_Has(t *testing.T) {
 	Convey("TestMapAnyString.Has", t, func() {
-		var k interface{} = "a928d51f-93df-414d-99d6-62b21dbaf35c"
-		var v string = "f0456c3e-6860-45bf-8359-733bbe2509bd"
+		var k interface{} = "b14cf434-37d2-4e6c-9a99-de454221a79c"
+		var v string = "ba2f6a59-8348-46c5-8b6f-af55621f6501"
 
 		test := omap.NewMapAnyString(1)
 
@@ -50,14 +50,14 @@ func TestMapAnyString_Has(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 
 		So(test.Has(k), ShouldBeTrue)
-		So(test.Has("aaedf5a2-2a51-405a-a0cb-c097004f58b8"+"31d02cc9-d2b9-4f6b-81cd-b59aacec6997"), ShouldBeFalse)
+		So(test.Has("3ec52925-c956-43aa-b6c9-fbee4e43cf90"+"9ffc101b-cc42-4fab-85ac-c22d2e160e98"), ShouldBeFalse)
 	})
 }
 
 func TestMapAnyString_Get(t *testing.T) {
 	Convey("TestMapAnyString.Get", t, func() {
-		var k interface{} = "501ee183-b448-4dfe-bf9e-9e073c1a247a"
-		var v string = "8c129dc7-62a4-43a2-8b9e-fa03cc7f92ee"
+		var k interface{} = "8a1f20c1-79eb-41ae-8187-2e2051007c24"
+		var v string = "3b072e46-55a0-44b2-b0b8-aa5cae1daa41"
 
 		test := omap.NewMapAnyString(1)
 
@@ -68,15 +68,15 @@ func TestMapAnyString_Get(t *testing.T) {
 		So(b, ShouldBeTrue)
 		So(a, ShouldEqual, v)
 
-		a, b = test.Get("36a1a903-d578-48b7-9317-a17a3558ed6d" + "0cd1fa28-e840-4c49-af22-9546292253f0")
+		_, b = test.Get("f4386169-9c98-41c6-af0e-d23a776de411" + "1bde3f4b-f9f0-4de0-af84-7ec80402b25b")
 		So(b, ShouldBeFalse)
 	})
 }
 
 func TestMapAnyString_GetOpt(t *testing.T) {
 	Convey("TestMapAnyString.GetOpt", t, func() {
-		var k interface{} = "f6bff88a-1fba-4ff7-b517-7b16867743d6"
-		var v string = "5ac67f82-45de-4571-b3af-30f661866bf6"
+		var k interface{} = "73e952c7-6c16-4869-80c5-c286f99dd6e1"
+		var v string = "5f4f6c4c-c951-41e6-b644-b1feba0061fd"
 
 		test := omap.NewMapAnyString(1)
 
@@ -87,15 +87,15 @@ func TestMapAnyString_GetOpt(t *testing.T) {
 		So(a.IsPresent(), ShouldBeTrue)
 		So(a.Get(), ShouldEqual, v)
 
-		a = test.GetOpt("8bd48e56-7e3b-4df2-a63c-c5636239820f" + "38da2584-9d0e-4f7d-a114-31957558e99e")
+		a = test.GetOpt("8db560db-1bd3-44d5-9834-7d6c2e64d800" + "797f5271-b0f4-4743-99c9-fe4284ecc1db")
 		So(a.IsNil(), ShouldBeTrue)
 	})
 }
 
 func TestMapAnyString_ForEach(t *testing.T) {
 	Convey("TestMapAnyString.ForEach", t, func() {
-		var k interface{} = "18c3e9ba-1e22-4dab-b458-86fe2eef440c"
-		var v string = "4f868f22-dcc2-4531-a87a-bd1784c32593"
+		var k interface{} = "dbaaf82f-1800-4e8f-a7e0-a4babe037789"
+		var v string = "e092f6fa-75cd-48ff-8e6a-62c3963c2d90"
 		hits := 0
 
 		test := omap.NewMapAnyString(1)
@@ -114,8 +114,8 @@ func TestMapAnyString_ForEach(t *testing.T) {
 
 func TestMapAnyString_MarshalYAML(t *testing.T) {
 	Convey("TestMapAnyString.MarshalYAML", t, func() {
-		var k interface{} = "3a9a5d19-0523-449b-ace3-1e0828be2d60"
-		var v string = "520ac68b-d020-4863-83b0-276f8b550eca"
+		var k interface{} = "1d7db717-867e-4c11-b794-771d062ac9c6"
+		var v string = "124fb673-c2e3-493f-8c2c-ad0ba9dc7d3f"
 
 		test := omap.NewMapAnyString(1)
 
@@ -134,8 +134,8 @@ func TestMapAnyString_MarshalYAML(t *testing.T) {
 
 func TestMapAnyString_ToYAML(t *testing.T) {
 	Convey("TestMapAnyString.ToYAML", t, func() {
-		var k interface{} = "b54b7575-7f38-40eb-984c-2663d9f0f76e"
-		var v string = "a907bdbe-3ae9-49bd-b17a-425de885db1a"
+		var k interface{} = "99ca1992-e142-47c1-91eb-7c2185155a28"
+		var v string = "0cc7165a-509a-4f42-b4a7-4e056497e5aa"
 
 		test := omap.NewMapAnyString(1)
 
@@ -152,8 +152,8 @@ func TestMapAnyString_ToYAML(t *testing.T) {
 
 func TestMapAnyString_PutIfNotNil(t *testing.T) {
 	Convey("TestMapAnyString.PutIfNotNil", t, func() {
-		var k interface{} = "48c61952-2a66-4bf4-8b84-53426b9622ab"
-		var v string = "700e3bfe-0263-4331-b7f6-e1774324b1ab"
+		var k interface{} = "11aff3b5-614f-4107-9447-cd416b5f953e"
+		var v string = "c5f6c239-9587-48f7-85c3-87b7c8e16073"
 
 		test := omap.NewMapAnyString(1)
 
@@ -164,11 +164,11 @@ func TestMapAnyString_PutIfNotNil(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
-		So(test.PutIfNotNil("17c21e2e-39fa-462d-a99b-95342b71e083", (*string)(nil)), ShouldPointTo, test)
+		So(test.PutIfNotNil("56d78e21-8930-4927-ab8f-4357c4603536", (*string)(nil)), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		var x string = "46e52cd1-4cce-4cdc-ad41-95c2fdcec37a"
-		So(test.PutIfNotNil("c9a34da9-ebbf-4e41-a93f-64cef98ba263", &x), ShouldPointTo, test)
+		var x string = "da3dd523-2929-4990-a827-ca957ebca112"
+		So(test.PutIfNotNil("a327d219-0435-43e7-9309-e9aec4fe83de", &x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 	})
@@ -176,16 +176,16 @@ func TestMapAnyString_PutIfNotNil(t *testing.T) {
 
 func TestMapAnyString_ReplaceIfExists(t *testing.T) {
 	Convey("TestMapAnyString.ReplaceIfExists", t, func() {
-		var k interface{} = "84f2f797-d799-4eca-be7e-897ca1f30215"
-		var v string = "f2f3310b-e54a-455b-bb4f-829d9ef7ec1f"
-		var x string = "22e00862-6fec-4a34-b01e-feaa9213cb3f"
+		var k interface{} = "d3bba0c4-bb7f-4a9e-9c51-246ebf89c65f"
+		var v string = "1d3aabd0-a508-46e4-ad35-38b4d6ba6008"
+		var x string = "9cbd3233-5c9b-4282-b5c5-9caaf3d74883"
 
 		test := omap.NewMapAnyString(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceIfExists("a71bf403-bdf3-4a39-aa6e-738ea94f571b", x), ShouldPointTo, test)
+		So(test.ReplaceIfExists("5b5a2e5f-bb6b-4edd-b813-85cdefb453f2", x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
@@ -197,16 +197,16 @@ func TestMapAnyString_ReplaceIfExists(t *testing.T) {
 
 func TestMapAnyString_ReplaceOrPut(t *testing.T) {
 	Convey("TestMapAnyString.ReplaceOrPut", t, func() {
-		var k interface{} = "46e74e1a-62e7-4901-be07-a981b0cc686d"
-		var v string = "7074c51a-9e71-46ae-96c4-f34cd09044fa"
-		var x string = "13c8ed85-c0f8-4084-a051-9cbf02a24b5a"
+		var k interface{} = "cee31b81-f34d-4ad0-adbb-2508bbb8168f"
+		var v string = "c7ea8c32-a4db-405b-9b30-87a1926c7e0d"
+		var x string = "e4d8316a-0f86-47d8-8c04-36af32ecc80a"
 
 		test := omap.NewMapAnyString(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceOrPut("a0b78e88-80a5-49a7-a166-8d8f0ffe9e8b", x), ShouldPointTo, test)
+		So(test.ReplaceOrPut("4780c2af-1aef-4748-bb89-14b08a64e66b", x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 
@@ -218,8 +218,8 @@ func TestMapAnyString_ReplaceOrPut(t *testing.T) {
 
 func TestMapAnyString_MarshalJSON(t *testing.T) {
 	Convey("TestMapAnyString.MarshalJSON", t, func() {
-		var k interface{} = "72e56da0-a74e-41d7-92a3-fcc0c0685a56"
-		var v string = "ba64c1f1-53b9-4795-8cb4-7b837ce92ef6"
+		var k interface{} = "55492c22-0b54-4ad1-9a7e-8fbd09214612"
+		var v string = "4a17fde1-e874-4f17-8318-37761dfb1e48"
 
 		test := omap.NewMapAnyString(1)
 
@@ -228,6 +228,6 @@ func TestMapAnyString_MarshalJSON(t *testing.T) {
 
 		a, b := test.MarshalJSON()
 		So(b, ShouldBeNil)
-		So(string(a), ShouldEqual, `[{"key":"72e56da0-a74e-41d7-92a3-fcc0c0685a56","value":"ba64c1f1-53b9-4795-8cb4-7b837ce92ef6"}]`)
+		So(string(a), ShouldEqual, `[{"key":"55492c22-0b54-4ad1-9a7e-8fbd09214612","value":"4a17fde1-e874-4f17-8318-37761dfb1e48"}]`)
 	})
 }

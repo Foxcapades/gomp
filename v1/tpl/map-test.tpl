@@ -70,7 +70,7 @@ func Test{{.Name}}_Get(t *testing.T) {
 		So(b, ShouldBeTrue)
 		So(a, ShouldEqual, v)
 
-		a, b = test.Get({{defVal .Key}} + {{defVal .Key}})
+		_, b = test.Get({{defVal .Key}} + {{defVal .Key}})
 		So(b, ShouldBeFalse)
 	})
 }

@@ -76,11 +76,15 @@ type MapUintByte interface {
 	ForEach(func(k uint, v byte)) MapUintByte
 }
 
+// MapUintByteEntry is a single entry in an instance of
+// MapUintByte.
 type MapUintByteEntry struct {
 	Key uint `json:"key"`
 	Val byte `json:"value"`
 }
 
+// NewMapUintByte creates a new instance of MapUintByte presized to the
+// given size.
 func NewMapUintByte(size int) MapUintByte {
 	return &implMapUintByte{
 		ordered: make([]MapUintByteEntry, 0, size),

@@ -76,11 +76,15 @@ type MapIntUint16 interface {
 	ForEach(func(k int, v uint16)) MapIntUint16
 }
 
+// MapIntUint16Entry is a single entry in an instance of
+// MapIntUint16.
 type MapIntUint16Entry struct {
 	Key int    `json:"key"`
 	Val uint16 `json:"value"`
 }
 
+// NewMapIntUint16 creates a new instance of MapIntUint16 presized to the
+// given size.
 func NewMapIntUint16(size int) MapIntUint16 {
 	return &implMapIntUint16{
 		ordered: make([]MapIntUint16Entry, 0, size),

@@ -76,11 +76,15 @@ type MapStringByte interface {
 	ForEach(func(k string, v byte)) MapStringByte
 }
 
+// MapStringByteEntry is a single entry in an instance of
+// MapStringByte.
 type MapStringByteEntry struct {
 	Key string `json:"key"`
 	Val byte   `json:"value"`
 }
 
+// NewMapStringByte creates a new instance of MapStringByte presized to the
+// given size.
 func NewMapStringByte(size int) MapStringByte {
 	return &implMapStringByte{
 		ordered: make([]MapStringByteEntry, 0, size),

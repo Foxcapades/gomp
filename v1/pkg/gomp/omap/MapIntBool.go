@@ -76,11 +76,15 @@ type MapIntBool interface {
 	ForEach(func(k int, v bool)) MapIntBool
 }
 
+// MapIntBoolEntry is a single entry in an instance of
+// MapIntBool.
 type MapIntBoolEntry struct {
 	Key int  `json:"key"`
 	Val bool `json:"value"`
 }
 
+// NewMapIntBool creates a new instance of MapIntBool presized to the
+// given size.
 func NewMapIntBool(size int) MapIntBool {
 	return &implMapIntBool{
 		ordered: make([]MapIntBoolEntry, 0, size),

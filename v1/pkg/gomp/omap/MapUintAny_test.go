@@ -12,8 +12,8 @@ import (
 
 func TestMapUintAny_Put(t *testing.T) {
 	Convey("TestMapUintAny.Put", t, func() {
-		var k uint = 3917287802
-		var v interface{} = "efa607f8-426e-44c9-8fbf-3d72844835b9"
+		var k uint = 151746108
+		var v interface{} = "79a798c5-ef27-40cc-a0ba-872758ff5eb7"
 
 		test := omap.NewMapUintAny(1)
 
@@ -26,8 +26,8 @@ func TestMapUintAny_Put(t *testing.T) {
 
 func TestMapUintAny_Delete(t *testing.T) {
 	Convey("TestMapUintAny.Delete", t, func() {
-		var k uint = 4161162692
-		var v interface{} = "caf36f04-517b-4e6e-a20d-808073d5dfd9"
+		var k uint = 3931238617
+		var v interface{} = "232aa85f-a818-4669-b4ea-a748aecc78cf"
 
 		test := omap.NewMapUintAny(1)
 
@@ -41,8 +41,8 @@ func TestMapUintAny_Delete(t *testing.T) {
 
 func TestMapUintAny_Has(t *testing.T) {
 	Convey("TestMapUintAny.Has", t, func() {
-		var k uint = 2453184314
-		var v interface{} = "8f93d60a-2792-48f0-bc14-6ee09551782b"
+		var k uint = 370170447
+		var v interface{} = "ef4602a6-6de9-451c-96a2-42a0e3cebe86"
 
 		test := omap.NewMapUintAny(1)
 
@@ -50,14 +50,14 @@ func TestMapUintAny_Has(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 
 		So(test.Has(k), ShouldBeTrue)
-		So(test.Has(1516083343+17774235), ShouldBeFalse)
+		So(test.Has(3257495364+1903072760), ShouldBeFalse)
 	})
 }
 
 func TestMapUintAny_Get(t *testing.T) {
 	Convey("TestMapUintAny.Get", t, func() {
-		var k uint = 1755730072
-		var v interface{} = "7832a093-d806-4fed-a250-11e04c920582"
+		var k uint = 818947736
+		var v interface{} = "3845af22-4642-47ff-8e67-ef392d30dbb7"
 
 		test := omap.NewMapUintAny(1)
 
@@ -68,15 +68,15 @@ func TestMapUintAny_Get(t *testing.T) {
 		So(b, ShouldBeTrue)
 		So(a, ShouldEqual, v)
 
-		a, b = test.Get(1530255009 + 9355777)
+		_, b = test.Get(3449447239 + 2663380057)
 		So(b, ShouldBeFalse)
 	})
 }
 
 func TestMapUintAny_GetOpt(t *testing.T) {
 	Convey("TestMapUintAny.GetOpt", t, func() {
-		var k uint = 1248437310
-		var v interface{} = "81f3fb68-ad2d-48f1-b749-3e6b42f5142f"
+		var k uint = 1230941462
+		var v interface{} = "fa44ae8e-f41d-4b89-af85-d30339173e91"
 
 		test := omap.NewMapUintAny(1)
 
@@ -87,15 +87,15 @@ func TestMapUintAny_GetOpt(t *testing.T) {
 		So(a.IsPresent(), ShouldBeTrue)
 		So(a.Get(), ShouldEqual, v)
 
-		a = test.GetOpt(1066832964 + 404055303)
+		a = test.GetOpt(3435842879 + 1971203250)
 		So(a.IsNil(), ShouldBeTrue)
 	})
 }
 
 func TestMapUintAny_ForEach(t *testing.T) {
 	Convey("TestMapUintAny.ForEach", t, func() {
-		var k uint = 1170646042
-		var v interface{} = "6a01d363-97e2-4e1a-b7f6-ec24e385ae39"
+		var k uint = 3402666314
+		var v interface{} = "bff3c711-1acb-406d-a37a-4a89b9020724"
 		hits := 0
 
 		test := omap.NewMapUintAny(1)
@@ -114,8 +114,8 @@ func TestMapUintAny_ForEach(t *testing.T) {
 
 func TestMapUintAny_MarshalYAML(t *testing.T) {
 	Convey("TestMapUintAny.MarshalYAML", t, func() {
-		var k uint = 381534437
-		var v interface{} = "08441384-8b77-41c2-afd8-b255731addc2"
+		var k uint = 3037588673
+		var v interface{} = "2f330a74-b5fc-4cae-ad20-7d6c0c570db5"
 
 		test := omap.NewMapUintAny(1)
 
@@ -134,8 +134,8 @@ func TestMapUintAny_MarshalYAML(t *testing.T) {
 
 func TestMapUintAny_ToYAML(t *testing.T) {
 	Convey("TestMapUintAny.ToYAML", t, func() {
-		var k uint = 668340015
-		var v interface{} = "7168be5a-c47c-4a0a-b26d-fc59be151cbb"
+		var k uint = 1361531495
+		var v interface{} = "b1d8534b-bb27-4392-a234-09f9a3b4d949"
 
 		test := omap.NewMapUintAny(1)
 
@@ -152,8 +152,8 @@ func TestMapUintAny_ToYAML(t *testing.T) {
 
 func TestMapUintAny_PutIfNotNil(t *testing.T) {
 	Convey("TestMapUintAny.PutIfNotNil", t, func() {
-		var k uint = 1939383837
-		var v interface{} = "01ee8687-0a4e-4f7d-b1c3-79833b04ac4d"
+		var k uint = 3619196893
+		var v interface{} = "aeea46ce-a3cd-4709-9def-7351ca1c3038"
 
 		test := omap.NewMapUintAny(1)
 
@@ -164,11 +164,11 @@ func TestMapUintAny_PutIfNotNil(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
-		So(test.PutIfNotNil(4108562536, (*interface{})(nil)), ShouldPointTo, test)
+		So(test.PutIfNotNil(2097723908, (*interface{})(nil)), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		var x interface{} = "46924646-416c-4f00-a2b2-43510baf3071"
-		So(test.PutIfNotNil(4013707384, &x), ShouldPointTo, test)
+		var x interface{} = "a729692e-80ff-48d7-bca2-cc7c8119a2be"
+		So(test.PutIfNotNil(3049561793, &x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 	})
@@ -176,16 +176,16 @@ func TestMapUintAny_PutIfNotNil(t *testing.T) {
 
 func TestMapUintAny_ReplaceIfExists(t *testing.T) {
 	Convey("TestMapUintAny.ReplaceIfExists", t, func() {
-		var k uint = 3290799376
-		var v interface{} = "1cf78b67-9c03-4ce4-a903-fc8bb8c128f3"
-		var x interface{} = "1c478167-86c3-4f8d-8485-7b2129aa7968"
+		var k uint = 2209404738
+		var v interface{} = "bca7ac04-263a-4b1f-927a-99f46956ad88"
+		var x interface{} = "da3c3330-a554-422f-9798-a09438369365"
 
 		test := omap.NewMapUintAny(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceIfExists(3379131346, x), ShouldPointTo, test)
+		So(test.ReplaceIfExists(4292657844, x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
@@ -197,16 +197,16 @@ func TestMapUintAny_ReplaceIfExists(t *testing.T) {
 
 func TestMapUintAny_ReplaceOrPut(t *testing.T) {
 	Convey("TestMapUintAny.ReplaceOrPut", t, func() {
-		var k uint = 2088417659
-		var v interface{} = "cd2e0b1a-3c32-4323-84bb-a137ffec4ff1"
-		var x interface{} = "d8496485-2498-4588-9f9b-db12bc5cbd90"
+		var k uint = 119577303
+		var v interface{} = "c53280a2-9b84-4a5c-b777-8b9855a9288c"
+		var x interface{} = "d9ffdc95-06dd-45c7-b7bc-a3d499aa163d"
 
 		test := omap.NewMapUintAny(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceOrPut(3127416620, x), ShouldPointTo, test)
+		So(test.ReplaceOrPut(3183805263, x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 
@@ -218,8 +218,8 @@ func TestMapUintAny_ReplaceOrPut(t *testing.T) {
 
 func TestMapUintAny_MarshalJSON(t *testing.T) {
 	Convey("TestMapUintAny.MarshalJSON", t, func() {
-		var k uint = 3230668779
-		var v interface{} = "fd08e10d-7615-4d59-aeb4-de2658b33b58"
+		var k uint = 3701789742
+		var v interface{} = "5cbc0d01-21b5-4982-9551-2dbfb3d96ded"
 
 		test := omap.NewMapUintAny(1)
 
@@ -228,6 +228,6 @@ func TestMapUintAny_MarshalJSON(t *testing.T) {
 
 		a, b := test.MarshalJSON()
 		So(b, ShouldBeNil)
-		So(string(a), ShouldEqual, `[{"key":3230668779,"value":"fd08e10d-7615-4d59-aeb4-de2658b33b58"}]`)
+		So(string(a), ShouldEqual, `[{"key":3701789742,"value":"5cbc0d01-21b5-4982-9551-2dbfb3d96ded"}]`)
 	})
 }
