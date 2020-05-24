@@ -76,8 +76,8 @@ type MapAnyString interface {
 }
 
 type MapAnyStringEntry struct {
-	Key interface{}  `json:"key"`
-	Val string `json:"value"`
+	Key interface{} `json:"key"`
+	Val string      `json:"value"`
 }
 
 func NewMapAnyString(size int) MapAnyString {
@@ -93,15 +93,15 @@ type implMapAnyString struct {
 	index   map[interface{}]string
 }
 
-func (i implMapAnyString) MarshalYAML() (interface{},  error) {
+func (i implMapAnyString) MarshalYAML() (interface{}, error) {
 	return i.ToYAML()
 }
 
-func (i implMapAnyString) MarshalJSON() ([]byte,  error) {
+func (i implMapAnyString) MarshalJSON() ([]byte, error) {
 	return json.Marshal(i.ordered)
 }
 
-func (i *implMapAnyString) ToYAML() (*yaml.Node,  error) {
+func (i *implMapAnyString) ToYAML() (*yaml.Node, error) {
 	out := xyml.NewOrderedMapNode(i.Len())
 
 	for j := range i.ordered {

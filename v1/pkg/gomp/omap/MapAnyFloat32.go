@@ -76,8 +76,8 @@ type MapAnyFloat32 interface {
 }
 
 type MapAnyFloat32Entry struct {
-	Key interface{}  `json:"key"`
-	Val float32 `json:"value"`
+	Key interface{} `json:"key"`
+	Val float32     `json:"value"`
 }
 
 func NewMapAnyFloat32(size int) MapAnyFloat32 {
@@ -93,15 +93,15 @@ type implMapAnyFloat32 struct {
 	index   map[interface{}]float32
 }
 
-func (i implMapAnyFloat32) MarshalYAML() (interface{},  error) {
+func (i implMapAnyFloat32) MarshalYAML() (interface{}, error) {
 	return i.ToYAML()
 }
 
-func (i implMapAnyFloat32) MarshalJSON() ([]byte,  error) {
+func (i implMapAnyFloat32) MarshalJSON() ([]byte, error) {
 	return json.Marshal(i.ordered)
 }
 
-func (i *implMapAnyFloat32) ToYAML() (*yaml.Node,  error) {
+func (i *implMapAnyFloat32) ToYAML() (*yaml.Node, error) {
 	out := xyml.NewOrderedMapNode(i.Len())
 
 	for j := range i.ordered {

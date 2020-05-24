@@ -93,15 +93,15 @@ type implMapIntUint struct {
 	index   map[int]uint
 }
 
-func (i implMapIntUint) MarshalYAML() (interface{},  error) {
+func (i implMapIntUint) MarshalYAML() (interface{}, error) {
 	return i.ToYAML()
 }
 
-func (i implMapIntUint) MarshalJSON() ([]byte,  error) {
+func (i implMapIntUint) MarshalJSON() ([]byte, error) {
 	return json.Marshal(i.ordered)
 }
 
-func (i *implMapIntUint) ToYAML() (*yaml.Node,  error) {
+func (i *implMapIntUint) ToYAML() (*yaml.Node, error) {
 	out := xyml.NewOrderedMapNode(i.Len())
 
 	for j := range i.ordered {

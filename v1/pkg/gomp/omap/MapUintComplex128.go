@@ -76,7 +76,7 @@ type MapUintComplex128 interface {
 }
 
 type MapUintComplex128Entry struct {
-	Key uint  `json:"key"`
+	Key uint       `json:"key"`
 	Val complex128 `json:"value"`
 }
 
@@ -93,15 +93,15 @@ type implMapUintComplex128 struct {
 	index   map[uint]complex128
 }
 
-func (i implMapUintComplex128) MarshalYAML() (interface{},  error) {
+func (i implMapUintComplex128) MarshalYAML() (interface{}, error) {
 	return i.ToYAML()
 }
 
-func (i implMapUintComplex128) MarshalJSON() ([]byte,  error) {
+func (i implMapUintComplex128) MarshalJSON() ([]byte, error) {
 	return json.Marshal(i.ordered)
 }
 
-func (i *implMapUintComplex128) ToYAML() (*yaml.Node,  error) {
+func (i *implMapUintComplex128) ToYAML() (*yaml.Node, error) {
 	out := xyml.NewOrderedMapNode(i.Len())
 
 	for j := range i.ordered {

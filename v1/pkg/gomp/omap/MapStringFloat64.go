@@ -93,15 +93,15 @@ type implMapStringFloat64 struct {
 	index   map[string]float64
 }
 
-func (i implMapStringFloat64) MarshalYAML() (interface{},  error) {
+func (i implMapStringFloat64) MarshalYAML() (interface{}, error) {
 	return i.ToYAML()
 }
 
-func (i implMapStringFloat64) MarshalJSON() ([]byte,  error) {
+func (i implMapStringFloat64) MarshalJSON() ([]byte, error) {
 	return json.Marshal(i.ordered)
 }
 
-func (i *implMapStringFloat64) ToYAML() (*yaml.Node,  error) {
+func (i *implMapStringFloat64) ToYAML() (*yaml.Node, error) {
 	out := xyml.NewOrderedMapNode(i.Len())
 
 	for j := range i.ordered {

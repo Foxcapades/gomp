@@ -76,8 +76,8 @@ type MapAnyRune interface {
 }
 
 type MapAnyRuneEntry struct {
-	Key interface{}  `json:"key"`
-	Val rune `json:"value"`
+	Key interface{} `json:"key"`
+	Val rune        `json:"value"`
 }
 
 func NewMapAnyRune(size int) MapAnyRune {
@@ -93,15 +93,15 @@ type implMapAnyRune struct {
 	index   map[interface{}]rune
 }
 
-func (i implMapAnyRune) MarshalYAML() (interface{},  error) {
+func (i implMapAnyRune) MarshalYAML() (interface{}, error) {
 	return i.ToYAML()
 }
 
-func (i implMapAnyRune) MarshalJSON() ([]byte,  error) {
+func (i implMapAnyRune) MarshalJSON() ([]byte, error) {
 	return json.Marshal(i.ordered)
 }
 
-func (i *implMapAnyRune) ToYAML() (*yaml.Node,  error) {
+func (i *implMapAnyRune) ToYAML() (*yaml.Node, error) {
 	out := xyml.NewOrderedMapNode(i.Len())
 
 	for j := range i.ordered {

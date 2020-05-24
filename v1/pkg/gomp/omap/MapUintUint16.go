@@ -76,7 +76,7 @@ type MapUintUint16 interface {
 }
 
 type MapUintUint16Entry struct {
-	Key uint  `json:"key"`
+	Key uint   `json:"key"`
 	Val uint16 `json:"value"`
 }
 
@@ -93,15 +93,15 @@ type implMapUintUint16 struct {
 	index   map[uint]uint16
 }
 
-func (i implMapUintUint16) MarshalYAML() (interface{},  error) {
+func (i implMapUintUint16) MarshalYAML() (interface{}, error) {
 	return i.ToYAML()
 }
 
-func (i implMapUintUint16) MarshalJSON() ([]byte,  error) {
+func (i implMapUintUint16) MarshalJSON() ([]byte, error) {
 	return json.Marshal(i.ordered)
 }
 
-func (i *implMapUintUint16) ToYAML() (*yaml.Node,  error) {
+func (i *implMapUintUint16) ToYAML() (*yaml.Node, error) {
 	out := xyml.NewOrderedMapNode(i.Len())
 
 	for j := range i.ordered {

@@ -76,7 +76,7 @@ type MapUintByte interface {
 }
 
 type MapUintByteEntry struct {
-	Key uint  `json:"key"`
+	Key uint `json:"key"`
 	Val byte `json:"value"`
 }
 
@@ -93,15 +93,15 @@ type implMapUintByte struct {
 	index   map[uint]byte
 }
 
-func (i implMapUintByte) MarshalYAML() (interface{},  error) {
+func (i implMapUintByte) MarshalYAML() (interface{}, error) {
 	return i.ToYAML()
 }
 
-func (i implMapUintByte) MarshalJSON() ([]byte,  error) {
+func (i implMapUintByte) MarshalJSON() ([]byte, error) {
 	return json.Marshal(i.ordered)
 }
 
-func (i *implMapUintByte) ToYAML() (*yaml.Node,  error) {
+func (i *implMapUintByte) ToYAML() (*yaml.Node, error) {
 	out := xyml.NewOrderedMapNode(i.Len())
 
 	for j := range i.ordered {

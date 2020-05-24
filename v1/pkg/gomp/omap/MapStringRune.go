@@ -76,8 +76,8 @@ type MapStringRune interface {
 }
 
 type MapStringRuneEntry struct {
-	Key string  `json:"key"`
-	Val rune `json:"value"`
+	Key string `json:"key"`
+	Val rune   `json:"value"`
 }
 
 func NewMapStringRune(size int) MapStringRune {
@@ -93,15 +93,15 @@ type implMapStringRune struct {
 	index   map[string]rune
 }
 
-func (i implMapStringRune) MarshalYAML() (interface{},  error) {
+func (i implMapStringRune) MarshalYAML() (interface{}, error) {
 	return i.ToYAML()
 }
 
-func (i implMapStringRune) MarshalJSON() ([]byte,  error) {
+func (i implMapStringRune) MarshalJSON() ([]byte, error) {
 	return json.Marshal(i.ordered)
 }
 
-func (i *implMapStringRune) ToYAML() (*yaml.Node,  error) {
+func (i *implMapStringRune) ToYAML() (*yaml.Node, error) {
 	out := xyml.NewOrderedMapNode(i.Len())
 
 	for j := range i.ordered {

@@ -76,8 +76,8 @@ type MapAnyBool interface {
 }
 
 type MapAnyBoolEntry struct {
-	Key interface{}  `json:"key"`
-	Val bool `json:"value"`
+	Key interface{} `json:"key"`
+	Val bool        `json:"value"`
 }
 
 func NewMapAnyBool(size int) MapAnyBool {
@@ -93,15 +93,15 @@ type implMapAnyBool struct {
 	index   map[interface{}]bool
 }
 
-func (i implMapAnyBool) MarshalYAML() (interface{},  error) {
+func (i implMapAnyBool) MarshalYAML() (interface{}, error) {
 	return i.ToYAML()
 }
 
-func (i implMapAnyBool) MarshalJSON() ([]byte,  error) {
+func (i implMapAnyBool) MarshalJSON() ([]byte, error) {
 	return json.Marshal(i.ordered)
 }
 
-func (i *implMapAnyBool) ToYAML() (*yaml.Node,  error) {
+func (i *implMapAnyBool) ToYAML() (*yaml.Node, error) {
 	out := xyml.NewOrderedMapNode(i.Len())
 
 	for j := range i.ordered {

@@ -34,7 +34,7 @@ func main() {
 			def.Package = config.Package
 			def.Key = mp.Key
 
-			iFile, err := os.Create(path.Join(config.Dir, def.Name + ".go"))
+			iFile, err := os.Create(path.Join(config.Dir, def.Name+".go"))
 			if err != nil {
 				panic(err)
 			}

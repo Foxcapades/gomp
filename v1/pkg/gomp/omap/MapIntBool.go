@@ -93,15 +93,15 @@ type implMapIntBool struct {
 	index   map[int]bool
 }
 
-func (i implMapIntBool) MarshalYAML() (interface{},  error) {
+func (i implMapIntBool) MarshalYAML() (interface{}, error) {
 	return i.ToYAML()
 }
 
-func (i implMapIntBool) MarshalJSON() ([]byte,  error) {
+func (i implMapIntBool) MarshalJSON() ([]byte, error) {
 	return json.Marshal(i.ordered)
 }
 
-func (i *implMapIntBool) ToYAML() (*yaml.Node,  error) {
+func (i *implMapIntBool) ToYAML() (*yaml.Node, error) {
 	out := xyml.NewOrderedMapNode(i.Len())
 
 	for j := range i.ordered {

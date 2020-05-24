@@ -93,15 +93,15 @@ type implMapIntRune struct {
 	index   map[int]rune
 }
 
-func (i implMapIntRune) MarshalYAML() (interface{},  error) {
+func (i implMapIntRune) MarshalYAML() (interface{}, error) {
 	return i.ToYAML()
 }
 
-func (i implMapIntRune) MarshalJSON() ([]byte,  error) {
+func (i implMapIntRune) MarshalJSON() ([]byte, error) {
 	return json.Marshal(i.ordered)
 }
 
-func (i *implMapIntRune) ToYAML() (*yaml.Node,  error) {
+func (i *implMapIntRune) ToYAML() (*yaml.Node, error) {
 	out := xyml.NewOrderedMapNode(i.Len())
 
 	for j := range i.ordered {
