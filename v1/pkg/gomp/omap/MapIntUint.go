@@ -3,7 +3,6 @@ package omap
 import (
 	"encoding/json"
 
-	"github.com/Foxcapades/gomp/v1/internal/util"
 	"github.com/Foxcapades/goop/v1/pkg/option"
 	"github.com/Foxcapades/lib-go-yaml/v1/pkg/xyml"
 	"gopkg.in/yaml.v3"
@@ -127,7 +126,7 @@ func (i *implMapIntUint) Put(k int, v uint) MapIntUint {
 }
 
 func (i *implMapIntUint) PutIfNotNil(k int, v *uint) MapIntUint {
-	if !util.IsNil(v) {
+	if !IsNil(v) {
 		return i.Put(k, *v)
 	}
 

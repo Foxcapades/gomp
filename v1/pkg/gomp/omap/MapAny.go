@@ -3,7 +3,6 @@ package omap
 import (
 	"encoding/json"
 
-	"github.com/Foxcapades/gomp/v1/internal/util"
 	"github.com/Foxcapades/goop/v1/pkg/option"
 	"github.com/Foxcapades/lib-go-yaml/v1/pkg/xyml"
 	"gopkg.in/yaml.v3"
@@ -127,8 +126,8 @@ func (i *implMapAny) Put(k interface{}, v interface{}) MapAny {
 }
 
 func (i *implMapAny) PutIfNotNil(k interface{}, v interface{}) MapAny {
-	if !util.IsNil(v) {
-		return i.Put(k, util.Deref(v))
+	if !IsNil(v) {
+		return i.Put(k, Deref(v))
 	}
 
 	return i
