@@ -12,8 +12,8 @@ import (
 
 func TestMapUintRune_Put(t *testing.T) {
 	Convey("TestMapUintRune.Put", t, func() {
-		var k uint = 1825904777
-		var v rune = 252743517
+		var k uint = 1695110748
+		var v rune = 1521637524
 
 		test := omap.NewMapUintRune(1)
 
@@ -26,8 +26,8 @@ func TestMapUintRune_Put(t *testing.T) {
 
 func TestMapUintRune_Delete(t *testing.T) {
 	Convey("TestMapUintRune.Delete", t, func() {
-		var k uint = 3785859146
-		var v rune = 1823986048
+		var k uint = 1450494209
+		var v rune = 16011128
 
 		test := omap.NewMapUintRune(1)
 
@@ -41,8 +41,8 @@ func TestMapUintRune_Delete(t *testing.T) {
 
 func TestMapUintRune_Has(t *testing.T) {
 	Convey("TestMapUintRune.Has", t, func() {
-		var k uint = 1124539014
-		var v rune = 439330996
+		var k uint = 1295458503
+		var v rune = 465983648
 
 		test := omap.NewMapUintRune(1)
 
@@ -50,14 +50,14 @@ func TestMapUintRune_Has(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 
 		So(test.Has(k), ShouldBeTrue)
-		So(test.Has(141215552+212151368), ShouldBeFalse)
+		So(test.Has(2567198735+659194763), ShouldBeFalse)
 	})
 }
 
 func TestMapUintRune_Get(t *testing.T) {
 	Convey("TestMapUintRune.Get", t, func() {
-		var k uint = 1779091673
-		var v rune = 641533566
+		var k uint = 1077341569
+		var v rune = 1892284059
 
 		test := omap.NewMapUintRune(1)
 
@@ -68,15 +68,15 @@ func TestMapUintRune_Get(t *testing.T) {
 		So(b, ShouldBeTrue)
 		So(a, ShouldEqual, v)
 
-		_, b = test.Get(2068886818 + 2173701827)
+		_, b = test.Get(1945109427 + 931146386)
 		So(b, ShouldBeFalse)
 	})
 }
 
 func TestMapUintRune_GetOpt(t *testing.T) {
 	Convey("TestMapUintRune.GetOpt", t, func() {
-		var k uint = 898591653
-		var v rune = 1710732878
+		var k uint = 3596990169
+		var v rune = 1576681560
 
 		test := omap.NewMapUintRune(1)
 
@@ -87,15 +87,15 @@ func TestMapUintRune_GetOpt(t *testing.T) {
 		So(a.IsPresent(), ShouldBeTrue)
 		So(a.Get(), ShouldEqual, v)
 
-		a = test.GetOpt(3855359294 + 72677934)
+		a = test.GetOpt(3258287079 + 1492961151)
 		So(a.IsNil(), ShouldBeTrue)
 	})
 }
 
 func TestMapUintRune_ForEach(t *testing.T) {
 	Convey("TestMapUintRune.ForEach", t, func() {
-		var k uint = 2915703806
-		var v rune = 25905604
+		var k uint = 984384265
+		var v rune = 451519044
 		hits := 0
 
 		test := omap.NewMapUintRune(1)
@@ -114,8 +114,8 @@ func TestMapUintRune_ForEach(t *testing.T) {
 
 func TestMapUintRune_MarshalYAML(t *testing.T) {
 	Convey("TestMapUintRune.MarshalYAML", t, func() {
-		var k uint = 746397902
-		var v rune = 507662796
+		var k uint = 1959180485
+		var v rune = 479365953
 
 		test := omap.NewMapUintRune(1)
 
@@ -134,8 +134,8 @@ func TestMapUintRune_MarshalYAML(t *testing.T) {
 
 func TestMapUintRune_ToYAML(t *testing.T) {
 	Convey("TestMapUintRune.ToYAML", t, func() {
-		var k uint = 732301300
-		var v rune = 439178895
+		var k uint = 2994217473
+		var v rune = 5692739
 
 		test := omap.NewMapUintRune(1)
 
@@ -144,16 +144,17 @@ func TestMapUintRune_ToYAML(t *testing.T) {
 
 		c, d := test.ToYAML()
 		So(d, ShouldBeNil)
-		So(c.Kind, ShouldEqual, yaml.MappingNode)
+		So(c.Kind, ShouldEqual, yaml.SequenceNode)
 		So(c.Tag, ShouldEqual, xyml.TagOrderedMap)
-		So(len(c.Content), ShouldEqual, 2)
+		So(len(c.Content), ShouldEqual, 1)
+		So(xyml.IsMap(c.Content[0]), ShouldBeTrue)
 	})
 }
 
 func TestMapUintRune_PutIfNotNil(t *testing.T) {
 	Convey("TestMapUintRune.PutIfNotNil", t, func() {
-		var k uint = 81301932
-		var v rune = 849370612
+		var k uint = 2398580335
+		var v rune = 1560787546
 
 		test := omap.NewMapUintRune(1)
 
@@ -164,11 +165,11 @@ func TestMapUintRune_PutIfNotNil(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
-		So(test.PutIfNotNil(2583661280, (*rune)(nil)), ShouldPointTo, test)
+		So(test.PutIfNotNil(2118991998, (*rune)(nil)), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		var x rune = 1739834215
-		So(test.PutIfNotNil(448462170, &x), ShouldPointTo, test)
+		var x rune = 1531977981
+		So(test.PutIfNotNil(3768894561, &x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 	})
@@ -176,16 +177,16 @@ func TestMapUintRune_PutIfNotNil(t *testing.T) {
 
 func TestMapUintRune_ReplaceIfExists(t *testing.T) {
 	Convey("TestMapUintRune.ReplaceIfExists", t, func() {
-		var k uint = 1545241026
-		var v rune = 1657579934
-		var x rune = 351111685
+		var k uint = 1997595459
+		var v rune = 401490240
+		var x rune = 220824240
 
 		test := omap.NewMapUintRune(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceIfExists(1227767514, x), ShouldPointTo, test)
+		So(test.ReplaceIfExists(2354190044, x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
@@ -197,16 +198,16 @@ func TestMapUintRune_ReplaceIfExists(t *testing.T) {
 
 func TestMapUintRune_ReplaceOrPut(t *testing.T) {
 	Convey("TestMapUintRune.ReplaceOrPut", t, func() {
-		var k uint = 2926230113
-		var v rune = 632545803
-		var x rune = 1834613898
+		var k uint = 298011763
+		var v rune = 784094500
+		var x rune = 1074106136
 
 		test := omap.NewMapUintRune(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceOrPut(188788365, x), ShouldPointTo, test)
+		So(test.ReplaceOrPut(3515415647, x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 
@@ -218,8 +219,8 @@ func TestMapUintRune_ReplaceOrPut(t *testing.T) {
 
 func TestMapUintRune_MarshalJSON(t *testing.T) {
 	Convey("TestMapUintRune.MarshalJSON", t, func() {
-		var k uint = 3987877137
-		var v rune = 219619281
+		var k uint = 2679471825
+		var v rune = 1608040931
 
 		test := omap.NewMapUintRune(1)
 
@@ -228,6 +229,6 @@ func TestMapUintRune_MarshalJSON(t *testing.T) {
 
 		a, b := test.MarshalJSON()
 		So(b, ShouldBeNil)
-		So(string(a), ShouldEqual, `[{"key":3987877137,"value":219619281}]`)
+		So(string(a), ShouldEqual, `[{"key":2679471825,"value":1608040931}]`)
 	})
 }

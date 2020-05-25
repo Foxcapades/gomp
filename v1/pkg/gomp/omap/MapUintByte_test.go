@@ -12,8 +12,8 @@ import (
 
 func TestMapUintByte_Put(t *testing.T) {
 	Convey("TestMapUintByte.Put", t, func() {
-		var k uint = 3625347560
-		var v byte = 110
+		var k uint = 3029708689
+		var v byte = 50
 
 		test := omap.NewMapUintByte(1)
 
@@ -26,8 +26,8 @@ func TestMapUintByte_Put(t *testing.T) {
 
 func TestMapUintByte_Delete(t *testing.T) {
 	Convey("TestMapUintByte.Delete", t, func() {
-		var k uint = 2014625142
-		var v byte = 171
+		var k uint = 940666820
+		var v byte = 113
 
 		test := omap.NewMapUintByte(1)
 
@@ -41,8 +41,8 @@ func TestMapUintByte_Delete(t *testing.T) {
 
 func TestMapUintByte_Has(t *testing.T) {
 	Convey("TestMapUintByte.Has", t, func() {
-		var k uint = 659630718
-		var v byte = 229
+		var k uint = 2933247987
+		var v byte = 154
 
 		test := omap.NewMapUintByte(1)
 
@@ -50,14 +50,14 @@ func TestMapUintByte_Has(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 
 		So(test.Has(k), ShouldBeTrue)
-		So(test.Has(300955015+1380137718), ShouldBeFalse)
+		So(test.Has(3011694699+1957027152), ShouldBeFalse)
 	})
 }
 
 func TestMapUintByte_Get(t *testing.T) {
 	Convey("TestMapUintByte.Get", t, func() {
-		var k uint = 2610406382
-		var v byte = 36
+		var k uint = 1687530262
+		var v byte = 66
 
 		test := omap.NewMapUintByte(1)
 
@@ -68,15 +68,15 @@ func TestMapUintByte_Get(t *testing.T) {
 		So(b, ShouldBeTrue)
 		So(a, ShouldEqual, v)
 
-		_, b = test.Get(126887127 + 750603779)
+		_, b = test.Get(2239488029 + 1923469425)
 		So(b, ShouldBeFalse)
 	})
 }
 
 func TestMapUintByte_GetOpt(t *testing.T) {
 	Convey("TestMapUintByte.GetOpt", t, func() {
-		var k uint = 461853813
-		var v byte = 181
+		var k uint = 1335137337
+		var v byte = 178
 
 		test := omap.NewMapUintByte(1)
 
@@ -87,15 +87,15 @@ func TestMapUintByte_GetOpt(t *testing.T) {
 		So(a.IsPresent(), ShouldBeTrue)
 		So(a.Get(), ShouldEqual, v)
 
-		a = test.GetOpt(3645050636 + 46730028)
+		a = test.GetOpt(794566991 + 1356127052)
 		So(a.IsNil(), ShouldBeTrue)
 	})
 }
 
 func TestMapUintByte_ForEach(t *testing.T) {
 	Convey("TestMapUintByte.ForEach", t, func() {
-		var k uint = 2409276409
-		var v byte = 254
+		var k uint = 1119281100
+		var v byte = 153
 		hits := 0
 
 		test := omap.NewMapUintByte(1)
@@ -114,8 +114,8 @@ func TestMapUintByte_ForEach(t *testing.T) {
 
 func TestMapUintByte_MarshalYAML(t *testing.T) {
 	Convey("TestMapUintByte.MarshalYAML", t, func() {
-		var k uint = 3349906760
-		var v byte = 10
+		var k uint = 1894749305
+		var v byte = 105
 
 		test := omap.NewMapUintByte(1)
 
@@ -134,8 +134,8 @@ func TestMapUintByte_MarshalYAML(t *testing.T) {
 
 func TestMapUintByte_ToYAML(t *testing.T) {
 	Convey("TestMapUintByte.ToYAML", t, func() {
-		var k uint = 3117904306
-		var v byte = 226
+		var k uint = 3146850437
+		var v byte = 197
 
 		test := omap.NewMapUintByte(1)
 
@@ -144,16 +144,17 @@ func TestMapUintByte_ToYAML(t *testing.T) {
 
 		c, d := test.ToYAML()
 		So(d, ShouldBeNil)
-		So(c.Kind, ShouldEqual, yaml.MappingNode)
+		So(c.Kind, ShouldEqual, yaml.SequenceNode)
 		So(c.Tag, ShouldEqual, xyml.TagOrderedMap)
-		So(len(c.Content), ShouldEqual, 2)
+		So(len(c.Content), ShouldEqual, 1)
+		So(xyml.IsMap(c.Content[0]), ShouldBeTrue)
 	})
 }
 
 func TestMapUintByte_PutIfNotNil(t *testing.T) {
 	Convey("TestMapUintByte.PutIfNotNil", t, func() {
-		var k uint = 620157051
-		var v byte = 197
+		var k uint = 3495815315
+		var v byte = 31
 
 		test := omap.NewMapUintByte(1)
 
@@ -164,11 +165,11 @@ func TestMapUintByte_PutIfNotNil(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
-		So(test.PutIfNotNil(2741580332, (*byte)(nil)), ShouldPointTo, test)
+		So(test.PutIfNotNil(3784506019, (*byte)(nil)), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		var x byte = 112
-		So(test.PutIfNotNil(3755247784, &x), ShouldPointTo, test)
+		var x byte = 187
+		So(test.PutIfNotNil(1909245885, &x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 	})
@@ -176,16 +177,16 @@ func TestMapUintByte_PutIfNotNil(t *testing.T) {
 
 func TestMapUintByte_ReplaceIfExists(t *testing.T) {
 	Convey("TestMapUintByte.ReplaceIfExists", t, func() {
-		var k uint = 1914719656
-		var v byte = 130
-		var x byte = 142
+		var k uint = 678851252
+		var v byte = 26
+		var x byte = 158
 
 		test := omap.NewMapUintByte(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceIfExists(893314249, x), ShouldPointTo, test)
+		So(test.ReplaceIfExists(799192880, x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
@@ -197,16 +198,16 @@ func TestMapUintByte_ReplaceIfExists(t *testing.T) {
 
 func TestMapUintByte_ReplaceOrPut(t *testing.T) {
 	Convey("TestMapUintByte.ReplaceOrPut", t, func() {
-		var k uint = 1964423010
-		var v byte = 231
-		var x byte = 72
+		var k uint = 1296787354
+		var v byte = 162
+		var x byte = 20
 
 		test := omap.NewMapUintByte(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceOrPut(4078566366, x), ShouldPointTo, test)
+		So(test.ReplaceOrPut(1849700531, x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 
@@ -218,8 +219,8 @@ func TestMapUintByte_ReplaceOrPut(t *testing.T) {
 
 func TestMapUintByte_MarshalJSON(t *testing.T) {
 	Convey("TestMapUintByte.MarshalJSON", t, func() {
-		var k uint = 2707736621
-		var v byte = 27
+		var k uint = 3333040018
+		var v byte = 71
 
 		test := omap.NewMapUintByte(1)
 
@@ -228,6 +229,6 @@ func TestMapUintByte_MarshalJSON(t *testing.T) {
 
 		a, b := test.MarshalJSON()
 		So(b, ShouldBeNil)
-		So(string(a), ShouldEqual, `[{"key":2707736621,"value":27}]`)
+		So(string(a), ShouldEqual, `[{"key":3333040018,"value":71}]`)
 	})
 }

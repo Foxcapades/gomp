@@ -116,7 +116,9 @@ func (i *impl{{.Name}}) ToYAML() (*yaml.Node, error) {
 	out := xyml.NewOrderedMapNode(i.Len())
 
 	for j := range i.ordered {
-		if err := xyml.MapAppend(out, i.ordered[j].Key, i.ordered[j].Val); err != nil {
+		tmp := xyml.NewMapNode(1)
+		_ = xyml.MapAppend(tmp, i.ordered[j].Key, i.ordered[j].Val)
+		if err := xyml.SequenceAppend(out, tmp); err != nil {
 			return nil, err
 		}
 	}
