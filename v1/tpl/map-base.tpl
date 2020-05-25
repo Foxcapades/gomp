@@ -5,6 +5,7 @@ package {{.Package}}
 import (
 	"encoding/json"
 
+	"github.com/Foxcapades/gomp/v1/internal/util"
 	{{if isBase .Type -}}
 	"github.com/Foxcapades/goop/v1/pkg/option"{{end}}
 	"github.com/Foxcapades/lib-go-yaml/v1/pkg/xyml"
@@ -29,7 +30,7 @@ type {{.Name}} interface {
 	// If the map already contains an entry with the key `k`, then it will be
 	// removed only if `v` is not nil.  Follows the same ordering/removal rules as
 	// Put.
-	PutIfNotNil(k {{.Key}}, v *{{.Type}}) {{.Name}}
+	PutIfNotNil(k {{.Key}}, v {{if ne .Type "interface{}"}}*{{end}}{{.Type}}) {{.Name}}
 
 	// ReplaceOrPut either replaces the existing entry keyed at `k` without
 	// changing the map ordering or appends the given key/value pair to the end of
@@ -130,9 +131,13 @@ func (i *impl{{.Name}}) Put(k {{.Key}}, v {{.Type}}) {{.Name}} {
 	return i
 }
 
-func (i *impl{{.Name}}) PutIfNotNil(k {{.Key}}, v *{{.Type}}) {{.Name}} {
-	if v != nil {
+func (i *impl{{.Name}}) PutIfNotNil(k {{.Key}}, v {{if ne .Type "interface{}"}}*{{end}}{{.Type}}) {{.Name}} {
+	if !util.IsNil(v) {
+		{{if ne .Type "interface{}" -}}
 		return i.Put(k, *v)
+		{{- else -}}
+		return i.Put(k, util.Deref(v))
+		{{- end}}
 	}
 
 	return i

@@ -3,6 +3,7 @@ package omap
 import (
 	"encoding/json"
 
+	"github.com/Foxcapades/gomp/v1/internal/util"
 	"github.com/Foxcapades/goop/v1/pkg/option"
 	"github.com/Foxcapades/lib-go-yaml/v1/pkg/xyml"
 	"gopkg.in/yaml.v3"
@@ -26,7 +27,7 @@ type MapIntAny interface {
 	// If the map already contains an entry with the key `k`, then it will be
 	// removed only if `v` is not nil.  Follows the same ordering/removal rules as
 	// Put.
-	PutIfNotNil(k int, v *interface{}) MapIntAny
+	PutIfNotNil(k int, v interface{}) MapIntAny
 
 	// ReplaceOrPut either replaces the existing entry keyed at `k` without
 	// changing the map ordering or appends the given key/value pair to the end of
@@ -125,9 +126,9 @@ func (i *implMapIntAny) Put(k int, v interface{}) MapIntAny {
 	return i
 }
 
-func (i *implMapIntAny) PutIfNotNil(k int, v *interface{}) MapIntAny {
-	if v != nil {
-		return i.Put(k, *v)
+func (i *implMapIntAny) PutIfNotNil(k int, v interface{}) MapIntAny {
+	if !util.IsNil(v) {
+		return i.Put(k, util.Deref(v))
 	}
 
 	return i
