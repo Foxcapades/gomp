@@ -5,8 +5,9 @@ package {{.Package}}
 import (
 	"encoding/json"
 
-	{{if isBase .Type -}}
-	"github.com/Foxcapades/goop/v1/pkg/option"{{end}}
+	"github.com/Foxcapades/gomp/v1/pkg/gomp"
+	{{if isBase .Type -}}"github.com/Foxcapades/goop/v1/pkg/option"
+	{{end -}}
 	"github.com/Foxcapades/lib-go-yaml/v1/pkg/xyml"
 	"gopkg.in/yaml.v3"
 )
@@ -131,11 +132,11 @@ func (i *impl{{.Name}}) Put(k {{.Key}}, v {{.Type}}) {{.Name}} {
 }
 
 func (i *impl{{.Name}}) PutIfNotNil(k {{.Key}}, v {{if ne .Type "interface{}"}}*{{end}}{{.Type}}) {{.Name}} {
-	if !IsNil(v) {
+	if !gomp.IsNil(v) {
 		{{if ne .Type "interface{}" -}}
 		return i.Put(k, *v)
 		{{- else -}}
-		return i.Put(k, Deref(v))
+		return i.Put(k, gomp.Deref(v))
 		{{- end}}
 	}
 

@@ -1,4 +1,4 @@
-package omap
+package gomp
 
 import . "reflect"
 
