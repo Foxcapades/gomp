@@ -18,6 +18,12 @@ func IsNil(v interface{}) bool {
 	}
 }
 
+// Deref attempts to dereference the given value if it is a pointer.
 func Deref(v interface{}) interface{} {
-	return ValueOf(v).Elem().Interface()
+	r := ValueOf(v)
+	if r.Kind() == Ptr {
+		return ValueOf(v).Elem().Interface()
+	}
+
+	return v
 }
