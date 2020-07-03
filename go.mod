@@ -5,7 +5,7 @@ go 1.14
 require (
 	github.com/Foxcapades/Argonaut v0.1.7
 	github.com/Foxcapades/goop v1.0.1
-	github.com/Foxcapades/lib-go-yaml v1.3.3
+	github.com/Foxcapades/lib-go-yaml v1.3.4
 	github.com/google/uuid v1.1.1
 	github.com/mattn/go-colorable v0.1.6 // indirect
 	github.com/mgutz/ansi v0.0.0-20170206155736-9520e82c474b // indirect
