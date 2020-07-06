@@ -12,8 +12,8 @@ import (
 
 func TestMapAny_Put(t *testing.T) {
 	Convey("TestMapAny.Put", t, func() {
-		var k interface{} = "f5c1457c-eb11-4669-a234-990c75e00b64"
-		var v interface{} = "8465b91d-5b4b-4e07-8983-8391098603c2"
+		var k interface{} = "1031d2ba-36a2-4ea9-aa19-15d56aea39fd"
+		var v interface{} = "8e3ef8fb-d120-447c-b871-f3b52a1b9bac"
 
 		test := omap.NewMapAny(1)
 
@@ -26,8 +26,8 @@ func TestMapAny_Put(t *testing.T) {
 
 func TestMapAny_Delete(t *testing.T) {
 	Convey("TestMapAny.Delete", t, func() {
-		var k interface{} = "fb955262-b0b5-4b04-b664-ca704c9d49b9"
-		var v interface{} = "398d4b20-3d7d-4920-84e7-4c2ff3045df1"
+		var k interface{} = "4802ad6d-3543-4df5-bc12-213e1cb1e1c8"
+		var v interface{} = "082ee14d-01f0-4a46-a9b8-90df566ee35d"
 
 		test := omap.NewMapAny(1)
 
@@ -41,8 +41,8 @@ func TestMapAny_Delete(t *testing.T) {
 
 func TestMapAny_Has(t *testing.T) {
 	Convey("TestMapAny.Has", t, func() {
-		var k interface{} = "82d0e5c4-927e-4a53-846f-20e280e93ab1"
-		var v interface{} = "1dd0c172-87c2-40b4-a72d-2791804e28d1"
+		var k interface{} = "d2d4428e-030f-4a00-bb44-6715ec49306f"
+		var v interface{} = "48cfd034-015c-4752-b233-e4576b334801"
 
 		test := omap.NewMapAny(1)
 
@@ -50,14 +50,14 @@ func TestMapAny_Has(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 
 		So(test.Has(k), ShouldBeTrue)
-		So(test.Has("3d0b3f94-ba34-4d39-95e5-f43c05de58f7"+"2576b746-6d12-4b34-820a-692d0abde76a"), ShouldBeFalse)
+		So(test.Has("45b1ec14-0d02-4e87-a061-5010cbc0cf62"+"180dd586-183b-4488-b771-49f9535170f6"), ShouldBeFalse)
 	})
 }
 
 func TestMapAny_Get(t *testing.T) {
 	Convey("TestMapAny.Get", t, func() {
-		var k interface{} = "44e8be36-36b9-4ae9-b869-51af0339415d"
-		var v interface{} = "2b47b89e-611e-4c52-b571-cd4fffeb57ab"
+		var k interface{} = "ad50e0e5-163c-46ff-941b-341f57f1baee"
+		var v interface{} = "526440d7-7228-41d1-91e1-559af7f84e73"
 
 		test := omap.NewMapAny(1)
 
@@ -68,15 +68,15 @@ func TestMapAny_Get(t *testing.T) {
 		So(b, ShouldBeTrue)
 		So(a, ShouldEqual, v)
 
-		_, b = test.Get("48825d19-e02d-447c-b8d8-bf9c93ba12bf" + "f568e0d0-bd87-4445-a3e9-125dc2f987dc")
+		_, b = test.Get("6f45de9a-a3c1-42fa-a358-69c6ff29a99f" + "03bac1c4-8fbf-4d01-8baf-3a8edb3daeb5")
 		So(b, ShouldBeFalse)
 	})
 }
 
 func TestMapAny_GetOpt(t *testing.T) {
 	Convey("TestMapAny.GetOpt", t, func() {
-		var k interface{} = "843f8012-54f8-44fc-bd76-2f1c186e931c"
-		var v interface{} = "0d93bc22-be1c-43bc-a2cd-1c223ff59698"
+		var k interface{} = "085db6f3-7de3-41eb-bb88-914358f95138"
+		var v interface{} = "43812aaa-933c-4262-b74b-69ced9c0a7f9"
 
 		test := omap.NewMapAny(1)
 
@@ -87,15 +87,15 @@ func TestMapAny_GetOpt(t *testing.T) {
 		So(a.IsPresent(), ShouldBeTrue)
 		So(a.Get(), ShouldEqual, v)
 
-		a = test.GetOpt("fbc54c93-e615-44bc-b41b-2feb64ad1713" + "5ab4feaf-b6c0-4064-b1a2-7a12caa938f5")
+		a = test.GetOpt("2afb4323-2e43-47fb-bc04-8d197c9aff18" + "677a28c4-f499-4f33-a85c-4e19b08e12c7")
 		So(a.IsNil(), ShouldBeTrue)
 	})
 }
 
 func TestMapAny_ForEach(t *testing.T) {
 	Convey("TestMapAny.ForEach", t, func() {
-		var k interface{} = "045023fc-e89a-48cb-b737-4845e3dc16aa"
-		var v interface{} = "aa24fc90-8cc6-4e33-acd6-be456b044bee"
+		var k interface{} = "ba5bf060-d757-4958-81ee-3e19844dba0d"
+		var v interface{} = "182cbbdb-058b-4101-9997-c25f57e42cad"
 		hits := 0
 
 		test := omap.NewMapAny(1)
@@ -114,8 +114,8 @@ func TestMapAny_ForEach(t *testing.T) {
 
 func TestMapAny_MarshalYAML(t *testing.T) {
 	Convey("TestMapAny.MarshalYAML", t, func() {
-		var k interface{} = "2897a2f4-3b53-4127-b18a-dde32c85b71a"
-		var v interface{} = "2bcf9bf0-49ea-4f20-a68c-b71aaa7919f4"
+		var k interface{} = "a119f8cd-4d45-47bb-aeb8-779cf3087209"
+		var v interface{} = "7e1059a0-58b3-4cde-858c-53789d6fb84b"
 
 		test := omap.NewMapAny(1)
 
@@ -134,27 +134,47 @@ func TestMapAny_MarshalYAML(t *testing.T) {
 
 func TestMapAny_ToYAML(t *testing.T) {
 	Convey("TestMapAny.ToYAML", t, func() {
-		var k interface{} = "c77d1933-5f72-4472-ad07-a8978a989bd2"
-		var v interface{} = "583726df-47a8-41f3-b194-954389de1609"
+		Convey("Ordered", func() {
+			var k interface{} = "5bd9680b-b314-41ad-873c-ffd05f6e89a9"
+			var v interface{} = "f8633a71-3c27-4818-ba3e-4000635da0f5"
 
-		test := omap.NewMapAny(1)
+			test := omap.NewMapAny(1)
 
-		So(test.Put(k, v), ShouldPointTo, test)
-		So(test.Len(), ShouldEqual, 1)
+			So(test.Put(k, v), ShouldPointTo, test)
+			So(test.Len(), ShouldEqual, 1)
 
-		c, d := test.ToYAML()
-		So(d, ShouldBeNil)
-		So(c.Kind, ShouldEqual, yaml.SequenceNode)
-		So(c.Tag, ShouldEqual, xyml.TagOrderedMap)
-		So(len(c.Content), ShouldEqual, 1)
-		So(xyml.IsMap(c.Content[0]), ShouldBeTrue)
+			c, d := test.ToYAML()
+			So(d, ShouldBeNil)
+			So(c.Kind, ShouldEqual, yaml.SequenceNode)
+			So(c.LongTag(), ShouldEqual, xyml.TagOrderedMap)
+			So(len(c.Content), ShouldEqual, 1)
+			So(xyml.IsMap(c.Content[0]), ShouldBeTrue)
+		})
+
+		Convey("Unordered", func() {
+			var k interface{} = "1b489cc3-7792-4fca-ac89-a3ed1fced955"
+			var v interface{} = "1acbd0c9-f8f1-4002-9fa1-ee55a2188c0e"
+
+			test := omap.NewMapAny(1)
+			test.SerializeOrdered(false)
+
+			So(test.Put(k, v), ShouldPointTo, test)
+			So(test.Len(), ShouldEqual, 1)
+
+			c, d := test.ToYAML()
+
+			So(d, ShouldBeNil)
+			So(c.Kind, ShouldEqual, yaml.MappingNode)
+			So(c.LongTag(), ShouldEqual, xyml.TagMap)
+			So(len(c.Content), ShouldEqual, 2)
+		})
 	})
 }
 
 func TestMapAny_PutIfNotNil(t *testing.T) {
 	Convey("TestMapAny.PutIfNotNil", t, func() {
-		var k interface{} = "8f811de9-1923-46b5-9087-d58c6d1ba60f"
-		var v interface{} = "46bd83d4-92cd-4fba-9251-aff362268509"
+		var k interface{} = "88659818-93ad-46c3-939e-8e0192e87091"
+		var v interface{} = "f32dec28-d3c7-4e03-82aa-194f2ef88ecf"
 
 		test := omap.NewMapAny(1)
 
@@ -165,11 +185,11 @@ func TestMapAny_PutIfNotNil(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
-		So(test.PutIfNotNil("7c36fcc9-98bc-4664-932c-d19610e0e8d0", (*interface{})(nil)), ShouldPointTo, test)
+		So(test.PutIfNotNil("5d6aa478-e2c7-4a53-a5bc-d2038d1c37ed", (*interface{})(nil)), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		var x interface{} = "81c1a742-a750-46e1-bfc7-cb8aba00c523"
-		So(test.PutIfNotNil("34fc575a-bee6-47b5-9008-6d4919c36763", &x), ShouldPointTo, test)
+		var x interface{} = "57224c50-be67-44cd-8784-8230dda7fd63"
+		So(test.PutIfNotNil("e13f0c21-66f6-41f2-8fb2-e8152e193691", &x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 	})
@@ -177,16 +197,16 @@ func TestMapAny_PutIfNotNil(t *testing.T) {
 
 func TestMapAny_ReplaceIfExists(t *testing.T) {
 	Convey("TestMapAny.ReplaceIfExists", t, func() {
-		var k interface{} = "ef2fcca1-f619-43bc-8af1-44d5e43b8e63"
-		var v interface{} = "2ef6ff62-e66d-4378-addf-738d060e6a6e"
-		var x interface{} = "09510c2f-2ce7-469c-837b-a08391f4d6d9"
+		var k interface{} = "8207d810-6af0-4070-a3a0-5a1be56be3df"
+		var v interface{} = "abc37b5f-46d2-4a08-93de-35b29d4c8f2e"
+		var x interface{} = "f15ba035-356c-414f-9a65-32b816b2e684"
 
 		test := omap.NewMapAny(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceIfExists("ef8adad5-bbe3-483f-93f0-51a5f0d873f5", x), ShouldPointTo, test)
+		So(test.ReplaceIfExists("eb8b36f4-1132-4480-8e1f-dc7ae9a0a8ce", x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
@@ -198,16 +218,16 @@ func TestMapAny_ReplaceIfExists(t *testing.T) {
 
 func TestMapAny_ReplaceOrPut(t *testing.T) {
 	Convey("TestMapAny.ReplaceOrPut", t, func() {
-		var k interface{} = "2af447ce-e636-4aaa-9bd7-0a5d569797c0"
-		var v interface{} = "5c123bf4-2d67-44e7-b719-1e97e9ceb50e"
-		var x interface{} = "d860c152-6502-44dd-b67d-e0706eac461a"
+		var k interface{} = "f2e62b65-914e-4c03-b51a-bc96b1f7bcc2"
+		var v interface{} = "6482b722-9a89-43fb-a7a4-c52e8afca5e7"
+		var x interface{} = "1af27903-c1b3-4520-b9c0-0368b256b7a4"
 
 		test := omap.NewMapAny(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceOrPut("16017ab1-f7aa-4442-8964-2c66fd69d823", x), ShouldPointTo, test)
+		So(test.ReplaceOrPut("288ab3b2-2ed3-4696-9610-f464ef635c0f", x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 
@@ -219,16 +239,34 @@ func TestMapAny_ReplaceOrPut(t *testing.T) {
 
 func TestMapAny_MarshalJSON(t *testing.T) {
 	Convey("TestMapAny.MarshalJSON", t, func() {
-		var k interface{} = "921833bc-7d8e-4698-8117-97dbf2fe6be8"
-		var v interface{} = "d1a29a65-e224-43f6-b77d-c7cdf0a4edbe"
+		Convey("Ordered", func() {
+			var k interface{} = "3118b896-d42a-4886-beae-cf0b57029317"
+			var v interface{} = "2ca843af-9abd-465a-b01c-a2432491175a"
 
-		test := omap.NewMapAny(1)
+			test := omap.NewMapAny(1)
 
-		So(test.Put(k, v), ShouldPointTo, test)
-		So(test.Len(), ShouldEqual, 1)
+			So(test.Put(k, v), ShouldPointTo, test)
+			So(test.Len(), ShouldEqual, 1)
 
-		a, b := test.MarshalJSON()
-		So(b, ShouldBeNil)
-		So(string(a), ShouldEqual, `[{"key":"921833bc-7d8e-4698-8117-97dbf2fe6be8","value":"d1a29a65-e224-43f6-b77d-c7cdf0a4edbe"}]`)
+			a, b := test.MarshalJSON()
+			So(b, ShouldBeNil)
+			So(string(a), ShouldEqual, `[{"key":"3118b896-d42a-4886-beae-cf0b57029317","value":"2ca843af-9abd-465a-b01c-a2432491175a"}]`)
+		})
+
+		Convey("Unordered", func() {
+			var k interface{} = "3118b896-d42a-4886-beae-cf0b57029317"
+			var v interface{} = "2ca843af-9abd-465a-b01c-a2432491175a"
+
+			test := omap.NewMapAny(1)
+			test.SerializeOrdered(false)
+
+			So(test.Put(k, v), ShouldPointTo, test)
+			So(test.Len(), ShouldEqual, 1)
+
+			a, b := test.MarshalJSON()
+			So(b, ShouldBeNil)
+			So(string(a), ShouldEqual, `{"3118b896-d42a-4886-beae-cf0b57029317":"2ca843af-9abd-465a-b01c-a2432491175a"}`)
+		})
+
 	})
 }

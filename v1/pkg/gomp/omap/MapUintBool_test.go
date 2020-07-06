@@ -12,7 +12,7 @@ import (
 
 func TestMapUintBool_Put(t *testing.T) {
 	Convey("TestMapUintBool.Put", t, func() {
-		var k uint = 3847618818
+		var k uint = 2063655016
 		var v bool = false
 
 		test := omap.NewMapUintBool(1)
@@ -26,7 +26,7 @@ func TestMapUintBool_Put(t *testing.T) {
 
 func TestMapUintBool_Delete(t *testing.T) {
 	Convey("TestMapUintBool.Delete", t, func() {
-		var k uint = 3069052192
+		var k uint = 2100251959
 		var v bool = false
 
 		test := omap.NewMapUintBool(1)
@@ -41,7 +41,7 @@ func TestMapUintBool_Delete(t *testing.T) {
 
 func TestMapUintBool_Has(t *testing.T) {
 	Convey("TestMapUintBool.Has", t, func() {
-		var k uint = 2803463170
+		var k uint = 2191804412
 		var v bool = false
 
 		test := omap.NewMapUintBool(1)
@@ -50,13 +50,13 @@ func TestMapUintBool_Has(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 
 		So(test.Has(k), ShouldBeTrue)
-		So(test.Has(2147639526+4188138150), ShouldBeFalse)
+		So(test.Has(1364343044+3002756955), ShouldBeFalse)
 	})
 }
 
 func TestMapUintBool_Get(t *testing.T) {
 	Convey("TestMapUintBool.Get", t, func() {
-		var k uint = 3059100150
+		var k uint = 719507661
 		var v bool = false
 
 		test := omap.NewMapUintBool(1)
@@ -68,14 +68,14 @@ func TestMapUintBool_Get(t *testing.T) {
 		So(b, ShouldBeTrue)
 		So(a, ShouldEqual, v)
 
-		_, b = test.Get(243984900 + 1150971834)
+		_, b = test.Get(2862418250 + 3346713473)
 		So(b, ShouldBeFalse)
 	})
 }
 
 func TestMapUintBool_GetOpt(t *testing.T) {
 	Convey("TestMapUintBool.GetOpt", t, func() {
-		var k uint = 617296649
+		var k uint = 3625224887
 		var v bool = false
 
 		test := omap.NewMapUintBool(1)
@@ -87,14 +87,14 @@ func TestMapUintBool_GetOpt(t *testing.T) {
 		So(a.IsPresent(), ShouldBeTrue)
 		So(a.Get(), ShouldEqual, v)
 
-		a = test.GetOpt(1794248268 + 1815706189)
+		a = test.GetOpt(850628561 + 638988510)
 		So(a.IsNil(), ShouldBeTrue)
 	})
 }
 
 func TestMapUintBool_ForEach(t *testing.T) {
 	Convey("TestMapUintBool.ForEach", t, func() {
-		var k uint = 3151384437
+		var k uint = 3136501684
 		var v bool = false
 		hits := 0
 
@@ -114,7 +114,7 @@ func TestMapUintBool_ForEach(t *testing.T) {
 
 func TestMapUintBool_MarshalYAML(t *testing.T) {
 	Convey("TestMapUintBool.MarshalYAML", t, func() {
-		var k uint = 1599743632
+		var k uint = 1668996907
 		var v bool = false
 
 		test := omap.NewMapUintBool(1)
@@ -134,26 +134,46 @@ func TestMapUintBool_MarshalYAML(t *testing.T) {
 
 func TestMapUintBool_ToYAML(t *testing.T) {
 	Convey("TestMapUintBool.ToYAML", t, func() {
-		var k uint = 3363003494
-		var v bool = false
+		Convey("Ordered", func() {
+			var k uint = 18696313
+			var v bool = false
 
-		test := omap.NewMapUintBool(1)
+			test := omap.NewMapUintBool(1)
 
-		So(test.Put(k, v), ShouldPointTo, test)
-		So(test.Len(), ShouldEqual, 1)
+			So(test.Put(k, v), ShouldPointTo, test)
+			So(test.Len(), ShouldEqual, 1)
 
-		c, d := test.ToYAML()
-		So(d, ShouldBeNil)
-		So(c.Kind, ShouldEqual, yaml.SequenceNode)
-		So(c.Tag, ShouldEqual, xyml.TagOrderedMap)
-		So(len(c.Content), ShouldEqual, 1)
-		So(xyml.IsMap(c.Content[0]), ShouldBeTrue)
+			c, d := test.ToYAML()
+			So(d, ShouldBeNil)
+			So(c.Kind, ShouldEqual, yaml.SequenceNode)
+			So(c.LongTag(), ShouldEqual, xyml.TagOrderedMap)
+			So(len(c.Content), ShouldEqual, 1)
+			So(xyml.IsMap(c.Content[0]), ShouldBeTrue)
+		})
+
+		Convey("Unordered", func() {
+			var k uint = 1499409285
+			var v bool = false
+
+			test := omap.NewMapUintBool(1)
+			test.SerializeOrdered(false)
+
+			So(test.Put(k, v), ShouldPointTo, test)
+			So(test.Len(), ShouldEqual, 1)
+
+			c, d := test.ToYAML()
+
+			So(d, ShouldBeNil)
+			So(c.Kind, ShouldEqual, yaml.MappingNode)
+			So(c.LongTag(), ShouldEqual, xyml.TagMap)
+			So(len(c.Content), ShouldEqual, 2)
+		})
 	})
 }
 
 func TestMapUintBool_PutIfNotNil(t *testing.T) {
 	Convey("TestMapUintBool.PutIfNotNil", t, func() {
-		var k uint = 411739379
+		var k uint = 531569221
 		var v bool = false
 
 		test := omap.NewMapUintBool(1)
@@ -165,11 +185,11 @@ func TestMapUintBool_PutIfNotNil(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
-		So(test.PutIfNotNil(683442735, (*bool)(nil)), ShouldPointTo, test)
+		So(test.PutIfNotNil(2794351128, (*bool)(nil)), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
 		var x bool = false
-		So(test.PutIfNotNil(321386340, &x), ShouldPointTo, test)
+		So(test.PutIfNotNil(4080338010, &x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 	})
@@ -177,7 +197,7 @@ func TestMapUintBool_PutIfNotNil(t *testing.T) {
 
 func TestMapUintBool_ReplaceIfExists(t *testing.T) {
 	Convey("TestMapUintBool.ReplaceIfExists", t, func() {
-		var k uint = 2915547843
+		var k uint = 2330141210
 		var v bool = false
 		var x bool = false
 
@@ -186,7 +206,7 @@ func TestMapUintBool_ReplaceIfExists(t *testing.T) {
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceIfExists(1198936190, x), ShouldPointTo, test)
+		So(test.ReplaceIfExists(2473523962, x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
@@ -198,7 +218,7 @@ func TestMapUintBool_ReplaceIfExists(t *testing.T) {
 
 func TestMapUintBool_ReplaceOrPut(t *testing.T) {
 	Convey("TestMapUintBool.ReplaceOrPut", t, func() {
-		var k uint = 1620629485
+		var k uint = 336745895
 		var v bool = false
 		var x bool = false
 
@@ -207,7 +227,7 @@ func TestMapUintBool_ReplaceOrPut(t *testing.T) {
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceOrPut(1952976586, x), ShouldPointTo, test)
+		So(test.ReplaceOrPut(3860521148, x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 
@@ -219,16 +239,34 @@ func TestMapUintBool_ReplaceOrPut(t *testing.T) {
 
 func TestMapUintBool_MarshalJSON(t *testing.T) {
 	Convey("TestMapUintBool.MarshalJSON", t, func() {
-		var k uint = 3699467559
-		var v bool = false
+		Convey("Ordered", func() {
+			var k uint = 1432923691
+			var v bool = false
 
-		test := omap.NewMapUintBool(1)
+			test := omap.NewMapUintBool(1)
 
-		So(test.Put(k, v), ShouldPointTo, test)
-		So(test.Len(), ShouldEqual, 1)
+			So(test.Put(k, v), ShouldPointTo, test)
+			So(test.Len(), ShouldEqual, 1)
 
-		a, b := test.MarshalJSON()
-		So(b, ShouldBeNil)
-		So(string(a), ShouldEqual, `[{"key":3699467559,"value":false}]`)
+			a, b := test.MarshalJSON()
+			So(b, ShouldBeNil)
+			So(string(a), ShouldEqual, `[{"key":1432923691,"value":false}]`)
+		})
+
+		Convey("Unordered", func() {
+			var k uint = 1432923691
+			var v bool = false
+
+			test := omap.NewMapUintBool(1)
+			test.SerializeOrdered(false)
+
+			So(test.Put(k, v), ShouldPointTo, test)
+			So(test.Len(), ShouldEqual, 1)
+
+			a, b := test.MarshalJSON()
+			So(b, ShouldBeNil)
+			So(string(a), ShouldEqual, `{"1432923691":false}`)
+		})
+
 	})
 }

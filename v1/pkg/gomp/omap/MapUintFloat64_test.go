@@ -12,8 +12,8 @@ import (
 
 func TestMapUintFloat64_Put(t *testing.T) {
 	Convey("TestMapUintFloat64.Put", t, func() {
-		var k uint = 3660021541
-		var v float64 = 0.636
+		var k uint = 2323341487
+		var v float64 = 0.238
 
 		test := omap.NewMapUintFloat64(1)
 
@@ -26,8 +26,8 @@ func TestMapUintFloat64_Put(t *testing.T) {
 
 func TestMapUintFloat64_Delete(t *testing.T) {
 	Convey("TestMapUintFloat64.Delete", t, func() {
-		var k uint = 1068847388
-		var v float64 = 0.528
+		var k uint = 2859055562
+		var v float64 = 0.458
 
 		test := omap.NewMapUintFloat64(1)
 
@@ -41,8 +41,8 @@ func TestMapUintFloat64_Delete(t *testing.T) {
 
 func TestMapUintFloat64_Has(t *testing.T) {
 	Convey("TestMapUintFloat64.Has", t, func() {
-		var k uint = 3649572458
-		var v float64 = 0.957
+		var k uint = 2759729940
+		var v float64 = 0.786
 
 		test := omap.NewMapUintFloat64(1)
 
@@ -50,14 +50,14 @@ func TestMapUintFloat64_Has(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 
 		So(test.Has(k), ShouldBeTrue)
-		So(test.Has(3103180532+841173349), ShouldBeFalse)
+		So(test.Has(1479370707+298265664), ShouldBeFalse)
 	})
 }
 
 func TestMapUintFloat64_Get(t *testing.T) {
 	Convey("TestMapUintFloat64.Get", t, func() {
-		var k uint = 1070612408
-		var v float64 = 0.479
+		var k uint = 2866262573
+		var v float64 = 0.400
 
 		test := omap.NewMapUintFloat64(1)
 
@@ -68,15 +68,15 @@ func TestMapUintFloat64_Get(t *testing.T) {
 		So(b, ShouldBeTrue)
 		So(a, ShouldEqual, v)
 
-		_, b = test.Get(3236515003 + 3758521474)
+		_, b = test.Get(2519684331 + 1032865909)
 		So(b, ShouldBeFalse)
 	})
 }
 
 func TestMapUintFloat64_GetOpt(t *testing.T) {
 	Convey("TestMapUintFloat64.GetOpt", t, func() {
-		var k uint = 2679763693
-		var v float64 = 0.334
+		var k uint = 1737505599
+		var v float64 = 0.538
 
 		test := omap.NewMapUintFloat64(1)
 
@@ -87,15 +87,15 @@ func TestMapUintFloat64_GetOpt(t *testing.T) {
 		So(a.IsPresent(), ShouldBeTrue)
 		So(a.Get(), ShouldEqual, v)
 
-		a = test.GetOpt(548529174 + 489211314)
+		a = test.GetOpt(2764885414 + 3536745725)
 		So(a.IsNil(), ShouldBeTrue)
 	})
 }
 
 func TestMapUintFloat64_ForEach(t *testing.T) {
 	Convey("TestMapUintFloat64.ForEach", t, func() {
-		var k uint = 431788183
-		var v float64 = 0.100
+		var k uint = 3927750508
+		var v float64 = 0.292
 		hits := 0
 
 		test := omap.NewMapUintFloat64(1)
@@ -114,8 +114,8 @@ func TestMapUintFloat64_ForEach(t *testing.T) {
 
 func TestMapUintFloat64_MarshalYAML(t *testing.T) {
 	Convey("TestMapUintFloat64.MarshalYAML", t, func() {
-		var k uint = 3276553237
-		var v float64 = 0.641
+		var k uint = 435158843
+		var v float64 = 0.891
 
 		test := omap.NewMapUintFloat64(1)
 
@@ -134,27 +134,47 @@ func TestMapUintFloat64_MarshalYAML(t *testing.T) {
 
 func TestMapUintFloat64_ToYAML(t *testing.T) {
 	Convey("TestMapUintFloat64.ToYAML", t, func() {
-		var k uint = 2670578726
-		var v float64 = 0.695
+		Convey("Ordered", func() {
+			var k uint = 2477525175
+			var v float64 = 0.933
 
-		test := omap.NewMapUintFloat64(1)
+			test := omap.NewMapUintFloat64(1)
 
-		So(test.Put(k, v), ShouldPointTo, test)
-		So(test.Len(), ShouldEqual, 1)
+			So(test.Put(k, v), ShouldPointTo, test)
+			So(test.Len(), ShouldEqual, 1)
 
-		c, d := test.ToYAML()
-		So(d, ShouldBeNil)
-		So(c.Kind, ShouldEqual, yaml.SequenceNode)
-		So(c.Tag, ShouldEqual, xyml.TagOrderedMap)
-		So(len(c.Content), ShouldEqual, 1)
-		So(xyml.IsMap(c.Content[0]), ShouldBeTrue)
+			c, d := test.ToYAML()
+			So(d, ShouldBeNil)
+			So(c.Kind, ShouldEqual, yaml.SequenceNode)
+			So(c.LongTag(), ShouldEqual, xyml.TagOrderedMap)
+			So(len(c.Content), ShouldEqual, 1)
+			So(xyml.IsMap(c.Content[0]), ShouldBeTrue)
+		})
+
+		Convey("Unordered", func() {
+			var k uint = 3633339639
+			var v float64 = 0.706
+
+			test := omap.NewMapUintFloat64(1)
+			test.SerializeOrdered(false)
+
+			So(test.Put(k, v), ShouldPointTo, test)
+			So(test.Len(), ShouldEqual, 1)
+
+			c, d := test.ToYAML()
+
+			So(d, ShouldBeNil)
+			So(c.Kind, ShouldEqual, yaml.MappingNode)
+			So(c.LongTag(), ShouldEqual, xyml.TagMap)
+			So(len(c.Content), ShouldEqual, 2)
+		})
 	})
 }
 
 func TestMapUintFloat64_PutIfNotNil(t *testing.T) {
 	Convey("TestMapUintFloat64.PutIfNotNil", t, func() {
-		var k uint = 3249790440
-		var v float64 = 0.264
+		var k uint = 3123843816
+		var v float64 = 0.516
 
 		test := omap.NewMapUintFloat64(1)
 
@@ -165,11 +185,11 @@ func TestMapUintFloat64_PutIfNotNil(t *testing.T) {
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
-		So(test.PutIfNotNil(2169135650, (*float64)(nil)), ShouldPointTo, test)
+		So(test.PutIfNotNil(3024444362, (*float64)(nil)), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		var x float64 = 0.552
-		So(test.PutIfNotNil(244246556, &x), ShouldPointTo, test)
+		var x float64 = 0.320
+		So(test.PutIfNotNil(231162788, &x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 	})
@@ -177,16 +197,16 @@ func TestMapUintFloat64_PutIfNotNil(t *testing.T) {
 
 func TestMapUintFloat64_ReplaceIfExists(t *testing.T) {
 	Convey("TestMapUintFloat64.ReplaceIfExists", t, func() {
-		var k uint = 2136696613
-		var v float64 = 0.059
-		var x float64 = 0.809
+		var k uint = 1353456300
+		var v float64 = 0.459
+		var x float64 = 0.217
 
 		test := omap.NewMapUintFloat64(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceIfExists(536037693, x), ShouldPointTo, test)
+		So(test.ReplaceIfExists(3028489571, x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 		So(test.At(0).Val, ShouldEqual, v)
 
@@ -198,16 +218,16 @@ func TestMapUintFloat64_ReplaceIfExists(t *testing.T) {
 
 func TestMapUintFloat64_ReplaceOrPut(t *testing.T) {
 	Convey("TestMapUintFloat64.ReplaceOrPut", t, func() {
-		var k uint = 51097056
-		var v float64 = 0.102
-		var x float64 = 0.756
+		var k uint = 3469293234
+		var v float64 = 0.211
+		var x float64 = 0.901
 
 		test := omap.NewMapUintFloat64(1)
 
 		So(test.Put(k, v), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 1)
 
-		So(test.ReplaceOrPut(817853484, x), ShouldPointTo, test)
+		So(test.ReplaceOrPut(404991487, x), ShouldPointTo, test)
 		So(test.Len(), ShouldEqual, 2)
 		So(test.At(1).Val, ShouldEqual, x)
 
@@ -219,16 +239,34 @@ func TestMapUintFloat64_ReplaceOrPut(t *testing.T) {
 
 func TestMapUintFloat64_MarshalJSON(t *testing.T) {
 	Convey("TestMapUintFloat64.MarshalJSON", t, func() {
-		var k uint = 1392956364
-		var v float64 = 0.225
+		Convey("Ordered", func() {
+			var k uint = 2432302163
+			var v float64 = 0.507
 
-		test := omap.NewMapUintFloat64(1)
+			test := omap.NewMapUintFloat64(1)
 
-		So(test.Put(k, v), ShouldPointTo, test)
-		So(test.Len(), ShouldEqual, 1)
+			So(test.Put(k, v), ShouldPointTo, test)
+			So(test.Len(), ShouldEqual, 1)
 
-		a, b := test.MarshalJSON()
-		So(b, ShouldBeNil)
-		So(string(a), ShouldEqual, `[{"key":1392956364,"value":0.225}]`)
+			a, b := test.MarshalJSON()
+			So(b, ShouldBeNil)
+			So(string(a), ShouldEqual, `[{"key":2432302163,"value":0.507}]`)
+		})
+
+		Convey("Unordered", func() {
+			var k uint = 2432302163
+			var v float64 = 0.507
+
+			test := omap.NewMapUintFloat64(1)
+			test.SerializeOrdered(false)
+
+			So(test.Put(k, v), ShouldPointTo, test)
+			So(test.Len(), ShouldEqual, 1)
+
+			a, b := test.MarshalJSON()
+			So(b, ShouldBeNil)
+			So(string(a), ShouldEqual, `{"2432302163":0.507}`)
+		})
+
 	})
 }

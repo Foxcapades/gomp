@@ -139,20 +139,40 @@ func Test{{.Name}}_MarshalYAML(t *testing.T) {
 
 func Test{{.Name}}_ToYAML(t *testing.T) {
 	Convey("Test{{.Name}}.ToYAML", t, func() {
-		var k {{.Key}} = {{defVal .Key}}
-		var v {{.Type}} = {{defVal .Type}}
+		Convey("Ordered", func() {
+			var k {{.Key}} = {{defVal .Key}}
+			var v {{.Type}} = {{defVal .Type}}
 
-		test := {{.Package}}.New{{.Name}}(1)
+			test := {{.Package}}.New{{.Name}}(1)
 
-		So(test.Put(k, v), ShouldPointTo, test)
-		So(test.Len(), ShouldEqual, 1)
+			So(test.Put(k, v), ShouldPointTo, test)
+			So(test.Len(), ShouldEqual, 1)
 
-		c, d := test.ToYAML()
-		So(d, ShouldBeNil)
-		So(c.Kind, ShouldEqual, yaml.SequenceNode)
-		So(c.Tag, ShouldEqual, xyml.TagOrderedMap)
-		So(len(c.Content), ShouldEqual, 1)
-		So(xyml.IsMap(c.Content[0]), ShouldBeTrue)
+			c, d := test.ToYAML()
+			So(d, ShouldBeNil)
+			So(c.Kind, ShouldEqual, yaml.SequenceNode)
+			So(c.LongTag(), ShouldEqual, xyml.TagOrderedMap)
+			So(len(c.Content), ShouldEqual, 1)
+			So(xyml.IsMap(c.Content[0]), ShouldBeTrue)
+		})
+
+		Convey("Unordered", func() {
+			var k {{.Key}} = {{defVal .Key}}
+			var v {{.Type}} = {{defVal .Type}}
+
+			test := {{.Package}}.New{{.Name}}(1)
+			test.SerializeOrdered(false)
+
+			So(test.Put(k, v), ShouldPointTo, test)
+			So(test.Len(), ShouldEqual, 1)
+
+			c, d := test.ToYAML()
+
+			So(d, ShouldBeNil)
+			So(c.Kind, ShouldEqual, yaml.MappingNode)
+			So(c.LongTag(), ShouldEqual, xyml.TagMap)
+			So(len(c.Content), ShouldEqual, 2)
+		})
 	})
 }
 
@@ -226,21 +246,43 @@ func Test{{.Name}}_ReplaceOrPut(t *testing.T) {
 {{with $val := defVal $.Type -}}
 func Test{{$.Name}}_MarshalJSON(t *testing.T) {
 	Convey("Test{{$.Name}}.MarshalJSON", t, func() {
-		var k {{$.Key}} = {{$key}}
-		var v {{$.Type}} = {{$val}}
+		Convey("Ordered", func() {
+			var k {{$.Key}} = {{$key}}
+			var v {{$.Type}} = {{$val}}
 
-		test := {{$.Package}}.New{{$.Name}}(1)
+			test := {{$.Package}}.New{{$.Name}}(1)
 
-		So(test.Put(k, v), ShouldPointTo, test)
-		So(test.Len(), ShouldEqual, 1)
+			So(test.Put(k, v), ShouldPointTo, test)
+			So(test.Len(), ShouldEqual, 1)
 
-		a, b := test.MarshalJSON()
-		So(b, ShouldBeNil)
-		{{if eq $.Type "float32" "float64" -}}
-		So(string(a), ShouldEqual, `[{"key":{{$key}},"value":{{trimR $val ".0"}}}]`)
-		{{- else -}}
-		So(string(a), ShouldEqual, `[{"key":{{$key}},"value":{{$val}}}]`)
-		{{- end}}
+			a, b := test.MarshalJSON()
+			So(b, ShouldBeNil)
+			{{if eq $.Type "float32" "float64" -}}
+			So(string(a), ShouldEqual, `[{"key":{{$key}},"value":{{trimR $val ".0"}}}]`)
+			{{- else -}}
+			So(string(a), ShouldEqual, `[{"key":{{$key}},"value":{{$val}}}]`)
+			{{- end}}
+		})
+
+		Convey("Unordered", func() {
+			var k {{$.Key}} = {{$key}}
+			var v {{$.Type}} = {{$val}}
+
+			test := {{$.Package}}.New{{$.Name}}(1)
+			test.SerializeOrdered(false)
+
+			So(test.Put(k, v), ShouldPointTo, test)
+			So(test.Len(), ShouldEqual, 1)
+
+			a, b := test.MarshalJSON()
+			So(b, ShouldBeNil)
+			{{if eq $.Type "float32" "float64" -}}
+			So(string(a), ShouldEqual, `{{"{"}}{{quote $key}}:{{trimR $val ".0"}}}`)
+			{{- else -}}
+			So(string(a), ShouldEqual, `{{"{"}}{{quote $key}}:{{$val}}}`)
+			{{- end}}
+		})
+
 	})
 }{{end}}{{end}}
 {{end -}}

@@ -4,6 +4,7 @@ import (
 	"math"
 	"math/rand"
 	"strconv"
+	"strings"
 
 	"github.com/google/uuid"
 )
@@ -48,6 +49,18 @@ func IsBaseType(k string) bool {
 		k == "byte" ||
 		k == "rune" ||
 		k == "interface{}"
+}
+
+func Quote(val string) string {
+	if len(val) == 0 {
+		return `""`
+	}
+
+	if len(val) == 1 && val[0] == '"' {
+		return `"\""`
+	}
+
+	return `"` + strings.Trim(val, `"`) + `"`
 }
 
 func DefaultValue(kind string) string {

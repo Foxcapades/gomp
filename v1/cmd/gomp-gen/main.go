@@ -21,6 +21,7 @@ var funcs = template.FuncMap{
 	"pad":      gen.Pad,
 	"defVal":   gen.DefaultValue,
 	"trimR":    strings.TrimRight,
+	"quote":    gen.Quote,
 }
 
 var rootPath = os.Getenv("GOPATH")

@@ -2,6 +2,7 @@ package omap
 
 import (
 	"encoding/json"
+	"fmt"
 
 	"github.com/Foxcapades/gomp/v1/pkg/gomp"
 	"github.com/Foxcapades/goop/v1/pkg/option"
@@ -75,6 +76,15 @@ type MapAnyUint8 interface {
 
 	// ForEach calls the given function for for every entry in the map.
 	ForEach(func(k interface{}, v uint8)) MapAnyUint8
+
+	// SerializeOrdered sets whether or not the ordering should be enforced by
+	// type when serializing the map.
+	//
+	// If set to true (the default value), the output will use an ordered type
+	// when serializing (array for json, ordered map for yaml).  If set to false
+	// the map will be serialized as a map/struct type and property ordering will
+	// be determined by the serialization library.
+	SerializeOrdered(bool) MapAnyUint8
 }
 
 // MapAnyUint8Entry is a single entry in an instance of
@@ -88,15 +98,17 @@ type MapAnyUint8Entry struct {
 // given size.
 func NewMapAnyUint8(size int) MapAnyUint8 {
 	return &implMapAnyUint8{
-		ordered: make([]MapAnyUint8Entry, 0, size),
-		index:   make(map[interface{}]uint8, size),
+		ordered:  make([]MapAnyUint8Entry, 0, size),
+		index:    make(map[interface{}]uint8, size),
+		outOrder: true,
 	}
 }
 
 // MapAnyUint8 is an ordered map interface{} to uint8.
 type implMapAnyUint8 struct {
-	ordered []MapAnyUint8Entry
-	index   map[interface{}]uint8
+	ordered  []MapAnyUint8Entry
+	index    map[interface{}]uint8
+	outOrder bool
 }
 
 func (i implMapAnyUint8) MarshalYAML() (interface{}, error) {
@@ -104,18 +116,37 @@ func (i implMapAnyUint8) MarshalYAML() (interface{}, error) {
 }
 
 func (i implMapAnyUint8) MarshalJSON() ([]byte, error) {
-	return json.Marshal(i.ordered)
+	if i.outOrder {
+		return json.Marshal(i.ordered)
+	}
+
+	out := make(map[string]interface{}, len(i.index))
+	for k, v := range i.index {
+		out[fmt.Sprint(k)] = v
+	}
+
+	return json.Marshal(out)
 }
 
 func (i *implMapAnyUint8) ToYAML() (*yaml.Node, error) {
-	out := xyml.NewOrderedMapNode(i.Len())
+	if i.outOrder {
+		out := xyml.NewOrderedMapNode(i.Len())
+
+		for j := range i.ordered {
+			tmp := xyml.NewMapNode(1)
+			_ = xyml.MapAppend(tmp, i.ordered[j].Key, i.ordered[j].Val)
+			if err := xyml.SequenceAppend(out, tmp); err != nil {
+				return nil, err
+			}
+		}
+
+		return out, nil
+	}
+
+	out := xyml.NewMapNode(i.Len())
 
 	for j := range i.ordered {
-		tmp := xyml.NewMapNode(1)
-		_ = xyml.MapAppend(tmp, i.ordered[j].Key, i.ordered[j].Val)
-		if err := xyml.SequenceAppend(out, tmp); err != nil {
-			return nil, err
-		}
+		xyml.MapAppend(out, i.ordered[j].Key, i.ordered[j].Val)
 	}
 
 	return out, nil
@@ -209,5 +240,10 @@ func (i *implMapAnyUint8) ForEach(f func(k interface{}, v uint8)) MapAnyUint8 {
 		f(i.ordered[j].Key, i.ordered[j].Val)
 	}
 
+	return i
+}
+
+func (i *implMapAnyUint8) SerializeOrdered(b bool) MapAnyUint8 {
+	i.outOrder = b
 	return i
 }
