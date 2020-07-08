@@ -133,7 +133,7 @@ func (i impl{{.Name}}) MarshalJSON() ([]byte, error) {
 	return json.Marshal(out)
 }
 
-func (i *impl{{.Name}}) ToYAML() (*yaml.Node, error) {
+func (i impl{{.Name}}) ToYAML() (*yaml.Node, error) {
 	if i.outOrder {
 		out := xyml.NewOrderedMapNode(i.Len())
 

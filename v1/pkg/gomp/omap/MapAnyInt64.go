@@ -128,7 +128,7 @@ func (i implMapAnyInt64) MarshalJSON() ([]byte, error) {
 	return json.Marshal(out)
 }
 
-func (i *implMapAnyInt64) ToYAML() (*yaml.Node, error) {
+func (i implMapAnyInt64) ToYAML() (*yaml.Node, error) {
 	if i.outOrder {
 		out := xyml.NewOrderedMapNode(i.Len())
 
